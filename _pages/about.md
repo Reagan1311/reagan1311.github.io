@@ -8,25 +8,28 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
-  address: >
-    <p>Room 36-776A</p>
-    <p>50 Vassar St. </p>
-    <p>(MIT building 36) </p>
-    <p>Cambridge, MA 02139</p>
+
+[//]: # (  address: >)
+
+[//]: # (    <p>Room 36-776A</p>)
+
+[//]: # (    <p>50 Vassar St. </p>)
+
+[//]: # (    <p>&#40;MIT building 36&#41; </p>)
+
+[//]: # (    <p>Cambridge, MA 02139</p>)
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
+Hi! I am currently a second-year PhD student at School of Informatics in the University of Edinburgh, fully funded by [CDT-RAS](https://www.edinburgh-robotics.org/) scholarship.
+My supervisors are Dr. [Laura Sevilla](https://laurasevilla.me/) and Prof. [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/), 
+and I work closely with Dr. [Varun Jampani](https://varunjampani.github.io/) and Dr. [Deqing Sun](https://deqings.github.io/) at Google research. 
 
-Hi! I am currently a fifth-year Ph.D. student at MIT majoring in Electrical Engineering and Computer Science.
-My research focuses on machine learning and developing robust and efficient algorithms driven by clinical problems.
-Applications include motion-robust 3D rendering of the human brain, real-time quality assessment in MR scans as well as pose estimation and motion characterization of fetuses.
-I am advised by Prof. [Elfar Adalsteinsson](https://www.rle.mit.edu/people/directory/elfar-adalsteinsson/) and collaborate closely with Prof. [Polina Golland](https://people.csail.mit.edu/polina/) and Prof. [P. Ellen Grant](https://scholar.google.com/citations?user=W4dqZ7EAAAAJ).
+Prior to this, I received my Master's degree from Sungkyunkwan University in 2020, and the Bachelor's degree from Xidian University in 2018.
 
-I also did summer internships at Google and Meta, working on automated Ads bidding and large-scale video recommendation systems respectively.
-
-Prior to MIT, I received my Bachelor's degree from Tsinghua University in 2018. I also spent a summer as a research assistant at Stanford, where I was advised by Prof. [John Pauly](https://web.stanford.edu/~pauly/) and Prof. [Greg Zaharchuk](https://profiles.stanford.edu/greg-zaharchuk).
+My reserach interests
 
 <!--
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.test
