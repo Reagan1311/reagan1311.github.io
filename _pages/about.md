@@ -29,7 +29,7 @@ and I work closely with Dr. [Varun Jampani](https://varunjampani.github.io/) and
 
 Prior to this, I received my Master's degree from Sungkyunkwan University in 2020, and the Bachelor's degree from Xidian University in 2018.
 
-My reserach interests
+My reserach interests lie in 
 
 <!--
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.test
