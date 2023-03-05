@@ -32,7 +32,7 @@ Before Edinburgh, I received my Master's degree from Sungkyunkwan University in 
 My research interests lie in few-shot learning, learning under limited supervision, and multi-modal deep learning. 
 Currently, I am working on visual affordance and object functionality understanding.
 
-:loudspeaker: I am actively seeking a research intern position this year! Please feel free to contact me if you have any available positions or potential collaborations.
+:loudspeaker: I am actively seeking a _research intern_ position this year! Please feel free to contact me if you have any available positions or potential collaborations.
 
 <!--
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.test
