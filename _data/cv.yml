@@ -2,13 +2,13 @@
   type: map
   contents:
     - name: Full Name
-      value: Junshen Xu
+      value: Gen Li
     #- name: Date of Birth
     #  value: 14th March 1879
     - name: Email
-      value: junshen [at] mit [dot] edu
+      value: ligen [at] ed [dot] ac [dot] uk
     - name: Languages
-      value: English, Chinese
+      value: Chinese, English
 
 - title: Education
   type: time_table
