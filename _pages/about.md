@@ -19,20 +19,20 @@ profile:
 
 [//]: # (    <p>Cambridge, MA 02139</p>)
 
-news: true  # includes a list of news items
+news: false  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+social: false  # includes social icons at the bottom of the page
 ---
 Hi! I am currently a second-year PhD student at School of Informatics in the University of Edinburgh, fully funded by [CDT-RAS](https://www.edinburgh-robotics.org/) scholarship.
 My supervisors are Dr. [Laura Sevilla](https://laurasevilla.me/) and Prof. [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/), 
-and I work closely with Dr. [Varun Jampani](https://varunjampani.github.io/) and Dr. [Deqing Sun](https://deqings.github.io/) at Google research. 
+and I also work closely with Dr. [Varun Jampani](https://varunjampani.github.io/) and Dr. [Deqing Sun](https://deqings.github.io/) at Google research. 
 
 Before Edinburgh, I received my Master's degree from Sungkyunkwan University in 2020, and the Bachelor's degree from Xidian University in 2018.
 
 My research interests lie in few-shot learning, learning under limited supervision, and multi-modal deep learning. 
-Currently, I am working on visual affordance and object function understanding.
+Currently, I am working on visual affordance and object functionality understanding.
 
-:pushpin: I am actively seeking a research intern position this year! Please feel free to contact me if you have any available positions or potential collaborations.
+:loudspeaker: I am actively seeking a research intern position this year! Please feel free to contact me if you have any available positions or potential collaborations.
 
 <!--
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.test
