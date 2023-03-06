@@ -27,7 +27,19 @@
   abbr={CVPR},
 }
 
-@inproceedings{DABNET,
+@inproceedings{kim2021superstylenet,
+  title={SuperStyleNet: Deep Image Synthesis with Superpixel Based Style Encoder},
+  author={Li, Gen and Jampani, Varun and Sevilla-Lara, Laura and Sun, Deqing and Kim, Jonghyun and Kim, Joongkyu},
+  booktitle={British Machine Vision Conference},
+  code="https://github.com/BenjaminJonghyun/SuperStyleNet",
+  preview='superstyle.png',
+  arXiv="https://arxiv.org/abs/2112.09367",
+  abstract={Existing methods for image synthesis utilized a style encoder based on stacks of convolutions and pooling layers to generate style codes from input images. However, the encoded vectors do not necessarily contain local information of the corresponding images since small-scale objects are tended to "wash away" through such downscaling procedures. In this paper, we propose deep image synthesis with superpixel based style encoder, named as SuperStyleNet. First, we directly extract the style codes from the original image based on superpixels to consider local objects. Second, we recover spatial relationships in vectorized style codes based on graphical analysis. Thus, the proposed network achieves high-quality image synthesis by mapping the style codes into semantic labels. Experimental results show that the proposed method outperforms state-of-the-art ones in terms of visual quality and quantitative measurements. Furthermore, we achieve elaborate spatial style editing by adjusting style codes.},
+  year={2021},
+  abbr={BMVC},
+}
+
+@inproceedings{DABNet,
   title={DABNet: Depth-wise asymmetric bottleneck for real-time semantic segmentation},
   author={Li, Gen and Kim, Joongkyu},
   booktitle={British Machine Vision Conference},
@@ -40,10 +52,12 @@
   abbr={BMVC},
 }
 
-@ARTICLE{dab_access,
+
+
+@article{dab_access,
+  title={Depth-Wise Asymmetric Bottleneck With Point-Wise Aggregation Decoder for Real-Time Semantic Segmentation in Urban Scenes},
   author={Li, Gen and Jiang, Shenlu and Yun, Inyong and Kim, Jonghyun and Kim, Joongkyu},
   journal={IEEE Access},
-  title={Depth-Wise Asymmetric Bottleneck With Point-Wise Aggregation Decoder for Real-Time Semantic Segmentation in Urban Scenes},
   year={2020},
   volume={8},
   number={},
@@ -54,7 +68,6 @@
   abstract={Semantic segmentation is a process of linking each pixel in an image to a class label, and is widely used in the field of autonomous vehicles and robotics. Although deep learning methods have already made great progress for semantic segmentation, they either achieve great results with numerous parameters or design lightweight models but heavily sacrifice the segmentation accuracy. Because of the strict requirements of real-world applications, it is critical to design an effective real-time model with both competitive segmentation accuracy and small model capacity. In this paper, we propose a lightweight network named DABNet, which employs Depth-wise Asymmetric Bottleneck (DAB) and Point-wise Aggregation Decoder (PAD) module to tackle the challenging real-time semantic segmentation in urban scenes. Specifically, the DAB module creates a sufficient receptive field and densely utilizes the contextual information, and the PAD module aggregates the feature maps of different scales to optimize performance through the attention mechanism. Compared with existing methods, our network substantially reduces the number of parameters but still achieves high accuracy with real-time inference ability. Extensive ablation experiments on two challenging urban scene datasets (Cityscapes and CamVid) have proved the effectiveness of the proposed approach in real-time semantic segmentation.},
   year={2020},
 }
-
 
 @article{KIM2021108068,
 title = {Weakly-supervised temporal attention 3D network for human action recognition},
@@ -90,13 +103,4 @@ preview='neu.png',
 selected={true},
 }
 
-@inproceedings{kim2021superstylenet,
-  title={SuperStyleNet: Deep Image Synthesis with Superpixel Based Style Encoder},
-  author={Jonghyun Kim and Gen Li and Cheolkon Jung and Joongkyu Kim},
-  booktitle={British Machine Vision Conference},
-  year={2021},
-  code={https://github.com/BenjaminJonghyun/SuperStyleNet},
-  arxiv={https://arxiv.org/abs/2112.09367},
-  abstract={Existing methods for image synthesis utilized a style encoder based on stacks of convolutions and pooling layers to generate style codes from input images. However, the encoded vectors do not necessarily contain local information of the corresponding images since small-scale objects are tended to "wash away" through such downscaling procedures. In this paper, we propose deep image synthesis with superpixel based style encoder, named as SuperStyleNet. First, we directly extract the style codes from the original image based on superpixels to consider local objects. Second, we recover spatial relationships in vectorized style codes based on graphical analysis. Thus, the proposed network achieves high-quality image synthesis by mapping the style codes into semantic labels. Experimental results show that the proposed method outperforms state-of-the-art ones in terms of visual quality and quantitative measurements. Furthermore, we achieve elaborate spatial style editing by adjusting style codes.},
-  preview='superstyle',
-}
+
