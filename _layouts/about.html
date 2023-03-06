@@ -7,7 +7,7 @@ layout: default
         <header class="post-header">
           <h1 class="post-title">
             {% if site.title == "blank" -%}
-              <span style="font-weight: 500">{{ site.first_name }}</span>
+              <span style="font-weight: 700">{{ site.first_name }}</span>
               {{ site.middle_name }}
               {{ site.last_name }}&nbsp;&nbsp;<br class="d-md-none">
               {%- if site.chinese_first_name and site.chinese_last_name -%}
@@ -58,7 +58,9 @@ layout: default
 
           <!-- Selected papers -->
           {% if page.selected_papers -%}
-            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>
+<!--            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>-->
+<!--Gen: remove the link of selected publications-->
+            <h2>selected publications</h2>
             {%- include selected_papers.html %}
           {%- endif %}
 
@@ -76,5 +78,8 @@ layout: default
             </div>
           {%- endif %}
         </article>
+        
+        <hr>
+        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=9WXxx5iirdCiOyeZydEUMuy4oQEZbIIkI0qIF20OYGY&cl=ffffff&w=a"></script>
 
 </div>
