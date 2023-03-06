@@ -20,25 +20,13 @@
   code="https://github.com/Reagan1311/ASGNet",
   preview = "ASGNet.png",
   abstract = {Prototype learning is extensively used for few-shot segmentation. Typically, a single prototype is obtained from the support feature by averaging the global object information. However, using one prototype to represent all the information may lead to ambiguities. In this paper, we propose two novel modules, named superpixel-guided clustering (SGC) and guided prototype allocation (GPA), for multiple prototype extraction and allocation. Specifically, SGC is a parameter-free and training-free approach, which extracts more representative prototypes by aggregating similar feature vectors, while GPA is able to select matched prototypes to provide more accurate guidance. By integrating the SGC and GPA together, we propose the Adaptive Superpixelguided Network (ASGNet), which is a lightweight model and adapts to object scale and shape variation. In addition, our network can easily generalize to k-shot segmentation with substantial improvement and no additional computational cost. In particular, our evaluations on COCO demonstrate that ASGNet surpasses the state-of-the-art method by 5% in 5-shot segmentation.},
-  arXiv = "https://arxiv.org/abs/2104.01893",
+  arXiv = "2104.01893",
   website = "https://github.com/Reagan1311/ASGNet",
   pages={8334--8343},
   year={2021},
   abbr={CVPR},
 }
 
-@inproceedings{kim2021superstylenet,
-  title={SuperStyleNet: Deep Image Synthesis with Superpixel Based Style Encoder},
-  author={Li, Gen and Jampani, Varun and Sevilla-Lara, Laura and Sun, Deqing and Kim, Jonghyun and Kim, Joongkyu},
-  booktitle={British Machine Vision Conference},
-  code="https://github.com/BenjaminJonghyun/SuperStyleNet",
-  preview="superstyle.png",
-  arXiv="https://arxiv.org/abs/2112.09367",
-  abstract={Existing methods for image synthesis utilized a style encoder based on stacks of convolutions and pooling layers to generate style codes from input images. However, the encoded vectors do not necessarily contain local information of the corresponding images since small-scale objects are tended to "wash away" through such downscaling procedures. In this paper, we propose deep image synthesis with superpixel based style encoder, named as SuperStyleNet. First, we directly extract the style codes from the original image based on superpixels to consider local objects. Second, we recover spatial relationships in vectorized style codes based on graphical analysis. Thus, the proposed network achieves high-quality image synthesis by mapping the style codes into semantic labels. Experimental results show that the proposed method outperforms state-of-the-art ones in terms of visual quality and quantitative measurements. Furthermore, we achieve elaborate spatial style editing by adjusting style codes.},
-  year={2021},
-  abbr={BMVC},
-  selected={true},
-}
 
 @inproceedings{DABNet,
   title={DABNet: Depth-wise asymmetric bottleneck for real-time semantic segmentation},
@@ -47,13 +35,23 @@
   code="https://github.com/Reagan1311/DABNet",
   selected={true},
   preview="DABNet.png",
-  arXiv = "https://arxiv.org/abs/1907.11357",
+  arXiv = "1907.11357",
   abstract={As a pixel-level prediction task, semantic segmentation needs large computational cost with enormous parameters to obtain high performance. Recently, due to the increasing demand for autonomous systems and robots, it is significant to make a tradeoff between accuracy and inference speed. In this paper, we propose a novel Depth-wise Asymmetric Bottleneck (DAB) module to address this dilemma, which efficiently adopts depth-wise asymmetric convolution and dilated convolution to build a bottleneck structure. Based on the DAB module, we design a Depth-wise Asymmetric Bottleneck Network (DABNet) especially for real-time semantic segmentation, which creates sufficient receptive field and densely utilizes the contextual information. Experiments on Cityscapes and CamVid datasets demonstrate that the proposed DABNet achieves a balance between speed and precision. Specifically, without any pretrained model and post-processing, it achieves 70.1% Mean IoU on the Cityscapes test dataset with only 0.76 million parameters and a speed of 104 FPS on a single GTX 1080Ti card.},
   year={2019},
   abbr={BMVC},
 }
 
-
+@inproceedings{kim2021superstylenet,
+  title={SuperStyleNet: Deep Image Synthesis with Superpixel Based Style Encoder},
+  author={Jonghyun Kim and Gen Li and Cheolkon Jung and Joongkyu Kim},
+  booktitle={British Machine Vision Conference},
+  code="https://github.com/BenjaminJonghyun/SuperStyleNet",
+  preview="superstyle.png",
+  arXiv="2112.09367",
+  abstract={Existing methods for image synthesis utilized a style encoder based on stacks of convolutions and pooling layers to generate style codes from input images. However, the encoded vectors do not necessarily contain local information of the corresponding images since small-scale objects are tended to "wash away" through such downscaling procedures. In this paper, we propose deep image synthesis with superpixel based style encoder, named as SuperStyleNet. First, we directly extract the style codes from the original image based on superpixels to consider local objects. Second, we recover spatial relationships in vectorized style codes based on graphical analysis. Thus, the proposed network achieves high-quality image synthesis by mapping the style codes into semantic labels. Experimental results show that the proposed method outperforms state-of-the-art ones in terms of visual quality and quantitative measurements. Furthermore, we achieve elaborate spatial style editing by adjusting style codes.},
+  year={2021},
+  abbr={BMVC},
+}
 
 @article{dab_access,
   title={Depth-Wise Asymmetric Bottleneck With Point-Wise Aggregation Decoder for Real-Time Semantic Segmentation in Urban Scenes},
@@ -63,9 +61,8 @@
   volume={8},
   number={},
   pages={27495-27506},
-  doi={10.1109/ACCESS.2020.2971760},
-  url={https://ieeexplore.ieee.org/abstract/document/8984359},
-  preview='dab_access.png',
+  url="https://ieeexplore.ieee.org/abstract/document/8984359",
+  preview="dab_access.png",
   abstract={Semantic segmentation is a process of linking each pixel in an image to a class label, and is widely used in the field of autonomous vehicles and robotics. Although deep learning methods have already made great progress for semantic segmentation, they either achieve great results with numerous parameters or design lightweight models but heavily sacrifice the segmentation accuracy. Because of the strict requirements of real-world applications, it is critical to design an effective real-time model with both competitive segmentation accuracy and small model capacity. In this paper, we propose a lightweight network named DABNet, which employs Depth-wise Asymmetric Bottleneck (DAB) and Point-wise Aggregation Decoder (PAD) module to tackle the challenging real-time semantic segmentation in urban scenes. Specifically, the DAB module creates a sufficient receptive field and densely utilizes the contextual information, and the PAD module aggregates the feature maps of different scales to optimize performance through the attention mechanism. Compared with existing methods, our network substantially reduces the number of parameters but still achieves high accuracy with real-time inference ability. Extensive ablation experiments on two challenging urban scene datasets (Cityscapes and CamVid) have proved the effectiveness of the proposed approach in real-time semantic segmentation.},
   year={2020},
 }
@@ -82,7 +79,7 @@ url = {https://www.sciencedirect.com/science/article/pii/S0031320321002557},
 author = {Jonghyun Kim and Gen Li and Inyong Yun and Cheolkon Jung and Joongkyu Kim},
 keywords = {Action recognition, Temporal attention, Convolutional neural network, Weakly-supervised learning, Video analysis, Video classification},
 abstract = {From a series of observations, we have inferred that human actions in videos are defined by a set of significant frames. In this paper, we propose a weakly-supervised temporal attention 3D network for human action recognition, called as TA3DNet, to accelerate 3D convolutional neural networks (3D CNNs) by temporally assigning different importance to each frame. First, we obtain short-term frames with long-term connection by regularly or randomly skipping frames to avoid temporal redundancy, and apply 3D convolutional layers to extract features for action recognition. Then, we apply a temporal attention module to assign different weights to each frame. We train the temporal attention module in a weakly-supervised manner that updates weights based on only class labels without event information and extra labels. Thus, TA3DNet reduces the number of input frames and constructs a lightweight network for action recognition. Experimental results demonstrate that TA3DNet achieves high performance on two challenging datasets (UCF101 and HMDB51) and outperforms state-of-the-art methods for action recognition.},
-preview='pr.png',
+preview="pr.png",
 selected={true},
 }
 
@@ -95,12 +92,12 @@ year = {2021},
 issn = {0925-2312},
 doi = {https://doi.org/10.1016/j.neucom.2021.03.048},
 url = {https://www.sciencedirect.com/science/article/pii/S0925231221004227},
-arxiv = {https://arxiv.org/abs/2008.11977},
+arxiv = "2008.11977",
 code = {https://github.com/BenjaminJonghyun/EIPNet},
 author = {Jonghyun Kim and Gen Li and Inyong Yun and Cheolkon Jung and Joongkyu Kim},
 keywords = {Super-resolution, Face hallucination, Edge block, Identity loss, Image enhancement},
 abstract = {Face super-resolution (SR) has become an indispensable function in security solutions such as video surveillance and identification system, but the distortion in facial components is a great challenge in it. Most state-of-the-art methods have utilized facial priors with deep neural networks. These methods require extra labels, longer training time, and larger computation memory. In this paper, we propose a novel Edge and Identity Preserving Network for Face SR Network, named as EIPNet, to minimize the distortion by utilizing a lightweight edge block and identity information. We present an edge block to extract perceptual edge information, and concatenate it to the original feature maps in multiple scales. This structure progressively provides edge information in reconstruction to aggregate local and global structural information. Moreover, we define an identity loss function to preserve identification of SR images. The identity loss function compares feature distributions between SR images and their ground truth to recover identities in SR images. In addition, we provide a luminance-chrominance error (LCE) to separately infer brightness and color information in SR images. The LCE method not only reduces the dependency of color information by dividing brightness and color components but also enables our network to reflect differences between SR images and their ground truth in two color spaces of RGB and YUV. The proposed method facilitates the proposed SR network to elaborately restore facial components and generate high quality 8× scaled SR images with a lightweight network structure. Furthermore, our network is able to reconstruct an 128×128 SR image with 215 fps on a GTX 1080Ti GPU. Extensive experiments demonstrate that our network qualitatively and quantitatively outperforms state-of-the-art methods on two challenging datasets: CelebA and VGGFace2.},
-preview='neu.png',
+preview="neu.png",
 selected={true},
 }
 
