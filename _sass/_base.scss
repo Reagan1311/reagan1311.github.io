@@ -529,6 +529,10 @@ footer.sticky-bottom {
           color: var(--global-theme-color) !important;
           border: 1px solid var(--global-theme-color);
         }
+        .teaser{
+          @media screen and (max-width: 600px) {
+          display: none;
+        }
       }
       .title {
         font-weight: bolder;
