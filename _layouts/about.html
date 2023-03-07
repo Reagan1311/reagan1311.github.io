@@ -24,6 +24,7 @@ layout: default
         <article>
           {% if page.profile -%}
           <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
+            <div class="teaser">
             {%- if page.profile.image %}
               {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
 
@@ -38,6 +39,7 @@ layout: default
               class=profile_image_class
               alt=page.profile.image -%}
             {% endif -%}
+            </div>
             {%- if page.profile.address %}
             <div class="address d-none d-md-block">
               {{ page.profile.address }}

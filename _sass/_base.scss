@@ -105,7 +105,14 @@ blockquote {
       margin: 0;
     }
   }
+
+  .teaser {
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
 }
+
 .profile.float-right{
   margin-left: 1rem;
 }
