@@ -16,7 +16,7 @@
         {%- endif -%}
 
         <div class="teaser">
-          {%- if entry.preview -%}
+        {%- if entry.preview -%}
           {%- assign preview_id = entry.preview | remove: "." -%}
           {%- assign modal_id = preview_id | append: '-modal' -%}
           {%- assign modal_img_id = modal_id | append: '-img' -%}
