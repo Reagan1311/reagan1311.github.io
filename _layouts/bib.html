@@ -2,70 +2,7 @@
 ---
 <!-- _layouts/bib.html -->
       <div class="row">
-<!--        <div class="col-sm-2 {% if entry.preview %}preview{% else %}abbr{% endif %}">-->
-<!--        {%- if entry.preview -%}-->
-<!--          {%- assign preview_id = entry.preview | remove: "." -%}-->
-<!--          {%- assign modal_id = preview_id | append: '-modal' -%}-->
-<!--          {%- assign modal_img_id = modal_id | append: '-img' -%}-->
-<!--          {% if entry.preview contains '://' -%}-->
-<!--          <img id="{{ preview_id }}" class="preview z-depth-1 rounded myImg" src="{{ entry.preview }}">-->
-<!--          {%- else -%}-->
-<!--          <img id="{{ preview_id }}" class="preview z-depth-1 rounded myImg" src="{{ entry.preview | prepend: '/assets/img/publication_preview/' | relative_url }}">-->
-<!--          {%- endif -%}-->
-<!--          <div id="{{ modal_id }}" class="modal2">-->
-<!--            <span class="closeimg" onclick="document.getElementById('{{ modal_id }}').style.display='none'">&times;</span>-->
-<!--            <div class="myCaption"></div>-->
-<!--            <img class="modal-content2" id="{{ modal_img_id }}">-->
-<!--          </div>-->
-<!--          <script>-->
-<!--            // Get the modal-->
-<!--            var modal = document.getElementById("{{ modal_id }}");-->
-<!--            // Get the image and insert it inside the modal - use its "alt" text as a caption-->
-<!--            var img = document.getElementById('{{ preview_id }}');-->
-<!--            var modalImg = document.getElementById("{{ modal_img_id }}");-->
-<!--            var captionText = modal.getElementsByTagName('div')[0];-->
-<!--            img.onclick = function() {-->
-<!--              modal.style.display = "block";-->
-<!--              modalImg.src = this.src;-->
-<!--              captionText.innerHTML = "{{ entry.previewcaption }}";-->
-<!--            }-->
-<!--            // Get the <span> element that closes the modal-->
-<!--            var span = modal.getElementsByTagName('span')[0];-->
-<!--            // When the user clicks on <span> (x), close the modal-->
-<!--            span.onclick = function() {-->
-<!--              modal.style.display = "none";-->
-<!--            }-->
-<!--            modal.onclick = function() {-->
-<!--              modal.style.display = "none";-->
-<!--            }-->
-<!--          </script>-->
-<!--        {%- elsif entry.abbr -%}-->
-<!--          {%- if site.data.venues[entry.abbr] -%}-->
-<!--            {%- assign venue_style = nil -%}-->
-<!--            {%- if site.data.venues[entry.abbr].color != blank -%}-->
-<!--              {%- assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' -%}-->
-<!--            {%- endif -%}-->
-<!--            <abbr class="badge" {% if venue_style %}{{venue_style}}{% endif %}><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>-->
-<!--          {%- else -%}-->
-<!--            <abbr class="badge">{{entry.abbr}}</abbr>-->
-<!--          {%- endif -%}-->
-<!--        {%- endif -%}-->
-<!--        </div>-->
-        <div class="col-sm-2 abbr">
-
-        {%- if entry.abbr -%}
-        {%- if site.data.venues[entry.abbr] -%}
-        <abbr class="badge"><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
-        {%- else -%}
-        <abbr class="badge">{{entry.abbr}}</abbr>
-        {%- endif -%}
-        {%- endif -%}
-
-<!--        <div class="teaser">-->
-<!--        {%- if entry.image -%}-->
-<!--        {% include figure.html path=entry.image class="img-fluid rounded z-depth-1" zoomable=true %}-->
-<!--        {%- endif -%}-->
-<!--        </div>-->
+        <div class="col-sm-2 {% if entry.preview %}preview{% else %}abbr{% endif %}">
         {%- if entry.preview -%}
           {%- assign preview_id = entry.preview | remove: "." -%}
           {%- assign modal_id = preview_id | append: '-modal' -%}
@@ -102,8 +39,17 @@
               modal.style.display = "none";
             }
           </script>
+        {%- elsif entry.abbr -%}
+          {%- if site.data.venues[entry.abbr] -%}
+            {%- assign venue_style = nil -%}
+            {%- if site.data.venues[entry.abbr].color != blank -%}
+              {%- assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' -%}
+            {%- endif -%}
+            <abbr class="badge" {% if venue_style %}{{venue_style}}{% endif %}><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
+          {%- else -%}
+            <abbr class="badge">{{entry.abbr}}</abbr>
+          {%- endif -%}
         {%- endif -%}
-
         </div>
 
         <!-- Entry bib key -->
