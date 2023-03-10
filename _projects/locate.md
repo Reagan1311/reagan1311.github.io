@@ -55,7 +55,9 @@ L<sub>cos</sub>. At test time, only the egocentric branch is maintained.
 <!--
 <h3> Video Summary </h3>
 <center>
+<div class="embed-responsive embed-responsive-16by9" style="width: 94%">
 <iframe width="800" height="450" src="https://www.youtube.com/embed/6TVfnLLRSZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 </center>
 <br>
 -->

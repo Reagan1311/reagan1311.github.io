@@ -84,7 +84,9 @@ Prototype learning is extensively used for few-shot segmentation. Typically, a s
 [comment]: Video Summary
 <h3> Video Summary </h3>
 <center>
-<iframe width="800" height="450" src="https://www.youtube.com/embed/6TVfnLLRSZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-16by9" style="width: 94%">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6TVfnLLRSZQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 </center>
 <br>
 

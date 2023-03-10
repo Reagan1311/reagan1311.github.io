@@ -100,7 +100,9 @@ permalink: /template/
 
 <!--
 <center>
+<div class="embed-responsive embed-responsive-16by9" style="width: 95%">
 <iframe width="800" height="450" src="https://www.youtube.com/embed/6TVfnLLRSZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 </center>
 -->
 
