@@ -7,12 +7,12 @@ nav: true
 nav_order: 4
 ---
 
-## University of Edinburgh
+### University of Edinburgh
 
 - Introductory Applied Machine Learning, Demonstrator and Tutor [Spring 2023]
 - Applied Machine Learning, Teaching Assistant [Fall 2022]
 
-## Sungkyunkwan University
+### Sungkyunkwan University
 - Digital Signal Processing, Teaching Assistant [2018-2020]
 
 <!--

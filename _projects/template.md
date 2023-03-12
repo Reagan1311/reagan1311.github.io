@@ -20,6 +20,7 @@ permalink: /template/
 </p>
 <p style="text-align: center; font-weight: normal"> <sup>1</sup>First Institution &emsp;   <sup>2</sup>Second Institution &emsp;   </p>
 
+[comment]: Icons
 <div class="column has-text-centered">
     <div class="publication-links">
  <!-- Arxiv PDF link -->
@@ -70,7 +71,7 @@ permalink: /template/
 <span class="link-block">
 <a href="https://www.youtube.com/watch?v=6TVfnLLRSZQ&ab_channel=GenLi" target="_blank" class="external-link button is-normal is-rounded is-dark">
 <span class="icon" style="text-decoration: none">
-  <i class="fas fa-video-camera"></i>
+  <i class="fas fa-video"></i>
 </span>
 <span>Video</span>
 </a>
@@ -101,7 +102,7 @@ permalink: /template/
 <!--
 <center>
 <div class="embed-responsive embed-responsive-16by9" style="width: 95%">
-<iframe width="800" height="450" src="https://www.youtube.com/embed/6TVfnLLRSZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6TVfnLLRSZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </center>
 -->

@@ -25,11 +25,57 @@ permalink: /locate/
 </p>
 <p style="text-align: center; font-weight: normal"> <sup>1</sup>University of Edinburgh &emsp;   <sup>2</sup>Google Research &emsp;  </p>
 
-[//]: # (<p style="text-align: center;"> CVPR 2023 </p>)
+[comment]: Icons
+<div class="column has-text-centered">
+    <div class="publication-links">
+ <!-- Arxiv PDF link -->
+      <span class="link-block">
+        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+        class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+          <i class="fas fa-file-pdf"></i>
+        </span>
+        <span>Paper</span>
+        </a>
+     </span>
+
+<!-- Supplementary PDF link -->
+  <span class="link-block">
+  <a href="https://drive.google.com/file/d/1qUrAyx9cOpaFHSBmh7OCd_9xhSb716HO/view?usp=sharing" target="_blank"
+  class="external-link button is-normal is-rounded is-dark">
+  <span class="icon">
+    <i class="fas fa-file-pdf"></i>
+  </span>
+  <span>Supplementary</span>
+  </a>
+  </span>
+
+<!-- Github link -->
+  <span class="link-block">
+    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+    class="external-link button is-normal is-rounded is-dark">
+    <span class="icon">
+      <i class="fab fa-github"></i>
+    </span>
+    <span>Code (Coming)</span>
+  </a>
+</span>
+
+<!-- Video Link -->
+<span class="link-block">
+<a href="https://youtu.be/H3Y8YAT28f8" target="_blank" class="external-link button is-normal is-rounded is-dark">
+<span class="icon" style="text-decoration: none">
+  <i class="fas fa-video"></i>
+</span>
+<span>Video</span>
+</a>
+</span>
+</div>
+</div>
 
 [comment]: Abstract
 <h3> Abstract </h3>
-Humans have an excellent ability to acquire knowledge through observation. 
+Humans excel at acquiring knowledge through observation. 
 For example, we can learn to use new tools by watching demonstrations. This skill is fundamental for intelligent systems to interact with the world. A key step to acquire this skill is to identify what part of the object affords each action, which is called affordance grounding. 
 In this paper, we address this problem and propose a framework called LOCATE that can identify matching object parts across images, to transfer knowledge from images where an object is being used (exocentric images used for learning), to images where the object is inactive (egocentric ones used to test). 
 To this end, we first find interaction areas and extract their feature embeddings.
@@ -52,15 +98,13 @@ L<sub>cos</sub>. At test time, only the egocentric branch is maintained.
 </center>
 
 [comment]: Video Summary
-<!--
 <h3> Video Summary </h3>
 <center>
-<div class="embed-responsive embed-responsive-16by9" style="width: 94%">
-<iframe width="800" height="450" src="https://www.youtube.com/embed/6TVfnLLRSZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-16by9" style="width: 95%">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/H3Y8YAT28f8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </center>
 <br>
--->
 
 [comment]: Qualitative Results
 <h3> Qualitative Results </h3>

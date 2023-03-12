@@ -29,6 +29,7 @@ permalink: /asgnet/
 </p>
 <p style="text-align: center; font-weight: normal"> <sup>1</sup>University of Edinburgh &emsp;   <sup>2</sup>Google Research &emsp;   <sup>3</sup>Sungkyunkwan University</p>
 
+[comment]: Authors
 <div class="column has-text-centered">
 <div class="publication-links">
      <!-- Arxiv PDF link -->
@@ -38,7 +39,7 @@ permalink: /asgnet/
     <span class="icon" style="text-decoration: none">
       <i class="fas fa-file-pdf"></i>
     </span>    
-    <span>arXiv</span>
+    <span>Paper</span>
   </a>
 </span>&emsp;&emsp;
 
@@ -84,7 +85,7 @@ Prototype learning is extensively used for few-shot segmentation. Typically, a s
 [comment]: Video Summary
 <h3> Video Summary </h3>
 <center>
-<div class="embed-responsive embed-responsive-16by9" style="width: 94%">
+<div class="embed-responsive embed-responsive-16by9" style="width: 95%">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6TVfnLLRSZQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </center>
