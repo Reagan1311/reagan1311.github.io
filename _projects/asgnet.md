@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ASGNet
-description:
+description: ASGNet for Few-Shot Segmentation (CVPR 2021)
 img: 
 importance: 1
 category: computer vision

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: template
-description:
+description: academic project page template
 img: 
 importance: 1
 category: computer vision

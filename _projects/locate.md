@@ -1,7 +1,7 @@
 ---
 layout: default
 title: LOCATE
-description:
+description: LOCATE for Weakly Supervised Affordance Grounding (CVPR 2023)
 img:
 importance: 1
 category: computer vision
