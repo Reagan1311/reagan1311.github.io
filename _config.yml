@@ -9,8 +9,8 @@ last_name: Li
 chinese_last_name:
 chinese_first_name:
 email: li.gen@ed.ac.uk
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Gen Li's personal webpage
+description: Gen Li's personal webpage # the ">" symbol means to ignore newlines until "footer_text:"
+
 #footer_text: >
 #  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
 #  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
