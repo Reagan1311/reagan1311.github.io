@@ -96,6 +96,7 @@ permalink: /template/
 </center>
 -->
 
+<hr>
 [comment]: Video Summary
 <h3> Video Summary </h3>
 
@@ -107,8 +108,9 @@ permalink: /template/
 </center>
 -->
 
-[comment]: Visual Results
-
+<hr>
+[comment]: Qualitative Results
+<h3> Qualitative Results </h3>
 <!--
 <center>
 <figure>
@@ -123,6 +125,7 @@ permalink: /template/
 </center>
 -->
 
+<hr>
 [comment]: Citation
 <h3> Citation </h3>
 

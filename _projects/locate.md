@@ -41,7 +41,7 @@ permalink: /locate/
 
 <!-- Supplementary PDF link -->
   <span class="link-block">
-  <a href="https://drive.google.com/file/d/1qUrAyx9cOpaFHSBmh7OCd_9xhSb716HO/view?usp=sharing" target="_blank"
+  <a href="/assets/pdf/LOCATE_supp.pdf" target="_blank"
   class="external-link button is-normal is-rounded is-dark">
   <span class="icon">
     <i class="fas fa-file-pdf"></i>
@@ -63,7 +63,7 @@ permalink: /locate/
 
 <!-- Video Link -->
 <span class="link-block">
-<a href="https://youtu.be/H3Y8YAT28f8" target="_blank" class="external-link button is-normal is-rounded is-dark">
+<a href="https://youtu.be/RLHansdFxII" target="_blank" class="external-link button is-normal is-rounded is-dark">
 <span class="icon" style="text-decoration: none">
   <i class="fas fa-video"></i>
 </span>
@@ -87,25 +87,39 @@ Extensive experiments demonstrate that our approach outperforms state-of-the-art
 <center>
 <figure>
     <div id="projectid">
-       <img src="/assets/img/locate/pipeline.png" width="100%">
+       <img src="/assets/img/locate/problem_setting.gif" width="100%">
     </div>
     <figcaption style="font-size: 90%; margin-top: 12px; text-align: left">
+        The problem setting of the Weakly Supervised Affordance Grounding task.
+    </figcaption>
+</figure>
+</center>
+
+<hr>
+<h3> Pipeline </h3>
+<center>
+<figure>
+    <div id="projectid">
+       <img src="/assets/img/locate/pipeline.png" width="100%">
+    </div>
+<figcaption style="font-size: 90%; margin-top: 12px; text-align: left">
 		Overview of the proposed LOCATE framework. It achieves part-level knowledge transfer in three steps: 1) locating interaction
-regions with ψ<sub>cam</sub>, 2) object-part embedding selection using the selector, and 3) part-level knowledge transfer with
+regions with ψ<sub>cam</sub>, 2) object-part embedding selection with PartSelect, and 3) part-level knowledge transfer with
 L<sub>cos</sub>. At test time, only the egocentric branch is maintained.
     </figcaption>
 </figure>
 </center>
 
+<hr>
 [comment]: Video Summary
 <h3> Video Summary </h3>
 <center>
 <div class="embed-responsive embed-responsive-16by9" style="width: 95%">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/H3Y8YAT28f8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RLHansdFxII" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </center>
-<br>
 
+<hr>
 [comment]: Qualitative Results
 <h3> Qualitative Results </h3>
 <center>
@@ -121,6 +135,7 @@ where a motorcycle can be ridden in training, and locates rideable area for the 
 </figure>
 </center>
 
+<hr>
 [comment]: Citation
 <h3> Citation </h3>
 ```

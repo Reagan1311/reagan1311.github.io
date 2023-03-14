@@ -29,7 +29,7 @@ permalink: /asgnet/
 </p>
 <p style="text-align: center; font-weight: normal"> <sup>1</sup>University of Edinburgh &emsp;   <sup>2</sup>Google Research &emsp;   <sup>3</sup>Sungkyunkwan University</p>
 
-[comment]: Authors
+[comment]: Icons
 <div class="column has-text-centered">
 <div class="publication-links">
      <!-- Arxiv PDF link -->
@@ -41,7 +41,17 @@ permalink: /asgnet/
     </span>    
     <span>Paper</span>
   </a>
-</span>&emsp;&emsp;
+</span>
+
+<span class="link-block">
+<a href="/assets/pdf/ASGNet_supp.pdf" target="_blank"
+class="external-link button is-normal is-rounded is-dark">
+<span class="icon">
+<i class="fas fa-file-pdf"></i>
+</span>
+<span>Supplementary</span>
+</a>
+</span>
 
 <!-- Github link -->
 <span class="link-block">
@@ -52,7 +62,7 @@ class="external-link button is-normal is-rounded is-dark">
 </span>
 <span>Code</span>
 </a>
-</span>&emsp;&emsp;
+</span>
 
 <span class="link-block">
 <a href="https://www.youtube.com/watch?v=6TVfnLLRSZQ&ab_channel=GenLi" target="_blank" 
@@ -82,6 +92,7 @@ Prototype learning is extensively used for few-shot segmentation. Typically, a s
 </figure>
 </center>
 
+<hr>
 [comment]: Video Summary
 <h3> Video Summary </h3>
 <center>
@@ -89,8 +100,8 @@ Prototype learning is extensively used for few-shot segmentation. Typically, a s
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6TVfnLLRSZQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </center>
-<br>
 
+<hr>
 [comment]: Qualitative Results
 <h3> Qualitative Results </h3>
 <center>
@@ -104,6 +115,7 @@ Prototype learning is extensively used for few-shot segmentation. Typically, a s
 </figure>
 </center>
 
+<hr>
 [comment]: Citation
 <h3> Citation </h3>
 ```
