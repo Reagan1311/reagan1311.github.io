@@ -52,7 +52,7 @@ permalink: /locate/
 
 <!-- Github link -->
   <span class="link-block">
-    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+    <a href="https://github.com/Reagan1311/LOCATE" target="_blank"
     class="external-link button is-normal is-rounded is-dark">
     <span class="icon">
       <i class="fab fa-github"></i>
@@ -63,7 +63,7 @@ permalink: /locate/
 
 <!-- Video Link -->
 <span class="link-block">
-<a href="https://youtu.be/RLHansdFxII" target="_blank" class="external-link button is-normal is-rounded is-dark">
+<a href="https://www.youtube.com/watch?v=RLHansdFxII" target="_blank" class="external-link button is-normal is-rounded is-dark">
 <span class="icon" style="text-decoration: none">
   <i class="fas fa-video"></i>
 </span>
