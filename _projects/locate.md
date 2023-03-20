@@ -30,7 +30,7 @@ permalink: /locate/
     <div class="publication-links">
  <!-- Arxiv PDF link -->
       <span class="link-block">
-        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+        <a href="https://arxiv.org/abs/2303.09665" target="_blank"
         class="external-link button is-normal is-rounded is-dark">
         <span class="icon">
           <i class="fas fa-file-pdf"></i>
