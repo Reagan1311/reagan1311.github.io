@@ -57,7 +57,7 @@ permalink: /locate/
     <span class="icon">
       <i class="fab fa-github"></i>
     </span>
-    <span>Code (Coming)</span>
+    <span>Code</span>
   </a>
 </span>
 
