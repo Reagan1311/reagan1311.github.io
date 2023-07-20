@@ -142,7 +142,7 @@ where a motorcycle can be ridden in training, and locates rideable area for the 
 @inproceedings{li:locate:2023,
   title = {LOCATE: Localize and Transfer Object Parts for Weakly Supervised Affordance Grounding},
   author = {Li, Gen and Jampani, Varun and Sun, Deqing and Sevilla-Lara, Laura},
-  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2023}
 }
 ```
