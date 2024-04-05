@@ -9,7 +9,7 @@ permalink: /locate/
 ---
 
 [comment]: Title
-<h2 align="center" class="font-weight-normal"> LOCATE: Localize and Transfer Object Parts for Weakly Supervised Affordance Grounding </h2>
+<h2 align="center" class="font-weight-bold"> LOCATE: Localize and Transfer Object Parts for Weakly Supervised Affordance Grounding </h2>
 <p style="text-align: center;" class="font-weight-normal"> CVPR 2023 </p>
 
 [comment]: Authors
@@ -46,7 +46,7 @@ permalink: /locate/
   <span class="icon">
     <i class="fas fa-file-pdf"></i>
   </span>
-  <span>Supplementary</span>
+  <span>Supp</span>
   </a>
   </span>
 
@@ -89,7 +89,7 @@ Extensive experiments demonstrate that our approach outperforms state-of-the-art
     <div id="projectid">
        <img src="/assets/img/locate/problem_setting.gif" width="100%">
     </div>
-    <figcaption style="font-size: 90%; margin-top: 12px; text-align: left">
+    <figcaption style="font-size: 90%; margin-top: 12px; text-align: left; font-weight: 400">
         The problem setting of the Weakly Supervised Affordance Grounding task.
     </figcaption>
 </figure>
@@ -102,7 +102,7 @@ Extensive experiments demonstrate that our approach outperforms state-of-the-art
     <div id="projectid">
        <img src="/assets/img/locate/pipeline.png" width="100%">
     </div>
-<figcaption style="font-size: 90%; margin-top: 12px; text-align: left">
+<figcaption style="font-size: 90%; margin-top: 12px; text-align: left; font-weight: 400">
 		Overview of the proposed LOCATE framework. It achieves part-level knowledge transfer in three steps: 1) locating interaction
 regions with ψ<sub>cam</sub>, 2) object-part embedding selection with PartSelect, and 3) part-level knowledge transfer with
 L<sub>cos</sub>. At test time, only the egocentric branch is maintained.
@@ -127,7 +127,7 @@ L<sub>cos</sub>. At test time, only the egocentric branch is maintained.
     <div id="projectid">
         <img src="/assets/img/locate/results.png" width="100%">
     </div>
-    <figcaption style="font-size: 90%; margin-top: 12px; text-align: left">
+    <figcaption style="font-size: 90%; margin-top: 12px; text-align: left; font-weight: 400">
 	    Qualitative comparison between our approach and state-of-the-art affordance grounding methods (<a href="https://arxiv.org/abs/1812.04558">Hotspots [41]</a>, <a href="https://arxiv.org/abs/2203.09905">Cross-view-AG [36]</a>, 
 and <a href="https://arxiv.org/abs/2208.13196">Cross-view-AG+ [35]</a>). For the unseen setting, the displayed objects are not in the training set. For example, the model learns
 where a motorcycle can be ridden in training, and locates rideable area for the bicycle at test time.

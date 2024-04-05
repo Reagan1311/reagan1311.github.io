@@ -9,7 +9,7 @@ permalink: /asgnet/
 ---
 
 [comment]: Title
-<h2 align="center" class="font-weight-normal"> Adaptive Prototype Learning and Allocation for<br>Few-Shot Segmentation </h2>
+<h2 align="center" class="font-weight-bold"> Adaptive Prototype Learning and Allocation for<br>Few-Shot Segmentation </h2>
 <p style="text-align: center;" class="font-weight-normal"> CVPR 2021 </p>
 
 [comment]: Authors
@@ -49,7 +49,7 @@ class="external-link button is-normal is-rounded is-dark">
 <span class="icon">
 <i class="fas fa-file-pdf"></i>
 </span>
-<span>Supplementary</span>
+<span>Supp</span>
 </a>
 </span>
 
@@ -86,7 +86,7 @@ Prototype learning is extensively used for few-shot segmentation. Typically, a s
     <div id="projectid">
     <img src="/assets/img/publication_preview/ASGNet.png" width="600px">
     </div>
-    <figcaption style="font-size: 90%; margin-top: 12px; text-align: left">
+    <figcaption style="font-size: 90%; margin-top: 12px; text-align: left; font-weight: 400">
 	Comparison between (a) single prototype learning and (b) proposed adaptive prototype learning and allocation.  We utilize superpixel-guided clustering to generate multiple prototypes and then allocate them pixel-wise to query feature.
     </figcaption>
 </figure>
@@ -109,7 +109,7 @@ Prototype learning is extensively used for few-shot segmentation. Typically, a s
     <div id="projectid">
         <img src="/assets/img/asgnet/results.png" width="100%">
     </div>
-    <figcaption style="font-size: 90%; margin-top: 12px; text-align: left">
+    <figcaption style="font-size: 90%; margin-top: 12px; text-align: left; font-weight: 400">
 	    Qualitative visualization of baseline (single prototype learning) and the proposed ASGNet.
     </figcaption>
 </figure>

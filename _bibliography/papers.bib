@@ -1,12 +1,25 @@
 ---
 ---
+@inproceedings{OOAL,
+  title={One-Shot Open Affordance Learning with Foundation Models},
+  author={Li, Gen and Sun, Deqing and Sevilla-Lara, Laura and Jampani, Varun},
+  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+  selected={true},
+  preview = "OOAL.png",
+  year={2024},
+  abbr={CVPR'24},
+  website="https://reagan1311.github.io/ooal",
+  arXiv = "2311.17776",
+  abstract = {We introduce One-shot Open Affordance Learning (OOAL), where a model is trained with just one example per base object category, but is expected to identify novel objects and affordances. While vision-language models excel at recognizing novel objects and scenes, they often struggle to understand finer levels of granularity such as affordances. To handle this issue, we conduct a comprehensive analysis of existing foundation models, to explore their inherent understanding of affordances and assess the potential for data-limited affordance learning. We then propose a vision-language framework with simple and effective designs that boost the alignment between visual features and affordance text embeddings. Experiments on two affordance segmentation benchmarks show that the proposed method outperforms state-of-the-art models with less than 1% of the full training data, and exhibits reasonable generalization capability on unseen objects and affordances.},
+}
+
 @inproceedings{Refer,
   title={Referenceless User Controllable Semantic Image Synthesis},
   author={Kim, Jonghyun and Li, Gen  and Kim, Joongkyu},
   booktitle={International Joint Conference on Neural Networks},
   preview = "referenceless.png",
   year={2023},
-  abbr={IJCNN},
+  abbr={IJCNN'23},
   arXiv ="2306.10646",
   code="https://github.com/BenjaminJonghyun/RUCGAN",
   abstract = {Despite recent progress in semantic image synthesis, complete control over image style remains a challenging problem. Existing methods require reference images to feed style information into semantic layouts, which indicates that the style is constrained by the given image. In this paper, we propose a model named RUCGAN for user controllable semantic image synthesis, which utilizes a singular color to represent the style of a specific semantic region. The proposed network achieves reference-free semantic image synthesis by injecting color as userdesired styles into each semantic layout, and is able to synthesize semantic images with unusual colors. Extensive experimental results on various challenging datasets show that the proposed method outperforms existing methods, and we further provide an interactive UI to demonstrate the advantage of our approach for style controllability. The codes and UI are available at: https://github.com/BenjaminJonghyun/RUCGAN},
@@ -19,7 +32,7 @@
   selected={true},
   preview = "LOCATE.png",
   year={2023},
-  abbr={CVPR},
+  abbr={CVPR'23},
   website="https://reagan1311.github.io/locate",
   code="https://github.com/Reagan1311/LOCATE",
   arXiv = "2303.09665",
@@ -38,7 +51,7 @@
   website = "https://reagan1311.github.io/asgnet",
   pages={8334--8343},
   year={2021},
-  abbr={CVPR},
+  abbr={CVPR'21},
 }
 
 @inproceedings{DABNet,
@@ -46,12 +59,11 @@
   author={Li, Gen and Kim, Joongkyu},
   booktitle={British Machine Vision Conference},
   code="https://github.com/Reagan1311/DABNet",
-  selected={true},
   preview="DABNet.png",
   arXiv = "1907.11357",
   abstract={As a pixel-level prediction task, semantic segmentation needs large computational cost with enormous parameters to obtain high performance. Recently, due to the increasing demand for autonomous systems and robots, it is significant to make a tradeoff between accuracy and inference speed. In this paper, we propose a novel Depth-wise Asymmetric Bottleneck (DAB) module to address this dilemma, which efficiently adopts depth-wise asymmetric convolution and dilated convolution to build a bottleneck structure. Based on the DAB module, we design a Depth-wise Asymmetric Bottleneck Network (DABNet) especially for real-time semantic segmentation, which creates sufficient receptive field and densely utilizes the contextual information. Experiments on Cityscapes and CamVid datasets demonstrate that the proposed DABNet achieves a balance between speed and precision. Specifically, without any pretrained model and post-processing, it achieves 70.1% Mean IoU on the Cityscapes test dataset with only 0.76 million parameters and a speed of 104 FPS on a single GTX 1080Ti card.},
   year={2019},
-  abbr={BMVC},
+  abbr={BMVC'19},
 }
 
 @inproceedings{kim2021superstylenet,
@@ -63,7 +75,7 @@
   arXiv="2112.09367",
   abstract={Existing methods for image synthesis utilized a style encoder based on stacks of convolutions and pooling layers to generate style codes from input images. However, the encoded vectors do not necessarily contain local information of the corresponding images since small-scale objects are tended to "wash away" through such downscaling procedures. In this paper, we propose deep image synthesis with superpixel based style encoder, named as SuperStyleNet. First, we directly extract the style codes from the original image based on superpixels to consider local objects. Second, we recover spatial relationships in vectorized style codes based on graphical analysis. Thus, the proposed network achieves high-quality image synthesis by mapping the style codes into semantic labels. Experimental results show that the proposed method outperforms state-of-the-art ones in terms of visual quality and quantitative measurements. Furthermore, we achieve elaborate spatial style editing by adjusting style codes.},
   year={2021},
-  abbr={BMVC},
+  abbr={BMVC'21},
 }
 
 @article{dab_access,
@@ -94,7 +106,6 @@ author = {Jonghyun Kim and Gen Li and Inyong Yun and Cheolkon Jung and Joongkyu 
 keywords = {Action recognition, Temporal attention, Convolutional neural network, Weakly-supervised learning, Video analysis, Video classification},
 abstract = {From a series of observations, we have inferred that human actions in videos are defined by a set of significant frames. In this paper, we propose a weakly-supervised temporal attention 3D network for human action recognition, called as TA3DNet, to accelerate 3D convolutional neural networks (3D CNNs) by temporally assigning different importance to each frame. First, we obtain short-term frames with long-term connection by regularly or randomly skipping frames to avoid temporal redundancy, and apply 3D convolutional layers to extract features for action recognition. Then, we apply a temporal attention module to assign different weights to each frame. We train the temporal attention module in a weakly-supervised manner that updates weights based on only class labels without event information and extra labels. Thus, TA3DNet reduces the number of input frames and constructs a lightweight network for action recognition. Experimental results demonstrate that TA3DNet achieves high performance on two challenging datasets (UCF101 and HMDB51) and outperforms state-of-the-art methods for action recognition.},
 preview="pr.png",
-selected={true},
 abbr={PR},
 }
 
@@ -113,7 +124,6 @@ author = {Jonghyun Kim and Gen Li and Inyong Yun and Cheolkon Jung and Joongkyu 
 keywords = {Super-resolution, Face hallucination, Edge block, Identity loss, Image enhancement},
 abstract = {Face super-resolution (SR) has become an indispensable function in security solutions such as video surveillance and identification system, but the distortion in facial components is a great challenge in it. Most state-of-the-art methods have utilized facial priors with deep neural networks. These methods require extra labels, longer training time, and larger computation memory. In this paper, we propose a novel Edge and Identity Preserving Network for Face SR Network, named as EIPNet, to minimize the distortion by utilizing a lightweight edge block and identity information. We present an edge block to extract perceptual edge information, and concatenate it to the original feature maps in multiple scales. This structure progressively provides edge information in reconstruction to aggregate local and global structural information. Moreover, we define an identity loss function to preserve identification of SR images. The identity loss function compares feature distributions between SR images and their ground truth to recover identities in SR images. In addition, we provide a luminance-chrominance error (LCE) to separately infer brightness and color information in SR images. The LCE method not only reduces the dependency of color information by dividing brightness and color components but also enables our network to reflect differences between SR images and their ground truth in two color spaces of RGB and YUV. The proposed method facilitates the proposed SR network to elaborately restore facial components and generate high quality 8× scaled SR images with a lightweight network structure. Furthermore, our network is able to reconstruct an 128×128 SR image with 215 fps on a GTX 1080Ti GPU. Extensive experiments demonstrate that our network qualitatively and quantitatively outperforms state-of-the-art methods on two challenging datasets: CelebA and VGGFace2.},
 preview="neu.png",
-selected={true},
 abbr={NC},
 }
 
