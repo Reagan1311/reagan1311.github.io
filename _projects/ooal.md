@@ -30,7 +30,7 @@ permalink: /ooal/
     <div class="publication-links">
  <!-- Arxiv PDF link -->
       <span class="link-block">
-        <a href="https://arxiv.org/abs/2311.17776" target="_blank"
+        <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Li_One-Shot_Open_Affordance_Learning_with_Foundation_Models_CVPR_2024_paper.pdf" target="_blank"
         class="external-link button is-normal is-rounded is-dark">
         <span class="icon">
           <i class="fas fa-file-pdf"></i>
@@ -62,12 +62,12 @@ permalink: /ooal/
 
 <!-- Github link -->
   <span class="link-block">
-    <a href="https://reagan1311.github.io/ooal" target="_blank"
+    <a href="https://github.com/Reagan1311/OOAL" target="_blank"
     class="external-link button is-normal is-rounded is-dark">
     <span class="icon">
       <i class="fab fa-github"></i>
     </span>
-    <span>Code (coming soon)</span>
+    <span>Code</span>
   </a>
 </span>
 
