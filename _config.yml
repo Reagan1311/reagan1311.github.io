@@ -5,9 +5,9 @@
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Gen
 middle_name: 
-last_name: Li | 李根
-chinese_last_name: 
-chinese_first_name:
+last_name: Li
+chinese_last_name: 李根
+chinese_first_name: 
 email: li.gen@ed.ac.uk
 description: Gen Li's personal webpage # the ">" symbol means to ignore newlines until "footer_text:"
 
