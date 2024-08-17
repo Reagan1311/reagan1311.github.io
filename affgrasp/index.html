@@ -18,42 +18,6 @@
     gtag('config', 'G-FV4ZJ9PVSV');
   </script>
 
-  <script>
-    function updateSingleVideo() {
-      var demo = document.getElementById("single-menu-demos").value;
-      var task = document.getElementById("single-menu-tasks").value;
-      var inst = document.getElementById("single-menu-instances").value;
-
-      console.log("single", demo, task, inst)
-
-      var video = document.getElementById("multi-task-result-video");
-      video.src = "media/results/sim_rollouts/" + 
-                  "n" +
-                  demo +
-                  "-" +
-                  task +
-                  "-" +
-                  inst +
-                  ".mp4"
-      video.playbackRate = 1.75;
-      video.play();
-    }
-
-    function updateQpredVideo() {
-      var task = document.getElementById("single-menu-qpred").value;
-
-      console.log("qpred", task)
-
-      var video = document.getElementById("q-pred-video");
-      video.src = "media/results/qpred/" + 
-                  task + 
-                  ".mp4"
-      video.playbackRate = 1.75;
-      video.play();
-    }
-
-  </script>
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -71,7 +35,7 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
-<body onload="updateSingleVideo(); updateQpredVideo();">
+<body>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -116,7 +80,7 @@
           <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.robot-learning.org/">CoRL 2022</a></h3> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a target="_blank" href="https://mohitshridhar.com/">Gen Li</a><sup>1</sup>,</span>
+              <a target="_blank" href="http://reagan1311.github.io/">Gen Li</a><sup>1</sup>,</span>
             <span class="author-block">
               <a target="_blank" href="https://tsagkas.github.io/">Nikolaos Tsagkas</a><sup>1</sup>,</span>
             <span class="author-block">
