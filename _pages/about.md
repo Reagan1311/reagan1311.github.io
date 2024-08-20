@@ -29,7 +29,7 @@ and also work closely with Dr. [Varun Jampani](https://varunjampani.github.io/) 
 
 <!-- Before Edinburgh, I received my Master's degree from Sungkyunkwan University in 2020, and the Bachelor's degree from Xidian University in 2018. -->
 
-My research interests include **Human-Object Interaction, Embodied AI, and Multi-Modal Deep Learning**. Currently, I am working on "Affordance learning from limited supervision".
+My research interests include **Human-Object Interaction, Embodied AI, and Multi-Modal Learning**. Currently, I am working on "Affordance learning from limited supervision".
 
 :loudspeaker: I am actively seeking **AP/PostDoc/Research Scientist** positions! Please feel free to reach out for available positions or potential collaborations.
 
