@@ -31,7 +31,7 @@ and also work closely with Dr. [Varun Jampani](https://varunjampani.github.io/) 
 
 My research interests include **Human-Object Interaction, Embodied AI, and Multi-Modal Learning**. Currently, I am working on "Affordance learning from limited supervision".
 
-:loudspeaker: I am actively seeking **AP/PostDoc/Research Scientist** positions! Please feel free to reach out for available positions or potential collaborations.
+:loudspeaker: I am actively seeking **AP/PostDoc/Research Scientist for Fall 2025**. Please feel free to reach out for available positions or potential collaborations.
 
 <!--
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.test
