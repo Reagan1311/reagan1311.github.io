@@ -24,14 +24,18 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 I am a final-year PhD student at School of Informatics in the University of Edinburgh, fully funded by [EPSRC CDT-Robotics and Autonomous Systems](https://www.edinburgh-robotics.org/).
-I am supervised by Dr. [Laura Sevilla](https://laurasevilla.me/) and Prof. [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/), 
-and also work closely with Dr. [Varun Jampani](https://varunjampani.github.io/) and Dr. [Deqing Sun](https://deqings.github.io/).
+I am supervised by [Laura Sevilla](https://laurasevilla.me/) and [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/), 
+and also work closely with [Varun Jampani](https://varunjampani.github.io/) and [Deqing Sun](https://deqings.github.io/).
 
-<!-- Before Edinburgh, I received my Master's degree from Sungkyunkwan University in 2020, and the Bachelor's degree from Xidian University in 2018. -->
+The central focus of my research is to empower machines to perceive and interact with their environments in a data-efficient manner. This includes exploring a range of cutting-edge topics:
 
-My research interests include **Human-Object Interaction, Embodied AI, and Multi-Modal Learning**. Currently, I am working on "Affordance learning from limited supervision".
+- **Embodied AI**: Affordance Learning, Robotic Manipulation
+-	**Computer Vision**: Scene Understanding, Vision-Language Models
+-	**Efficient Learning**: Learning under Weak Supervision & Limited Data
+-	**Human-Object Interaction**: Egocentric Vision, Interaction Understanding / Generation
 
-:loudspeaker: I am actively seeking **AP/PostDoc/Research Scientist for Fall 2025**. Please feel free to reach out for available positions or potential collaborations.
+
+:loudspeaker: I am actively seeking **PostDoc/AP/Research Scientist** positions starting in **Summer 2025**. Feel free to reach out for potential positions or collaborations!
 
 <!--
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.test
