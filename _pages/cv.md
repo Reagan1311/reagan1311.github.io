@@ -1,7 +1,7 @@
 ---
 layout: cv
 [//]: # (permalink: /cv/)
-permalink: /assets/pdf/CV-ligen.pdf
+permalink: /assets/pdf/cv-web.pdf
 title: cv
 nav: true
 nav_order: 5
