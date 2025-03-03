@@ -23,7 +23,7 @@ news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-I am a final-year PhD student at School of Informatics in The University of Edinburgh, fully funded by [EPSRC CDT-Robotics and Autonomous Systems](https://www.edinburgh-robotics.org/).
+I am a final-year PhD student at School of Informatics in the University of Edinburgh, fully funded by [EPSRC CDT-Robotics and Autonomous Systems](https://www.edinburgh-robotics.org/).
 I am supervised by [Laura Sevilla](https://laurasevilla.me/) and [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/), 
 and also work closely with [Varun Jampani](https://varunjampani.github.io/) and [Deqing Sun](https://deqings.github.io/).
 
