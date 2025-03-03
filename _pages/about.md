@@ -27,7 +27,7 @@ I am a final-year PhD student at School of Informatics in the University of Edin
 I am supervised by [Laura Sevilla](https://laurasevilla.me/) and [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/), 
 and also work closely with [Varun Jampani](https://varunjampani.github.io/) and [Deqing Sun](https://deqings.github.io/).
 
-The central focus of my research is to empower machines to perceive and interact with their environments in a data-efficient manner. This includes exploring a range of cutting-edge topics:
+The central focus of my research is to enable robots to perceive and interact with their environments in a human-like yet data-efficient manner. This includes exploring a range of cutting-edge topics:
 
 - **Embodied AI**: Affordance Learning, Robotic Manipulation
 -	**Computer Vision**: Scene Understanding, Vision-Language Models
