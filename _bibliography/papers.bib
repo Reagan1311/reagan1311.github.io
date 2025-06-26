@@ -1,16 +1,45 @@
 ---
 ---
 
+@article{hao2024principles,
+  title={Principles of Visual Tokens for Efficient Video Understanding},
+  author={Hao, Xinyue and Li, Gen and Gowda, Shreyank N and Fisher, Robert B and Huang, Jonathan and Arnab, Anurag and Sevilla-Lara, Laura},
+  journal={IEEE/CVF International Conference on Computer Vision},
+  arxiv = "2411.13626",
+  year={2025},
+  abbr={ICCV},
+}
 
-@article{Aff-Grasp,
+@article{gowda2025watt,
+  title={Watt for what: Rethinking deep learning’s energy-performance relationship},
+  author={Gowda, Shreyank N and Hao, Xinyue and Li, Gen and Gowda, Shashank Narayana and Jin, Xiaobo and Sevilla-Lara, Laura},
+  journal={European Conference on Computer Vision},
+  pages={388--405},
+  year={2024},
+  organization={Springer},
+  abbr={ECCVW},
+  url="https://link.springer.com/chapter/10.1007/978-3-031-92089-9_24"
+}
+
+@article{huang2025resource,
+  title={Resource-Efficient Affordance Grounding with Complementary Depth and Semantic Prompts},
+  author={Huang, Yizhou and Yang, Fan and Zhu, Guoliang and Li, Gen and Shi, Hao and Zuo, Yukun and Chen, Wenrui and Li, Zhiyong and Yang, Kailun},
+  journal={International Conference on Intelligent Robots and Systems},
+  year={2025},
+  abbr={IROS},
+  arxiv = "2503.02600",
+  code="https://github.com/DAWDSE/BiT-Align"
+}
+
+@inproceedings{Aff-Grasp,
   title={Learning Precise Affordances from Egocentric Videos for Robotic Manipulation},
   author={Li, Gen and Tsagkas, Nikolaos and Song, Jifei and Mon-Williams, Ruaridh and Vijayakumar, Sethu and Shao, Kun and Sevilla-Lara, Laura},
   website="https://reagan1311.github.io/affgrasp",
-  journal={arXiv},
   selected={true},
   preview = "affgrasp-gif.gif",
-  year={2024},
-  abbr={Preprint},
+  year={2025},
+  abbr={ICCV},
+  journal={IEEE/CVF International Conference on Computer Vision},
   arxiv = "2408.10123",
   website="https://reagan1311.github.io/affgrasp",
   abstract = {Affordance, defined as the potential actions that an object offers, is crucial for robotic manipulation tasks. A deep understanding of affordance can lead to more intelligent AI systems. For example, such knowledge directs an agent to grasp a knife by the handle for cutting and by the blade when passing it to someone. In this paper, we present a streamlined affordance learning system that encompasses data collection, effective model training, and robot deployment. First, we collect training data from egocentric videos in an automatic manner. Different from previous methods that focus only on the object graspable affordance and represent it as coarse heatmaps, we cover both graspable (e.g., object handles) and functional affordances (e.g., knife blades, hammer heads) and extract data with precise segmentation masks. We then propose an effective model, termed Geometry-guided Affordance Transformer (GKT), to train on the collected data. GKT integrates an innovative Depth Feature Injector (DFI) to incorporate 3D shape and geometric priors, enhancing the model's understanding of affordances. To enable affordance-oriented manipulation, we further introduce Aff-Grasp, a framework that combines GKT with a grasp generation model. For comprehensive evaluation, we create an affordance evaluation dataset with pixel-wise annotations, and design real-world tasks for robot experiments. The results show that GKT surpasses the state-of-the-art by 15.9% in mIoU, and Aff-Grasp achieves high success rates of 95.5% in affordance prediction and 77.1% in successful grasping among 179 trials, including evaluations with seen, unseen objects, and cluttered scenes},
@@ -29,10 +58,10 @@
   abstract = {Completing complex tasks in unpredictable settings challenges robotic systems, requiring a step change in machine intelligence. Sensorimotor abilities are considered integral to human intelligence. Thus, biologically inspired machine intelligence might usefully combine artificial intelligence with robotic sensorimotor capabilities. Here, we report an Embodied Large Language Model Enabled Robot (ELLMER) framework, utilising GPT-4 and a Retrieval Augmented Generation (RAG) infrastructure, to enable robots to complete long-horizon tasks in unpredictable settings. The method extracts contextually relevant examples from a knowledge base, producing action plans incorporating Force and Visual feedback, enabling adaptation to changing conditions. We tested ELLMER on a robot tasked with coffee making and plate decoration; these tasks consist of a sequence of sub-tasks from drawer-opening to pouring, each benefiting from distinct feedback types and methods. We show that the ELLMER framework allows the robot to complete the tasks. This demonstration marks progress towards scalable, efficient, ‘intelligent robots’ able to complete complex tasks in uncertain environments.},
 }
 
-@inproceedings{OOAL,
+@article{OOAL,
   title={One-Shot Open Affordance Learning with Foundation Models},
   author={Li, Gen and Sun, Deqing and Sevilla-Lara, Laura and Jampani, Varun},
-  booktitle={IEEE/CVF conference on computer vision and pattern recognition},
+  journal={IEEE/CVF conference on computer vision and pattern recognition},
   selected={true},
   preview = "ooal.png",
   year={2024},
@@ -43,10 +72,10 @@
   abstract = {We introduce One-shot Open Affordance Learning (OOAL), where a model is trained with just one example per base object category, but is expected to identify novel objects and affordances. While vision-language models excel at recognizing novel objects and scenes, they often struggle to understand finer levels of granularity such as affordances. To handle this issue, we conduct a comprehensive analysis of existing foundation models, to explore their inherent understanding of affordances and assess the potential for data-limited affordance learning. We then propose a vision-language framework with simple and effective designs that boost the alignment between visual features and affordance text embeddings. Experiments on two affordance segmentation benchmarks show that the proposed method outperforms state-of-the-art models with less than 1% of the full training data, and exhibits reasonable generalization capability on unseen objects and affordances.},
 }
 
-@inproceedings{Refer,
+@article{Refer,
   title={Referenceless User Controllable Semantic Image Synthesis},
   author={Kim, Jonghyun and Li, Gen  and Kim, Joongkyu},
-  booktitle={International Joint Conference on Neural Networks},
+  journal={International Joint Conference on Neural Networks},
   preview = "referenceless.png",
   year={2023},
   abbr={IJCNN'23},
@@ -55,10 +84,10 @@
   abstract = {Despite recent progress in semantic image synthesis, complete control over image style remains a challenging problem. Existing methods require reference images to feed style information into semantic layouts, which indicates that the style is constrained by the given image. In this paper, we propose a model named RUCGAN for user controllable semantic image synthesis, which utilizes a singular color to represent the style of a specific semantic region. The proposed network achieves reference-free semantic image synthesis by injecting color as userdesired styles into each semantic layout, and is able to synthesize semantic images with unusual colors. Extensive experimental results on various challenging datasets show that the proposed method outperforms existing methods, and we further provide an interactive UI to demonstrate the advantage of our approach for style controllability. The codes and UI are available at: https://github.com/BenjaminJonghyun/RUCGAN},
 }
 
-@inproceedings{LOCATE,
+@article{LOCATE,
   title={LOCATE: Localize and Transfer Object Parts for Weakly Supervised Affordance Grounding},
   author={Li, Gen and Jampani, Varun and Sun, Deqing and Sevilla-Lara, Laura},
-  booktitle={IEEE/CVF conference on computer vision and pattern recognition},
+  journal={IEEE/CVF conference on computer vision and pattern recognition},
   selected={true},
   preview = "LOCATE.png",
   year={2023},
@@ -69,10 +98,10 @@
   abstract = {Humans excel at acquiring knowledge through observation. For example, we can learn to use new tools by watching demonstrations. This skill is fundamental for intelligent systems to interact with the world. A key step to acquire this skill is to identify what part of the object affords each action, which is called affordance grounding. In this paper, we address this problem and propose a framework called LOCATE that can identify matching object parts across images, to transfer knowledge from images where an object is being used (exocentric images used for learning), to images where the object is inactive (egocentric ones used to test). To this end, we first find interaction areas and extract their feature embeddings. Then we learn to aggregate the embeddings into compact prototypes (human, object part, and background), and select the one representing the object part. Finally, we use the selected prototype to guide affordance grounding. We do this in a weakly supervised manner, learning only from image-level affordance and object labels. Extensive experiments demonstrate that our approach outperforms state-of-the-art methods by a large margin on both seen and unseen objects.},
 }
 
-@inproceedings{ASGNet,
+@article{ASGNet,
   title={Adaptive Prototype Learning and Allocation for Few-Shot Segmentation},
   author={Li, Gen and Jampani, Varun and Sevilla-Lara, Laura and Sun, Deqing and Kim, Jonghyun and Kim, Joongkyu},
-  booktitle={IEEE/CVF conference on computer vision and pattern recognition},
+  journal={IEEE/CVF conference on computer vision and pattern recognition},
   selected={true},
   code="https://github.com/Reagan1311/ASGNet",
   preview = "ASGNet.png",
@@ -84,10 +113,10 @@
   abbr={CVPR'21},
 }
 
-@inproceedings{DABNet,
+@article{DABNet,
   title={DABNet: Depth-wise asymmetric bottleneck for real-time semantic segmentation},
   author={Li, Gen and Kim, Joongkyu},
-  booktitle={British Machine Vision Conference},
+  journal={British Machine Vision Conference},
   code="https://github.com/Reagan1311/DABNet",
   preview="DABNet.png",
   arXiv = "1907.11357",
@@ -96,10 +125,10 @@
   abbr={BMVC'19},
 }
 
-@inproceedings{kim2021superstylenet,
+@article{kim2021superstylenet,
   title={SuperStyleNet: Deep Image Synthesis with Superpixel Based Style Encoder},
   author={Jonghyun Kim and Gen Li and Cheolkon Jung and Joongkyu Kim},
-  booktitle={British Machine Vision Conference},
+  journal={British Machine Vision Conference},
   code="https://github.com/BenjaminJonghyun/SuperStyleNet",
   preview="superstyle.png",
   arXiv="2112.09367",
