@@ -1,13 +1,37 @@
 ---
 ---
 
+@inproceedings{Aff-Grasp,
+  title={Learning Precise Affordances from Egocentric Videos for Robotic Manipulation},
+  author={Li, Gen and Tsagkas, Nikolaos and Song, Jifei and Mon-Williams, Ruaridh and Vijayakumar, Sethu and Shao, Kun and Sevilla-Lara, Laura},
+  website="https://reagan1311.github.io/affgrasp",
+  selected={true},
+  preview = "affgrasp-gif.gif",
+  year={2025},
+  abbr={ICCV'25},
+  journal={IEEE/CVF International Conference on Computer Vision},
+  arxiv = "2408.10123",
+  website="https://reagan1311.github.io/affgrasp",
+  abstract = {Affordance, defined as the potential actions that an object offers, is crucial for robotic manipulation tasks. A deep understanding of affordance can lead to more intelligent AI systems. For example, such knowledge directs an agent to grasp a knife by the handle for cutting and by the blade when passing it to someone. In this paper, we present a streamlined affordance learning system that encompasses data collection, effective model training, and robot deployment. First, we collect training data from egocentric videos in an automatic manner. Different from previous methods that focus only on the object graspable affordance and represent it as coarse heatmaps, we cover both graspable (e.g., object handles) and functional affordances (e.g., knife blades, hammer heads) and extract data with precise segmentation masks. We then propose an effective model, termed Geometry-guided Affordance Transformer (GKT), to train on the collected data. GKT integrates an innovative Depth Feature Injector (DFI) to incorporate 3D shape and geometric priors, enhancing the model's understanding of affordances. To enable affordance-oriented manipulation, we further introduce Aff-Grasp, a framework that combines GKT with a grasp generation model. For comprehensive evaluation, we create an affordance evaluation dataset with pixel-wise annotations, and design real-world tasks for robot experiments. The results show that GKT surpasses the state-of-the-art by 15.9% in mIoU, and Aff-Grasp achieves high success rates of 95.5% in affordance prediction and 77.1% in successful grasping among 179 trials, including evaluations with seen, unseen objects, and cluttered scenes},
+}
+
 @article{hao2024principles,
   title={Principles of Visual Tokens for Efficient Video Understanding},
   author={Hao, Xinyue and Li, Gen and Gowda, Shreyank N and Fisher, Robert B and Huang, Jonathan and Arnab, Anurag and Sevilla-Lara, Laura},
   journal={IEEE/CVF International Conference on Computer Vision},
   arxiv = "2411.13626",
   year={2025},
-  abbr={ICCV},
+  abbr={ICCV'25},
+}
+
+@article{huang2025resource,
+  title={Resource-Efficient Affordance Grounding with Complementary Depth and Semantic Prompts},
+  author={Huang, Yizhou and Yang, Fan and Zhu, Guoliang and Li, Gen and Shi, Hao and Zuo, Yukun and Chen, Wenrui and Li, Zhiyong and Yang, Kailun},
+  journal={International Conference on Intelligent Robots and Systems},
+  year={2025},
+  abbr={IROS'25},
+  arxiv = "2503.02600",
+  code="https://github.com/DAWDSE/BiT-Align"
 }
 
 @article{gowda2025watt,
@@ -17,32 +41,8 @@
   pages={388--405},
   year={2024},
   organization={Springer},
-  abbr={ECCVW},
+  abbr={ECCVW'24},
   url="https://link.springer.com/chapter/10.1007/978-3-031-92089-9_24"
-}
-
-@article{huang2025resource,
-  title={Resource-Efficient Affordance Grounding with Complementary Depth and Semantic Prompts},
-  author={Huang, Yizhou and Yang, Fan and Zhu, Guoliang and Li, Gen and Shi, Hao and Zuo, Yukun and Chen, Wenrui and Li, Zhiyong and Yang, Kailun},
-  journal={International Conference on Intelligent Robots and Systems},
-  year={2025},
-  abbr={IROS},
-  arxiv = "2503.02600",
-  code="https://github.com/DAWDSE/BiT-Align"
-}
-
-@inproceedings{Aff-Grasp,
-  title={Learning Precise Affordances from Egocentric Videos for Robotic Manipulation},
-  author={Li, Gen and Tsagkas, Nikolaos and Song, Jifei and Mon-Williams, Ruaridh and Vijayakumar, Sethu and Shao, Kun and Sevilla-Lara, Laura},
-  website="https://reagan1311.github.io/affgrasp",
-  selected={true},
-  preview = "affgrasp-gif.gif",
-  year={2025},
-  abbr={ICCV},
-  journal={IEEE/CVF International Conference on Computer Vision},
-  arxiv = "2408.10123",
-  website="https://reagan1311.github.io/affgrasp",
-  abstract = {Affordance, defined as the potential actions that an object offers, is crucial for robotic manipulation tasks. A deep understanding of affordance can lead to more intelligent AI systems. For example, such knowledge directs an agent to grasp a knife by the handle for cutting and by the blade when passing it to someone. In this paper, we present a streamlined affordance learning system that encompasses data collection, effective model training, and robot deployment. First, we collect training data from egocentric videos in an automatic manner. Different from previous methods that focus only on the object graspable affordance and represent it as coarse heatmaps, we cover both graspable (e.g., object handles) and functional affordances (e.g., knife blades, hammer heads) and extract data with precise segmentation masks. We then propose an effective model, termed Geometry-guided Affordance Transformer (GKT), to train on the collected data. GKT integrates an innovative Depth Feature Injector (DFI) to incorporate 3D shape and geometric priors, enhancing the model's understanding of affordances. To enable affordance-oriented manipulation, we further introduce Aff-Grasp, a framework that combines GKT with a grasp generation model. For comprehensive evaluation, we create an affordance evaluation dataset with pixel-wise annotations, and design real-world tasks for robot experiments. The results show that GKT surpasses the state-of-the-art by 15.9% in mIoU, and Aff-Grasp achieves high success rates of 95.5% in affordance prediction and 77.1% in successful grasping among 179 trials, including evaluations with seen, unseen objects, and cluttered scenes},
 }
 
 @article{ELLMER,
