@@ -7,3 +7,19 @@
 
 "Vision":
   color: "#009f36"
+
+"Preprint":
+  color: "indigo"
+
+"NMI":
+  url: https://www.nature.com/natmachintell/
+  color: "darkcyan"
+
+journals: &journal
+  color: "darkcyan"
+
+TPAMI: *journal
+TIP: *journal
+Access: *journal
+Neurocom: *journal
+PR: *journal
