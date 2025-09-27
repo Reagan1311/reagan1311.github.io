@@ -8,7 +8,7 @@ subtitle:
 
 profile:
   align: right
-  image: gen_pic.jpg
+  image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p style="font-size:15px;"> On Westminster Bridge, London (2025) </p>
