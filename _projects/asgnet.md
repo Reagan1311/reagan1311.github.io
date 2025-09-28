@@ -84,7 +84,7 @@ Prototype learning is extensively used for few-shot segmentation. Typically, a s
 <center>
 <figure>
     <div id="projectid">
-    <img src="/assets/img/publication_preview/ASGNet.png" width="600px">
+    <img src="/assets/img/publication_preview/ASGNet.png" width="60%">
     </div>
     <figcaption style="font-size: 90%; margin-top: 12px; text-align: left; font-weight: 400">
 	Comparison between (a) single prototype learning and (b) proposed adaptive prototype learning and allocation.  We utilize superpixel-guided clustering to generate multiple prototypes and then allocate them pixel-wise to query feature.
