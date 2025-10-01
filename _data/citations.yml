@@ -1,0 +1,83 @@
+metadata:
+  last_updated: '2025-10-01'
+papers:
+  Rfh4mm0AAAAJ:1sJd4Hv_s6UC:
+    citations: 64
+    title: 'LOCATE: Localize and Transfer Object Parts for Weakly Supervised Affordance Grounding'
+    year: '2023'
+  Rfh4mm0AAAAJ:738O_yMBCRsC:
+    citations: 0
+    title: Resource-Efficient Affordance Grounding with Complementary Depth and Semantic Prompts
+    year: '2025'
+  Rfh4mm0AAAAJ:EUQCXRtRnyEC:
+    citations: 26
+    title: Weakly-supervised temporal attention 3D network for human action recognition
+    year: '2021'
+  Rfh4mm0AAAAJ:HoB7MX3m0LUC:
+    citations: 45
+    title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
+    year: '2020'
+  Rfh4mm0AAAAJ:K3LRdlH-MEoC:
+    citations: 43
+    title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
+    year: '2025'
+  Rfh4mm0AAAAJ:KxtntwgDAa4C:
+    citations: 21
+    title: 'Watt For What: Rethinking Deep Learning''s Energy-Performance Relationship'
+    year: '2023'
+  Rfh4mm0AAAAJ:OU6Ihb5iCvQC:
+    citations: 14
+    title: Learning precise affordances from egocentric videos for robotic manipulation
+    year: '2024'
+  Rfh4mm0AAAAJ:SeFeTyx0c_EC:
+    citations: 58
+    title: Edge and identity preserving network for face super-resolution
+    year: '2021'
+  Rfh4mm0AAAAJ:UxriW0iASnsC:
+    citations: 2
+    title: Dual pyramids encoder-decoder network for semantic segmentation in ground and aerial view images
+    year: '2020'
+  Rfh4mm0AAAAJ:XiSMed-E-HIC:
+    citations: 0
+    title: Principles of Visual Tokens for Efficient Video Understanding
+    year: '2024'
+  Rfh4mm0AAAAJ:_xSYboBqXhAC:
+    citations: 534
+    title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
+    year: '2021'
+  Rfh4mm0AAAAJ:abG-DnoFyZgC:
+    citations: 4
+    title: Progressive face super-resolution with non-parametric facial prior enhancement
+    year: '2021'
+  Rfh4mm0AAAAJ:b0M2c_1WBrUC:
+    citations: 3
+    title: Perspective-aware density regression for crowd counting
+    year: '2021'
+  Rfh4mm0AAAAJ:dshw04ExmUIC:
+    citations: 37
+    title: One-Shot Open Affordance Learning with Foundation Models
+    year: '2023'
+  Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
+    citations: 3
+    title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
+    year: '2025'
+  Rfh4mm0AAAAJ:ldfaerwXgEUC:
+    citations: 381
+    title: 'Dabnet: Depth-wise asymmetric bottleneck for real-time semantic segmentation'
+    year: '2019'
+  Rfh4mm0AAAAJ:nb7KW1ujOQ8C:
+    citations: 1
+    title: Referenceless User Controllable Semantic Image Synthesis
+    year: '2023'
+  Rfh4mm0AAAAJ:p2g8aNsByqUC:
+    citations: 2
+    title: 'SpecSAR-former: a lightweight transformer-based network for global LULC mapping using integrated Sentinel-1 and Sentinel-2'
+    year: '2024'
+  Rfh4mm0AAAAJ:pqnbT2bcN3wC:
+    citations: 53
+    title: Depth-wise asymmetric bottleneck with point-wise aggregation decoder for real-time semantic segmentation in urban scenes
+    year: '2020'
+  Rfh4mm0AAAAJ:xtRiw3GOFMkC:
+    citations: 2
+    title: 'SuperStyleNet: Deep Image Synthesis with Superpixel Based Style Encoder'
+    year: '2021'
