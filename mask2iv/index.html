@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Mask2IV: Interaction-Centric Video Generation via Mask Trajectories">
+  <meta name="keywords" content="Video Generation, Human-Object Interaction, Robotic Manipulation, Diffusion Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mask2IV</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV4ZJ9PVSV');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="../project_page_static/css/bulma.min.css">
+  <link rel="stylesheet" href="../project_page_static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="../project_page_static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="../project_page_static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../project_page_static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="../project_page_static/js/fontawesome.all.min.js"></script>
+  <script src="../project_page_static/js/bulma-carousel.min.js"></script>
+  <script src="../project_page_static/js/bulma-slider.min.js"></script>
+  <script src="./index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" target="_blank" href="https://reagan1311.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" target="_blank" href="https://reagan1311.github.io/locate/">
+            LOCATE
+          </a>
+          <a class="navbar-item" target="_blank" href="https://reagan1311.github.io/ooal/">
+            OOAL
+          </a>
+          <a class="navbar-item" target="_blank" href="https://reagan1311.github.io/affgrasp/">
+            Aff-Grasp
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Mask2IV: Interaction-Centric Video Generation via Mask Trajectories</h1>
+          <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://iccv.thecvf.com/">ICCV 2025</a></h3> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="http://reagan1311.github.io/">Gen Li</a><sup>1,3</sup>&ensp;</span>
+            <span class="author-block">
+              <a target="_blank" href="https://www.bozhao.me/">Bo Zhao</a><sup>2</sup>&ensp;</span>
+            <span class="author-block">
+              <a target="_blank" href="https://marsyang.site/">Jianfei Yang</a><sup>3</sup>&ensp;</span>
+            <span class="author-block">
+              <a target="_blank" href="https://laurasevilla.me/">Laura Sevilla-Lara</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Edinburgh&ensp;</span>
+            <span class="author-block"><sup>2</sup>Shanghai Jiao Tong University&ensp;</span>
+            <span class="author-block"><sup>3</sup>Nanyang Technological University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a target="_blank" href="paper/AffGrasp.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+
+            <!-- Arxiv Link. -->
+            <span class="link-block">
+              <a target="_blank" href=""
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                </span>
+                <span>ArXiv</span>
+              </a>
+            </span>
+
+            <!-- PDF Link. -->
+            <!-- <span class="link-block">
+              <a target="_blank" href="paper/09971_supp.pdf"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Supp</span>
+              </a>
+            </span> -->
+
+            <!-- Video Link. -->
+            <!-- <span class="link-block">
+              <a target="_blank" href="https://www.youtube.com/watch?v=zEXrEH3I3Pc"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span>
+              </a>
+            </span> -->
+
+            <!-- Talk Link. -->
+            <!-- <span class="link-block">
+              <a target="_blank" href="https://youtu.be/QcuXwmQgurE"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </span>
+                <span>Talk</span>
+              </a>
+            </span> -->
+
+
+            <!-- Colab Link. -->
+            <!-- <span class="link-block">
+              <a target="_blank" href="https://colab.research.google.com/drive/1HAqemP4cE81SQ6QO1-N85j5bF4C0qLs0?usp=sharing"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                </span>
+                <span>Colab</span>
+                </a>
+            </span> -->
+
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://github.com/Reagan1311/Mask2IV"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered is-centered">
+          <!-- <video id="teaser" autoplay muted loop height="100%"> -->
+            <!-- <source src="intro-gif.gif" -->
+                    <!-- type="video/mp4"> -->
+          <!-- </video> -->
+          <embed src="media/figures/teaser.png" class="interpolation-image" width="90%"
+          alt="Interpolate start reference image." />
+        </div>
+        <br>
+        <h2 class="subtitle has-text-centered">
+          Mask2IV synthesizes videos of human hands or robot arms interacting with a specified object, indicated by an input
+          mask. It first predicts a <br>
+          mask-based interaction trajectory (visualized in the top-left corner of each frame), 
+          and then generates the video guided by this trajectory. 
+          <br> 
+          The generation process is conditioned on either a text prompt or a target position mask.
+          <!-- <span class="dperact">PerAct</span> is an end-to-end behavior-cloning agent that can learn <br><b>a single language-conditioned policy</b> for 18 RLBench tasks with <b>249 unique task variations</b> -->
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="4">
+        <div class="item">
+          <p class="has-text-centered" style="font-size: 18px; font-family: 'Arial', sans-serif;">
+            "A robot arm folding a cloth"
+          </p>
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/teaser/bdv2_fold.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <p class="has-text-centered" style="font-size: 18px; font-family: 'Arial', sans-serif;">
+            "Two hands grapsing a chair"
+          </p>   
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/teaser/hoi4d_grasp_chair.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <p class="has-text-centered" style="font-size: 18px; font-family: 'Arial', sans-serif;">
+            "A robot arm opening a drawer"
+          </p>
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/teaser/bdv2_open_drawer.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <p class="has-text-centered" style="font-size: 18px; font-family: 'Arial', sans-serif;">
+            "A hand opening a trashcan"
+          </p>
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/teaser/hoi4d_open_trashcan.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <p class="has-text-centered" style="font-size: 18px; font-family: 'Arial', sans-serif;">
+            "A robot arm moving the corn to the right side of table"
+          </p>
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/teaser/bdv2_pickup_corn.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <p class="has-text-centered" style="font-size: 18px; font-family: 'Arial', sans-serif;">
+            "A hand picking up a kettle"
+          </p>
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/teaser/hoi4d_pickup_kettle.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <p class="has-text-centered" style="font-size: 18px; font-family: 'Arial', sans-serif;">
+            "A robot arm unfolding a cloth"
+          </p>
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/teaser/bdv2_unfold.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <p class="has-text-centered" style="font-size: 18px; font-family: 'Arial', sans-serif;">
+            "A hand putting down a laptop"
+          </p>
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/teaser/hoi4d_putdown_laptop.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h2 class="subtitle has-text-centered">
+  <br>
+  We focus on the task of interaction-centric video generation, targeting realistic and controllable synthesis of
+  human-object and robot-object interactions.
+</h2>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+            <p>
+              Generating interaction-centric videos, such as those depicting humans or robots interacting with objects, is crucial for embodied intelligence, 
+              as they provide rich and diverse visual priors for robot learning, manipulation policy training, and affordance reasoning. 
+              However, existing methods often struggle to model such complex and dynamic interactions. 
+              While recent studies show that masks can serve as effective control signals and enhance generation quality, obtaining dense and precise mask annotations remains a major challenge for real-world use. 
+            </p>
+              
+            <p>            
+              To overcome this limitation, we introduce Mask2IV, a novel framework specifically designed for interaction-centric video generation. 
+              It adopts a decoupled two-stage pipeline that first predicts plausible motion trajectories for both actor and object, then generates a video conditioned on these trajectories. 
+              This design eliminates the need for dense mask inputs from users while preserving the flexibility to manipulate the interaction process. 
+              Furthermore, Mask2IV supports versatile and intuitive control, allowing users to specify the target object of interaction and guide the motion trajectory through action descriptions or spatial position cues. 
+            </p>
+
+            <p> 
+              To support systematic training and evaluation, we curate two benchmarks covering diverse action and object categories across both human-object interaction and robotic manipulation scenarios. 
+              Extensive experiments demonstrate that our method achieves superior visual realism and controllability compared to existing baselines.
+            </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <!-- <h2 class="title is-3"><span class="dperact">PerAct</span></h2> -->
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Mask2IV Framework</h3>
+        <hr>
+        <img src="media/figures/framework.png" class="interpolation-image" width="90%" style="display: block; margin: auto;"
+        alt="Interpolate start reference image." />
+        <br>
+        <p>
+          Mask2IV consists of two stages: Interaction Trajectory Generation and Trajectory-conditioned Video Generation. 
+          The first stage produces a mask-based interaction trajectory, while the second stage synthesizes a video conditioned on the predicted trajectory.
+        </p>
+        <br>
+        <br>
+
+        <h3 class="title is-4">Control Signal Acquisition</h3>
+        <hr>
+        <img src="media/figures/motivation.png" class="interpolation-image" width="65%" style="display: block; margin: auto;" alt="Interpolate start reference image.">
+        <br>
+        <p>
+          Hand-mask-controlled video generation methods, 
+          such as <a target="_blank" href="https://cv.cs.columbia.edu/sruthi/coshand/index.html">CosHand</a> and <a target="_blank" href="https://interdyn.is.tue.mpg.de/">InterDyn</a>, 
+          require users to provide dense hand mask sequences as input. 
+          In contrast, Mask2IV autonomously generates trajectories for both hands and objects without manual annotation, and can adaptively produce different trajectories based on the specified object.
+        </p>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container is-max-widescreen">
+  <!-- Animation. -->
+  <div class="rows is-centered ">
+    <div class="row is-full-width">
+      <h3 class="title is-4">Results</h3>
+      <hr>
+      <br>
+      <div class="columns is-centered">
+        <h3 class="title is-5">Text-Conditioned Interaction Video Generation</h3>
+      </div>
+
+      <section class="hero is-light is-small">
+        <div class="hero-body">    
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/text-condition/text_0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/text-condition/text_1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/text-condition/text_2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br>
+      <br>
+
+    </div>
+  </div>
+</div>
+
+<div class="container is-max-widescreen">
+  <!-- Animation. -->
+  <div class="rows is-centered ">
+    <div class="row is-full-width">
+      <div class="columns is-centered">
+        <!-- Videos of same input image with different position masks -->
+        <h3 class="title is-5">Position-Conditioned Interaction Video Generation</h3>
+      </div>
+
+      <section class="hero is-light is-small">
+        <div class="hero-body">    
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/position-condition/pos_0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/position-condition/pos_1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/position-condition/pos_2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br>
+      <br>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container is-max-widescreen">
+  <!-- Animation. -->
+  <div class="rows is-centered ">
+    <div class="row is-full-width">
+      <div class="columns is-centered">
+        <!-- Videos of same input image with different target objects -->
+        <h3 class="title is-5">Target-Specific Interaction Video Generation</h3>
+      </div>
+
+      <section class="hero is-light is-small">
+        <div class="hero-body">    
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/target-specific/target_0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/target-specific/target_1.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br>
+      <br>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container is-max-widescreen">
+  <!-- Animation. -->
+  <div class="rows is-centered ">
+    <div class="row is-full-width">
+      <div class="columns is-centered">
+        <!-- Comparison Videos -->
+        <h3 class="title is-5">Comparison with mask-controlled methods</h3>
+      </div>
+      
+      <section class="hero is-light is-small">
+        <div class="hero-body">    
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/comparison/com_0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/comparison/com_1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/comparison/com_2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item is-flex is-justify-content-center" style="border: none;">
+                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                  <source src="media/videos/comparison/com_3.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{li2025mask2iv,
+      title     = {Mask2IV: Interaction-Centric Video Generation via Mask Trajectories}, 
+      author    = {Li, Gen and Zhao, Bo and Yang, Jianfei and Sevilla-Lara, Laura},
+      journal   = {},
+      year      = {2025},
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
