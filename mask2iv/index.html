@@ -32,7 +32,7 @@
   <script defer src="../project_page_static/js/fontawesome.all.min.js"></script>
   <script src="../project_page_static/js/bulma-carousel.min.js"></script>
   <script src="../project_page_static/js/bulma-slider.min.js"></script>
-  <script src="./index.js"></script>
+  <script src="../project_page_static/js/index.js"></script>
 </head>
 <body>
 
@@ -86,16 +86,16 @@
             <span class="author-block">
               <a target="_blank" href="https://www.bozhao.me/">Bo Zhao</a><sup>2</sup>&ensp;</span>
             <span class="author-block">
-              <a target="_blank" href="https://marsyang.site/">Jianfei Yang</a><sup>3</sup>&ensp;</span>
+              <a target="_blank" href="https://marsyang.site/">Jianfei Yang</a><sup>1</sup>&ensp;</span>
             <span class="author-block">
-              <a target="_blank" href="https://laurasevilla.me/">Laura Sevilla-Lara</a><sup>1</sup>
+              <a target="_blank" href="https://laurasevilla.me/">Laura Sevilla-Lara</a><sup>3</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Edinburgh&ensp;</span>
+            <span class="author-block"><sup>1</sup>Nanyang Technological University&ensp;</span>
             <span class="author-block"><sup>2</sup>Shanghai Jiao Tong University&ensp;</span>
-            <span class="author-block"><sup>3</sup>Nanyang Technological University</span>
+            <span class="author-block"><sup>3</sup>University of Edinburgh</span>
           </div>
 
           <div class="column has-text-centered">
@@ -375,163 +375,165 @@
 </section>
 
 
-<div class="container is-max-widescreen">
-  <!-- Animation. -->
-  <div class="rows is-centered ">
-    <div class="row is-full-width">
-      <h3 class="title is-4">Results</h3>
-      <hr>
-      <br>
-      <div class="columns is-centered">
-        <h3 class="title is-5">Text-Conditioned Interaction Video Generation</h3>
-      </div>
+<section class="section">
+  <div class="container is-max-widescreen">
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h3 class="title is-4">Results</h3>
+        <hr>
+        <br>
+        <div class="columns is-centered">
+          <h3 class="title is-5">Text-Conditioned Interaction Video Generation</h3>
+        </div>
 
-      <section class="hero is-light is-small">
-        <div class="hero-body">    
-          <div class="container">
-            <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/text-condition/text_0.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/text-condition/text_1.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/text-condition/text_2.mp4" type="video/mp4">
-                </video>
+        <section class="hero is-light is-small">
+          <div class="hero-body">    
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/text-condition/text_0.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/text-condition/text_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/text-condition/text_2.mp4" type="video/mp4">
+                  </video>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <br>
-      <br>
+        </section>
+        <br>
+        <br>
 
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container is-max-widescreen">
-  <!-- Animation. -->
-  <div class="rows is-centered ">
-    <div class="row is-full-width">
-      <div class="columns is-centered">
-        <!-- Videos of same input image with different position masks -->
-        <h3 class="title is-5">Position-Conditioned Interaction Video Generation</h3>
-      </div>
+  <div class="container is-max-widescreen">
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <div class="columns is-centered">
+          <!-- Videos of same input image with different position masks -->
+          <h3 class="title is-5">Position-Conditioned Interaction Video Generation</h3>
+        </div>
 
-      <section class="hero is-light is-small">
-        <div class="hero-body">    
-          <div class="container">
-            <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/position-condition/pos_0.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/position-condition/pos_1.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/position-condition/pos_2.mp4" type="video/mp4">
-                </video>
+        <section class="hero is-light is-small">
+          <div class="hero-body">    
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/position-condition/pos_0.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/position-condition/pos_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/position-condition/pos_2.mp4" type="video/mp4">
+                  </video>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <br>
-      <br>
+        </section>
+        <br>
+        <br>
 
+      </div>
     </div>
   </div>
-</div>
 
 
-<div class="container is-max-widescreen">
-  <!-- Animation. -->
-  <div class="rows is-centered ">
-    <div class="row is-full-width">
-      <div class="columns is-centered">
-        <!-- Videos of same input image with different target objects -->
-        <h3 class="title is-5">Target-Specific Interaction Video Generation</h3>
-      </div>
+  <div class="container is-max-widescreen">
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <div class="columns is-centered">
+          <!-- Videos of same input image with different target objects -->
+          <h3 class="title is-5">Target-Specific Interaction Video Generation</h3>
+        </div>
 
-      <section class="hero is-light is-small">
-        <div class="hero-body">    
-          <div class="container">
-            <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/target-specific/target_0.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/target-specific/target_1.mp4" type="video/mp4">
-                </video>
+        <section class="hero is-light is-small">
+          <div class="hero-body">    
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/target-specific/target_0.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/target-specific/target_1.mp4" type="video/mp4">
+                  </video>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <br>
-      <br>
+        </section>
+        <br>
+        <br>
 
+      </div>
     </div>
   </div>
-</div>
 
 
-<div class="container is-max-widescreen">
-  <!-- Animation. -->
-  <div class="rows is-centered ">
-    <div class="row is-full-width">
-      <div class="columns is-centered">
-        <!-- Comparison Videos -->
-        <h3 class="title is-5">Comparison with mask-controlled methods</h3>
-      </div>
-      
-      <section class="hero is-light is-small">
-        <div class="hero-body">    
-          <div class="container">
-            <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/comparison/com_0.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/comparison/com_1.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/comparison/com_2.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item is-flex is-justify-content-center" style="border: none;">
-                <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
-                  <source src="media/videos/comparison/com_3.mp4" type="video/mp4">
-                </video>
+  <div class="container is-max-widescreen">
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <div class="columns is-centered">
+          <!-- Comparison Videos -->
+          <h3 class="title is-5">Comparison with mask-controlled methods</h3>
+        </div>
+        
+        <section class="hero is-light is-small">
+          <div class="hero-body">    
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/comparison/com_0.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/comparison/com_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/comparison/com_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item is-flex is-justify-content-center" style="border: none;">
+                  <video poster="" autoplay controls muted loop playsinline width="70%" height="auto">
+                    <source src="media/videos/comparison/com_3.mp4" type="video/mp4">
+                  </video>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 
 

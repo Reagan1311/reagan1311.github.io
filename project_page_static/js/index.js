@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     // Initialize all carousels with per-element slidesToShow
     document.querySelectorAll('.carousel').forEach(el => {
-        let slides = parseInt(el.dataset.slidesToShow) || 4; // default 4
+        let slides = parseInt(el.dataset.slidesToShow) || 3; // default 3
         let options = {
             slidesToScroll: 1,
             slidesToShow: slides,
