@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2025-10-13'
+  last_updated: '2025-10-15'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 0
@@ -58,7 +58,7 @@ papers:
     title: Perspective-aware density regression for crowd counting
     year: '2021'
   Rfh4mm0AAAAJ:dshw04ExmUIC:
-    citations: 41
+    citations: 42
     title: One-Shot Open Affordance Learning with Foundation Models
     year: '2023'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
@@ -66,7 +66,7 @@ papers:
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
-    citations: 383
+    citations: 384
     title: 'Dabnet: Depth-wise asymmetric bottleneck for real-time semantic segmentation'
     year: '2019'
   Rfh4mm0AAAAJ:nb7KW1ujOQ8C:
