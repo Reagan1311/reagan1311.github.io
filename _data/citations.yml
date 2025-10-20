@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2025-10-15'
+  last_updated: '2025-10-20'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 0
@@ -22,11 +22,11 @@ papers:
     title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
     year: '2020'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 50
+    citations: 51
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
-    citations: 21
+    citations: 20
     title: 'Watt For What: Rethinking Deep Learning''s Energy-Performance Relationship'
     year: '2023'
   Rfh4mm0AAAAJ:OU6Ihb5iCvQC:
@@ -46,7 +46,7 @@ papers:
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 537
+    citations: 541
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
@@ -62,7 +62,7 @@ papers:
     title: One-Shot Open Affordance Learning with Foundation Models
     year: '2023'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
-    citations: 3
+    citations: 5
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
@@ -78,7 +78,7 @@ papers:
     title: 'SpecSAR-former: a lightweight transformer-based network for global LULC mapping using integrated Sentinel-1 and Sentinel-2'
     year: '2024'
   Rfh4mm0AAAAJ:pqnbT2bcN3wC:
-    citations: 53
+    citations: 54
     title: Depth-wise asymmetric bottleneck with point-wise aggregation decoder for real-time semantic segmentation in urban scenes
     year: '2020'
   Rfh4mm0AAAAJ:tOudhMTPpwUC:
