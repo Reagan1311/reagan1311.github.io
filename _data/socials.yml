@@ -1,7 +1,14 @@
 # this file contains the social media links and usernames of the author
 # the socials will be displayed in the order they are defined here
-# for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
-cv_pdf: /assets/pdf/example_pdf.pdf # path to your CV PDF file
+
+# academia_edu:  your organization and your username Ex. https://organization.academia.edu/UserName
+#  organization: princeton # your organization as appears in the subdomain
+#  username:  AlbertEinstein # your username
+# acm_id: # your dl.acm.org/profile/id
+# arxiv_id: # your arXiv author ID
+# blogger_url: # your blogger URL
+# bluesky_url: # your bluesky URL
+# cv_pdf: /assets/pdf/example_pdf.pdf # path to your CV PDF file
 # dblp_url: # your DBLP profile url
 # discord_id: # your discord id (18-digit unique numerical identifier)
 email: ligen@g.skku.edu # your email address
