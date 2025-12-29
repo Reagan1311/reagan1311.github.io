@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2025-12-22'
+  last_updated: '2025-12-29'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 2
@@ -18,7 +18,7 @@ papers:
     title: 'Evo-1: Lightweight Vision-Language-Action Model with Preserved Semantic Alignment'
     year: '2025'
   Rfh4mm0AAAAJ:EUQCXRtRnyEC:
-    citations: 27
+    citations: 28
     title: Weakly-supervised temporal attention 3D network for human action recognition
     year: '2021'
   Rfh4mm0AAAAJ:HoB7MX3m0LUC:
@@ -26,11 +26,11 @@ papers:
     title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
     year: '2020'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 85
+    citations: 87
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
-    citations: 25
+    citations: 26
     title: 'Watt For What: Rethinking Deep Learning''s Energy-Performance Relationship'
     year: '2023'
   Rfh4mm0AAAAJ:OU6Ihb5iCvQC:
@@ -38,7 +38,7 @@ papers:
     title: Learning precise affordances from egocentric videos for robotic manipulation
     year: '2024'
   Rfh4mm0AAAAJ:SeFeTyx0c_EC:
-    citations: 60
+    citations: 61
     title: Edge and identity preserving network for face super-resolution
     year: '2021'
   Rfh4mm0AAAAJ:UxriW0iASnsC:
@@ -50,7 +50,7 @@ papers:
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 566
+    citations: 570
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
@@ -66,11 +66,11 @@ papers:
     title: One-Shot Open Affordance Learning with Foundation Models
     year: '2023'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
-    citations: 13
+    citations: 14
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
-    citations: 392
+    citations: 394
     title: 'Dabnet: Depth-wise asymmetric bottleneck for real-time semantic segmentation'
     year: '2019'
   Rfh4mm0AAAAJ:nb7KW1ujOQ8C:
