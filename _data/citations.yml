@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-01-21'
+  last_updated: '2026-02-04'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 2
     title: 'Mask2IV: Interaction-Centric Video Generation via Mask Trajectories'
     year: '2025'
   Rfh4mm0AAAAJ:1sJd4Hv_s6UC:
-    citations: 78
+    citations: 79
     title: 'LOCATE: Localize and Transfer Object Parts for Weakly Supervised Affordance Grounding'
     year: '2023'
   Rfh4mm0AAAAJ:738O_yMBCRsC:
@@ -14,7 +14,7 @@ papers:
     title: Resource-Efficient Affordance Grounding with Complementary Depth and Semantic Prompts
     year: '2025'
   Rfh4mm0AAAAJ:B3FOqHPlNUQC:
-    citations: 2
+    citations: 3
     title: 'Evo-1: Lightweight Vision-Language-Action Model with Preserved Semantic Alignment'
     year: '2025'
   Rfh4mm0AAAAJ:EUQCXRtRnyEC:
@@ -26,19 +26,19 @@ papers:
     title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
     year: '2020'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 95
+    citations: 103
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
-    citations: 26
+    citations: 27
     title: 'Watt For What: Rethinking Deep Learning''s Energy-Performance Relationship'
     year: '2023'
   Rfh4mm0AAAAJ:OU6Ihb5iCvQC:
-    citations: 25
+    citations: 28
     title: Learning precise affordances from egocentric videos for robotic manipulation
     year: '2024'
   Rfh4mm0AAAAJ:SeFeTyx0c_EC:
-    citations: 62
+    citations: 64
     title: Edge and identity preserving network for face super-resolution
     year: '2021'
   Rfh4mm0AAAAJ:UxriW0iASnsC:
@@ -46,11 +46,11 @@ papers:
     title: Dual pyramids encoder-decoder network for semantic segmentation in ground and aerial view images
     year: '2020'
   Rfh4mm0AAAAJ:XiSMed-E-HIC:
-    citations: 0
+    citations: 1
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 575
+    citations: 584
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
@@ -62,27 +62,27 @@ papers:
     title: Perspective-aware density regression for crowd counting
     year: '2021'
   Rfh4mm0AAAAJ:dshw04ExmUIC:
-    citations: 48
+    citations: 49
     title: One-Shot Open Affordance Learning with Foundation Models
     year: '2023'
+  Rfh4mm0AAAAJ:geHnlv5EZngC:
+    citations: 2
+    title: 'Synergistic Fusion of Sentinel-1 and Sentinel-2 for Global LULC Mapping: The Multimodal Network LULC-Former and Dynamic World+ Dataset'
+    year: '2026'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
-    citations: 18
+    citations: 19
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
-    citations: 393
+    citations: 399
     title: 'Dabnet: Depth-wise asymmetric bottleneck for real-time semantic segmentation'
     year: '2019'
   Rfh4mm0AAAAJ:nb7KW1ujOQ8C:
     citations: 1
     title: Referenceless User Controllable Semantic Image Synthesis
     year: '2023'
-  Rfh4mm0AAAAJ:p2g8aNsByqUC:
-    citations: 2
-    title: 'SpecSAR-former: a lightweight transformer-based network for global LULC mapping using integrated Sentinel-1 and Sentinel-2'
-    year: '2024'
   Rfh4mm0AAAAJ:pqnbT2bcN3wC:
-    citations: 54
+    citations: 55
     title: Depth-wise asymmetric bottleneck with point-wise aggregation decoder for real-time semantic segmentation in urban scenes
     year: '2020'
   Rfh4mm0AAAAJ:sSrBHYA8nusC:
