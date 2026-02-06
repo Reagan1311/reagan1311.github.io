@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-02-04'
+  last_updated: '2026-02-06'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 2
@@ -30,7 +30,7 @@ papers:
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
-    citations: 27
+    citations: 28
     title: 'Watt For What: Rethinking Deep Learning''s Energy-Performance Relationship'
     year: '2023'
   Rfh4mm0AAAAJ:OU6Ihb5iCvQC:
