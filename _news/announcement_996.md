@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2025-06-16
+date: 2025-05-28
 inline: true
 ---
 
-🎉 One paper accepted to [IROS 2025](http://www.iros25.org/).
+📖 Invited to serve as a Reviewer for [Nature Machine Intelligence](https://www.nature.com/natmachintell/)!
