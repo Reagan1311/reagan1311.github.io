@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-02-12'
+  last_updated: '2026-02-18'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
-    citations: 2
+    citations: 3
     title: 'Mask2IV: Interaction-Centric Video Generation via Mask Trajectories'
     year: '2025'
   Rfh4mm0AAAAJ:1sJd4Hv_s6UC:
-    citations: 80
+    citations: 77
     title: 'LOCATE: Localize and Transfer Object Parts for Weakly Supervised Affordance Grounding'
     year: '2023'
   Rfh4mm0AAAAJ:738O_yMBCRsC:
@@ -14,19 +14,19 @@ papers:
     title: Resource-Efficient Affordance Grounding with Complementary Depth and Semantic Prompts
     year: '2025'
   Rfh4mm0AAAAJ:B3FOqHPlNUQC:
-    citations: 3
+    citations: 4
     title: 'Evo-1: Lightweight Vision-Language-Action Model with Preserved Semantic Alignment'
     year: '2025'
   Rfh4mm0AAAAJ:EUQCXRtRnyEC:
-    citations: 28
+    citations: 29
     title: Weakly-supervised temporal attention 3D network for human action recognition
     year: '2021'
   Rfh4mm0AAAAJ:HoB7MX3m0LUC:
-    citations: 47
+    citations: 46
     title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
     year: '2020'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 105
+    citations: 111
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
@@ -50,7 +50,7 @@ papers:
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 585
+    citations: 587
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
@@ -70,7 +70,7 @@ papers:
     title: 'Synergistic Fusion of Sentinel-1 and Sentinel-2 for Global LULC Mapping: The Multimodal Network LULC-Former and Dynamic World+ Dataset'
     year: '2026'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
-    citations: 20
+    citations: 22
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
@@ -82,7 +82,7 @@ papers:
     title: Referenceless User Controllable Semantic Image Synthesis
     year: '2023'
   Rfh4mm0AAAAJ:pqnbT2bcN3wC:
-    citations: 55
+    citations: 54
     title: Depth-wise asymmetric bottleneck with point-wise aggregation decoder for real-time semantic segmentation in urban scenes
     year: '2020'
   Rfh4mm0AAAAJ:sSrBHYA8nusC:
