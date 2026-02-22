@@ -22,7 +22,7 @@ social: true # includes social icons at the bottom of the page
 announcements:
   enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 6 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
   enabled: false
@@ -39,6 +39,6 @@ The central focus of my research is to enable robots to perceive and interact wi
 - **Embodied AI**: Robot Learning, VLA, RL
 -	**Generative AI**: Image / Video Generation, World Models
 -	**Efficient AI**: Transfer Learning, Learning under Limited Data & Supervision
--	**Human / Robot Interaction**: Human-Object Interaction, Human-to-Robot Learning
+-	**Human / Robot Interaction**: Human-Robot collaboration, Human-to-Robot Learning
 
 📢 I am seeking highly self-motivated PhD, Master, and Bachelor students for potential reserach collaborations. Feel free to contact me via email if you are interested.
