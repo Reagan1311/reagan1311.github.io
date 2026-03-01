@@ -42,3 +42,17 @@ The central focus of my research is to enable robots to perceive and interact wi
 -	**Human / Robot Interaction**: Human-Robot collaboration, Human-to-Robot Learning
 
 📢 I am seeking highly self-motivated PhD, Master, and Bachelor students for potential reserach collaborations. Feel free to contact me via email if you are interested.
+
+<!-- <div class="row mt-4">
+  <div class="col-sm-12">
+    <div style="background-color: #f0f7ff; border-left: 4px solid var(--global-theme-color); padding: 15px 20px; border-radius: 4px; margin-bottom: 20px;">
+       <p style="color: #c62f2f; font-weight: 500; margin-bottom: 5px; font-size: 15px; line-height: 1.6;">
+         📣 <em style="color: inherit;"> I will join XXX as a XXX in the School of AI and Robotics in Fall 2026. </em>
+      </p>
+      <p style="color: var(--global-text-color); margin-bottom: 0; font-size: 15px; line-height: 1.6;">
+        🎓 <strong>Recruiting:</strong> Looking for postdocs, PhD students, undergraduates, interns, and visiting scholars to join my lab. Welcome to reach out!
+      </p>
+      <p></p>
+    </div>
+  </div>
+</div> -->
