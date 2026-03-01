@@ -30,51 +30,21 @@ permalink: /asgnet/
 <p style="text-align: center; font-weight: normal"> <sup>1</sup>University of Edinburgh &emsp;   <sup>2</sup>Google Research &emsp;   <sup>3</sup>Sungkyunkwan University</p>
 
 [comment]: Icons
-<div class="column has-text-centered">
-<div class="publication-links">
-     <!-- Arxiv PDF link -->
-  <span class="link-block">
-    <a href="https://arxiv.org/abs/2104.01893" target="_blank"
-    class="external-link button is-normal is-rounded is-dark">
-    <span class="icon" style="text-decoration: none">
-      <i class="fas fa-file-pdf"></i>
-    </span>    
-    <span>Paper</span>
-  </a>
-</span>
-
-<span class="link-block">
-<a href="/assets/pdf/ASGNet_supp.pdf" target="_blank"
-class="external-link button is-normal is-rounded is-dark">
-<span class="icon">
-<i class="fas fa-file-pdf"></i>
-</span>
-<span>Supp</span>
-</a>
-</span>
-
-<!-- Github link -->
-<span class="link-block">
-<a href="https://github.com/Reagan1311/ASGNet" target="_blank" 
-class="external-link button is-normal is-rounded is-dark">
-<span class="icon" style="text-decoration: none">
-  <i class="fab fa-github"></i>
-</span>
-<span>Code</span>
-</a>
-</span>
-
-<span class="link-block">
-<a href="https://www.youtube.com/watch?v=6TVfnLLRSZQ&ab_channel=GenLi" target="_blank" 
-class="external-link button is-normal is-rounded is-dark">
-<span class="icon" style="text-decoration: none">
-  <i class="fas fa-video"></i>
-</span>
-<span>Video</span>
-</a>
-</span>
-
-</div>
+<div class="row justify-content-center">
+  <div class="text-center">
+      <a href="https://arxiv.org/abs/2104.01893" target="_blank" class="btn btn-sm rounded-pill" role="button" style="background-color: #282828; color: white; margin: 5px; padding: 6px 16px; text-transform: none; font-size: 14px; box-shadow: none !important; outline: none !important;">
+        <i class="fas fa-file-pdf"></i> Paper
+      </a>
+      <a href="/assets/pdf/ASGNet_supp.pdf" target="_blank" class="btn btn-sm rounded-pill" role="button" style="background-color: #282828; color: white; margin: 5px; padding: 6px 16px; text-transform: none; font-size: 14px; box-shadow: none !important; outline: none !important;">
+        <i class="fas fa-file-pdf"></i> Supp
+      </a>
+      <a href="https://github.com/Reagan1311/ASGNet" target="_blank" class="btn btn-sm rounded-pill" role="button" style="background-color: #282828; color: white; margin: 5px; padding: 6px 16px; text-transform: none; font-size: 14px; box-shadow: none !important; outline: none !important;">
+        <i class="fab fa-github"></i> Code
+      </a>
+      <a href="https://www.youtube.com/watch?v=6TVfnLLRSZQ&ab_channel=GenLi" target="_blank" class="btn btn-sm rounded-pill" role="button" style="background-color: #282828; color: white; margin: 5px; padding: 6px 16px; text-transform: none; font-size: 14px; box-shadow: none !important; outline: none !important;">
+        <i class="fas fa-video"></i> Video
+      </a>
+  </div>
 </div>
 
 [comment]: Abstract
