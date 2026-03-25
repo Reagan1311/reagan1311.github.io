@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-18'
+  last_updated: '2026-03-25'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 4
@@ -18,11 +18,11 @@ papers:
     title: Resource-Efficient Affordance Grounding with Complementary Depth and Semantic Prompts
     year: '2025'
   Rfh4mm0AAAAJ:8AbLer7MMksC:
-    citations: 0
+    citations: 1
     title: Action-to-Action Flow Matching
     year: '2026'
   Rfh4mm0AAAAJ:B3FOqHPlNUQC:
-    citations: 7
+    citations: 8
     title: 'Evo-1: Lightweight Vision-Language-Action Model with Preserved Semantic Alignment'
     year: '2025'
   Rfh4mm0AAAAJ:EUQCXRtRnyEC:
@@ -30,15 +30,15 @@ papers:
     title: Weakly-supervised temporal attention 3D network for human action recognition
     year: '2021'
   Rfh4mm0AAAAJ:HoB7MX3m0LUC:
-    citations: 46
+    citations: 47
     title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
     year: '2020'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 126
+    citations: 130
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
-    citations: 27
+    citations: 28
     title: 'Watt For What: Rethinking Deep Learning''s Energy-Performance Relationship'
     year: '2023'
   Rfh4mm0AAAAJ:OU6Ihb5iCvQC:
@@ -58,7 +58,7 @@ papers:
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 600
+    citations: 608
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
@@ -78,11 +78,11 @@ papers:
     title: 'Synergistic Fusion of Sentinel-1 and Sentinel-2 for Global LULC Mapping: The Multimodal Network LULC-Former and Dynamic World+ Dataset'
     year: '2026'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
-    citations: 29
+    citations: 32
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
-    citations: 406
+    citations: 407
     title: 'DABNet: Depth-wise asymmetric bottleneck for real-time semantic segmentation'
     year: '2019'
   Rfh4mm0AAAAJ:nb7KW1ujOQ8C:
