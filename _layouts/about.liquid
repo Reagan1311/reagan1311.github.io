@@ -76,6 +76,35 @@ layout: default
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
       {% include newsletter.liquid center=true %}
     {% endif %}
-    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=9WXxx5iirdCiOyeZydEUMuy4oQEZbIIkI0qIF20OYGY'></script>
+    <style>
+      #clustrmaps-summary {
+        cursor: pointer;
+        list-style: none;
+        display: inline-block;
+        margin-bottom: 10px
+      }
+      #clustrmaps-summary::-webkit-details-marker {
+        display: none;
+      }
+      #clustrmaps-summary:hover {
+        text-decoration: underline;
+      }
+      #clustrmaps-summary .arrow-icon {
+        margin-right: 5px;
+        transition: transform 0.2s ease-in-out;
+        color: gray;
+      }
+      details[open] #clustrmaps-summary .arrow-icon {
+        transform: rotate(90deg);
+      }
+    </style>
+    <div style="text-align: center;">
+      <details>
+        <summary id="clustrmaps-summary">
+          <i class="fas fa-chevron-circle-right arrow-icon"></i>Visitor Statistics 🌍
+        </summary>
+        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=9WXxx5iirdCiOyeZydEUMuy4oQEZbIIkI0qIF20OYGY'></script>
+      </details>
+    </div>
   </article>
 </div>
