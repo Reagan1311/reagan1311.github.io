@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-25'
+  last_updated: '2026-03-30'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 4
@@ -22,7 +22,7 @@ papers:
     title: Action-to-Action Flow Matching
     year: '2026'
   Rfh4mm0AAAAJ:B3FOqHPlNUQC:
-    citations: 8
+    citations: 9
     title: 'Evo-1: Lightweight Vision-Language-Action Model with Preserved Semantic Alignment'
     year: '2025'
   Rfh4mm0AAAAJ:EUQCXRtRnyEC:
@@ -34,7 +34,7 @@ papers:
     title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
     year: '2020'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 130
+    citations: 131
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
@@ -58,7 +58,7 @@ papers:
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 608
+    citations: 609
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
@@ -70,7 +70,7 @@ papers:
     title: Perspective-aware density regression for crowd counting
     year: '2021'
   Rfh4mm0AAAAJ:dshw04ExmUIC:
-    citations: 52
+    citations: 53
     title: One-Shot Open Affordance Learning with Foundation Models
     year: '2023'
   Rfh4mm0AAAAJ:geHnlv5EZngC:
@@ -78,7 +78,7 @@ papers:
     title: 'Synergistic Fusion of Sentinel-1 and Sentinel-2 for Global LULC Mapping: The Multimodal Network LULC-Former and Dynamic World+ Dataset'
     year: '2026'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
-    citations: 32
+    citations: 34
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
