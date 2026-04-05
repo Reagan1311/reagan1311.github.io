@@ -16,7 +16,7 @@
   color: "darkcyan"
 
 journals: &journal
-  url: https://reagan1311.github.io
+  url: https://reagan1311.github.io/publications/
   color: "darkcyan"
 
 TPAMI: *journal
