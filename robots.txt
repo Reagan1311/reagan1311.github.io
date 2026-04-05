@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://reagan1311.github.io/sitemap.xml
+Sitemap: https://genli.top/sitemap.xml
