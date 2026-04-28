@@ -9,28 +9,26 @@
   color: "#009f36"
 
 "Preprint":
-  url: https://genli.top
-  color: "#00369f"
+  color: "#673ab7"
 
 "NMI":
   url: https://www.nature.com/natmachintell/
   color: "darkcyan"
 
 journals: &journal
-  url: https://genli.top/publications/
   color: "darkcyan"
 
 robots: &robot
-  url: https://genli.top
-  color: "#b509ac"
+  color: "#00369f"
 
 TPAMI: *journal
 TIP: *journal
 Access: *journal
 Neurocom: *journal
 PR: *journal
+
 RSS: *robot
-RSS'26: *robot
 ICRA: *robot
-IROS'25: *robot
+IROS: *robot
+CoRL: *robot
 CORL: *robot
