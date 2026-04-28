@@ -41,7 +41,7 @@ I was fortunate to be partially supported through Google DeepMind and Stability 
 -	**Multimodal AI**: VLMs, MLLMs
 -	**Generative AI**: Image / Video Generation, World Models
 -	**Efficient AI**: Transfer Learning, Learning under Limited Data & Supervision
--	**Human / Robot Interaction**: Human-Robot collaboration, Human-to-Robot Learning
+-	**Human-Centered AI**: Human-Robot Interaction, Human-to-Robot Learning
 
 <!-- 📢 I am seeking highly self-motivated PhD, Master, and Bachelor students for potential reserach collaborations. Feel free to contact me via email if you are interested. -->
 📢 If you are interested in these topics and would like to explore working together, please feel free to reach out via email.
