@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-05-01'
+  last_updated: '2026-05-06'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 5
@@ -34,11 +34,11 @@ papers:
     title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
     year: '2020'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 154
+    citations: 157
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
-    citations: 31
+    citations: 32
     title: 'Watt For What: Rethinking Deep Learning''s Energy-Performance Relationship'
     year: '2023'
   Rfh4mm0AAAAJ:LPZeul_q3PIC:
@@ -46,11 +46,11 @@ papers:
     title: 'RoboForge: Physically Optimized Text-guided Whole-Body Locomotion for Humanoids'
     year: '2026'
   Rfh4mm0AAAAJ:OU6Ihb5iCvQC:
-    citations: 37
+    citations: 38
     title: Learning Precise Affordances from Egocentric Videos for Robotic Manipulation
     year: '2024'
   Rfh4mm0AAAAJ:SeFeTyx0c_EC:
-    citations: 68
+    citations: 69
     title: Edge and identity preserving network for face super-resolution
     year: '2021'
   Rfh4mm0AAAAJ:UxriW0iASnsC:
@@ -62,7 +62,7 @@ papers:
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 624
+    citations: 628
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
@@ -86,11 +86,11 @@ papers:
     title: 'Synergistic Fusion of Sentinel-1 and Sentinel-2 for Global LULC Mapping: The Multimodal Network LULC-Former and Dynamic World+ Dataset'
     year: '2026'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
-    citations: 37
+    citations: 38
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
-    citations: 415
+    citations: 416
     title: 'DABNet: Depth-wise asymmetric bottleneck for real-time semantic segmentation'
     year: '2019'
   Rfh4mm0AAAAJ:nb7KW1ujOQ8C:
@@ -102,7 +102,7 @@ papers:
     title: Depth-wise asymmetric bottleneck with point-wise aggregation decoder for real-time semantic segmentation in urban scenes
     year: '2020'
   Rfh4mm0AAAAJ:sSrBHYA8nusC:
-    citations: 2
+    citations: 3
     title: 'PALM: Progress-Aware Policy Learning via Affordance Reasoning for Long-Horizon Robotic Manipulation'
     year: '2026'
   Rfh4mm0AAAAJ:tOudhMTPpwUC:
