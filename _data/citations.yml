@@ -1,8 +1,8 @@
 metadata:
-  last_updated: '2026-05-06'
+  last_updated: '2026-05-22'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
-    citations: 5
+    citations: 6
     title: 'Mask2IV: Interaction-Centric Video Generation via Mask Trajectories'
     year: '2025'
   Rfh4mm0AAAAJ:1sJd4Hv_s6UC:
@@ -22,11 +22,19 @@ papers:
     title: Action-to-Action Flow Matching
     year: '2026'
   Rfh4mm0AAAAJ:B3FOqHPlNUQC:
-    citations: 12
+    citations: 15
     title: 'Evo-1: Lightweight Vision-Language-Action Model with Preserved Semantic Alignment'
     year: '2025'
+  Rfh4mm0AAAAJ:BrmTIyaxlBUC:
+    citations: 0
+    title: Feedback World Model Enables Precise Guidance of Diffusion Policy
+    year: '2026'
+  Rfh4mm0AAAAJ:D_sINldO8mEC:
+    citations: 0
+    title: 'Evo-Depth: A Lightweight Depth-Enhanced Vision-Language-Action Model'
+    year: '2026'
   Rfh4mm0AAAAJ:EUQCXRtRnyEC:
-    citations: 31
+    citations: 32
     title: Weakly-supervised temporal attention 3D network for human action recognition
     year: '2021'
   Rfh4mm0AAAAJ:HoB7MX3m0LUC:
@@ -34,19 +42,19 @@ papers:
     title: An optimized deep neural network detecting small and narrow rectangular objects in Google Earth images
     year: '2020'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 157
+    citations: 167
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
-    citations: 32
+    citations: 33
     title: 'Watt For What: Rethinking Deep Learning''s Energy-Performance Relationship'
     year: '2023'
   Rfh4mm0AAAAJ:LPZeul_q3PIC:
-    citations: 0
+    citations: 1
     title: 'RoboForge: Physically Optimized Text-guided Whole-Body Locomotion for Humanoids'
     year: '2026'
   Rfh4mm0AAAAJ:OU6Ihb5iCvQC:
-    citations: 38
+    citations: 40
     title: Learning Precise Affordances from Egocentric Videos for Robotic Manipulation
     year: '2024'
   Rfh4mm0AAAAJ:SeFeTyx0c_EC:
@@ -57,12 +65,16 @@ papers:
     citations: 2
     title: Dual pyramids encoder-decoder network for semantic segmentation in ground and aerial view images
     year: '2020'
+  Rfh4mm0AAAAJ:VOx2b1Wkg3QC:
+    citations: 0
+    title: 'World Model for Robot Learning: A Comprehensive Survey'
+    year: '2026'
   Rfh4mm0AAAAJ:XiSMed-E-HIC:
-    citations: 3
+    citations: 5
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 628
+    citations: 629
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
@@ -74,9 +86,17 @@ papers:
     title: Perspective-aware density regression for crowd counting
     year: '2021'
   Rfh4mm0AAAAJ:dshw04ExmUIC:
-    citations: 57
+    citations: 60
     title: One-Shot Open Affordance Learning with Foundation Models
     year: '2023'
+  Rfh4mm0AAAAJ:eJXPG6dFmWUC:
+    citations: 0
+    title: Physics filtering favors the generalization of robot learning
+    year: '2026'
+  Rfh4mm0AAAAJ:eflP2zaiRacC:
+    citations: 0
+    title: 'FLASH: Efficient Visuomotor Policy via Sparse Sampling'
+    year: '2026'
   Rfh4mm0AAAAJ:fQNAKQ3IYiAC:
     citations: 0
     title: 'CompassAD: Intent-Driven 3D Affordance Grounding in Functionally Competing Objects'
@@ -86,7 +106,7 @@ papers:
     title: 'Synergistic Fusion of Sentinel-1 and Sentinel-2 for Global LULC Mapping: The Multimodal Network LULC-Former and Dynamic World+ Dataset'
     year: '2026'
   Rfh4mm0AAAAJ:l7t_Zn2s7bgC:
-    citations: 38
+    citations: 44
     title: 'Evo-0: Vision-Language-Action Model with Implicit Spatial Understanding'
     year: '2025'
   Rfh4mm0AAAAJ:ldfaerwXgEUC:
@@ -98,11 +118,11 @@ papers:
     title: Referenceless User Controllable Semantic Image Synthesis
     year: '2023'
   Rfh4mm0AAAAJ:pqnbT2bcN3wC:
-    citations: 54
+    citations: 55
     title: Depth-wise asymmetric bottleneck with point-wise aggregation decoder for real-time semantic segmentation in urban scenes
     year: '2020'
   Rfh4mm0AAAAJ:sSrBHYA8nusC:
-    citations: 3
+    citations: 4
     title: 'PALM: Progress-Aware Policy Learning via Affordance Reasoning for Long-Horizon Robotic Manipulation'
     year: '2026'
   Rfh4mm0AAAAJ:tOudhMTPpwUC:
