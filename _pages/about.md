@@ -37,25 +37,11 @@ I was fortunate to be partially supported through Google DeepMind and Stability 
 <!-- 🎯 The central focus of my research is to enable robots to perceive and interact with their environments in a human-like yet data-efficient manner. This includes exploring a range of cutting-edge topics (but not limited to): -->
 🎯 My research aims to build intelligent physical agents that can perceive, reason, and act in real-world environments with human-like capability and high efficiency. This spans topics including:
 
-- **Embodied AI**: Robot Learning, VLA, RL
--	**Multimodal AI**: VLMs, MLLMs
--	**Generative AI**: Image / Video Generation, World Models
--	**Efficient AI**: Transfer Learning, Learning under Limited Data & Supervision
+- **Physical & Embodied AI**: Robot Learning, VLA, World Action Model
+-	**Multimodal AI**: Multimodal Representation Learning, VLM
+-	**Efficient AI**: Data-, Framework-, and Resource-Efficient Methodologies
 -	**Human-Centered AI**: Human-Robot Interaction, Human-to-Robot Learning
 
 <!-- 📢 I am seeking highly self-motivated PhD, Master, and Bachelor students for potential reserach collaborations. Feel free to contact me via email if you are interested. -->
 📢 If you are interested in these topics and would like to explore working together, please feel free to reach out via email.
 
-<!-- <div class="row mt-4">
-  <div class="col-sm-12">
-    <div style="background-color: #f0f7ff; border-left: 4px solid var(--global-theme-color); padding: 15px 20px; border-radius: 4px; margin-bottom: 20px;">
-       <p style="color: #c62f2f; font-weight: 500; margin-bottom: 5px; font-size: 15px; line-height: 1.6;">
-         📣 <em style="color: inherit;"> I will join XXX as a XXX in the School of AI and Robotics in Fall 2026. </em>
-      </p>
-      <p style="color: var(--global-text-color); margin-bottom: 0; font-size: 15px; line-height: 1.6;">
-        🎓 <strong>Recruiting:</strong> Looking for postdocs, PhD students, undergraduates, interns, and visiting scholars to join my lab. Welcome to reach out!
-      </p>
-      <p></p>
-    </div>
-  </div>
-</div> -->
