@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-07-07'
+  last_updated: '2026-07-08'
 papers:
   Rfh4mm0AAAAJ:08ZZubdj9fEC:
     citations: 7
@@ -54,7 +54,7 @@ papers:
     title: 'GIVE: Grounding Human Gestures in Vision-Language-Action Models'
     year: '2026'
   Rfh4mm0AAAAJ:K3LRdlH-MEoC:
-    citations: 211
+    citations: 212
     title: Embodied large language models enable robots to complete complex tasks in unpredictable environments
     year: '2025'
   Rfh4mm0AAAAJ:KxtntwgDAa4C:
@@ -90,7 +90,7 @@ papers:
     title: Principles of Visual Tokens for Efficient Video Understanding
     year: '2024'
   Rfh4mm0AAAAJ:_xSYboBqXhAC:
-    citations: 652
+    citations: 656
     title: Adaptive Prototype Learning and Allocation for Few-Shot Segmentation
     year: '2021'
   Rfh4mm0AAAAJ:abG-DnoFyZgC:
