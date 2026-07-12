@@ -103,7 +103,26 @@
       right: 0;
 
   }
-</style> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Gen Li. Last updated: July 2026. </div> </footer> <script>
+</style> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Gen Li. Last updated: July 2026. </div> </footer> <style>
+  footer.sticky-bottom,
+  footer.fixed-bottom {
+    border-top: 0 !important;
+    position: relative;
+  }
+
+  footer.sticky-bottom::before,
+  footer.fixed-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 1px;
+    pointer-events: none;
+    background: var(--global-divider-color);
+    transform: translateX(-50%);
+  }
+</style> <script>
   window.alFolio = {
     compatBootstrap: false
   };

@@ -128,7 +128,26 @@
   <span class="na">author</span> <span class="p">=</span> <span class="s">{Li, Gen and Kim, Joongkyu}</span><span class="p">,</span>
   <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{British Machine Vision Conference}</span><span class="p">,</span>
   <span class="na">year</span> <span class="p">=</span> <span class="s">{2019}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure> </div> </div> </div> </li></ol> </div> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Gen Li. Last updated: July 2026. </div> </footer> <script>
+<span class="p">}</span></code></pre></figure> </div> </div> </div> </li></ol> </div> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Gen Li. Last updated: July 2026. </div> </footer> <style>
+  footer.sticky-bottom,
+  footer.fixed-bottom {
+    border-top: 0 !important;
+    position: relative;
+  }
+
+  footer.sticky-bottom::before,
+  footer.fixed-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 1px;
+    pointer-events: none;
+    background: var(--global-divider-color);
+    transform: translateX(-50%);
+  }
+</style> <script>
   window.alFolio = {
     compatBootstrap: false
   };

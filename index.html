@@ -219,9 +219,6 @@
         color: var(--global-text-color);
       }
       @media (max-width: 767px) {
-        .about-hero-profile {
-          width: 170px;
-        }
         .about-hero .post-title {
           font-size: 2rem;
         }
@@ -230,10 +227,12 @@
         .about-hero {
           margin-top: 1.2rem;
         }
-        .about-hero-profile {
+        .about-hero-profile,
+        .about-hero-profile.profile-right,
+        .about-hero-profile.profile-left {
           float: none;
-          width: 170px;
-          margin: 0 auto 1rem;
+          width: 100%;
+          margin: 0 0 1.25rem;
         }
         .about-hero .post-header {
           text-align: center;
@@ -276,7 +275,26 @@
       details[open] #clustrmaps-summary .arrow-icon {
         transform: rotate(90deg);
       }
-    </style> <div style="text-align: center;"> <details> <summary id="clustrmaps-summary"> <i class="fas fa-chevron-circle-right arrow-icon"></i>Visitor Traffic 🌍 </summary> <a href="https://mapmyvisitors.com/web/1c5cy" title="Visit tracker" rel="external nofollow noopener" target="_blank"><img src="https://mapmyvisitors.com/map.png?cl=ffffff&amp;w=300&amp;t=m&amp;d=TTsQUYsCC54J_v1Y-0XNmpElw5k78gd74HiuXoak9Qg&amp;ct=ffffff"></a> </details> </div> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Gen Li. Last updated: July 2026. </div> </footer> <script>
+    </style> <div style="text-align: center;"> <details> <summary id="clustrmaps-summary"> <i class="fas fa-chevron-circle-right arrow-icon"></i>Visitor Traffic 🌍 </summary> <a href="https://mapmyvisitors.com/web/1c5cy" title="Visit tracker" rel="external nofollow noopener" target="_blank"><img src="https://mapmyvisitors.com/map.png?cl=ffffff&amp;w=300&amp;t=m&amp;d=TTsQUYsCC54J_v1Y-0XNmpElw5k78gd74HiuXoak9Qg&amp;ct=ffffff"></a> </details> </div> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Gen Li. Last updated: July 2026. </div> </footer> <style>
+  footer.sticky-bottom,
+  footer.fixed-bottom {
+    border-top: 0 !important;
+    position: relative;
+  }
+
+  footer.sticky-bottom::before,
+  footer.fixed-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 1px;
+    pointer-events: none;
+    background: var(--global-divider-color);
+    transform: translateX(-50%);
+  }
+</style> <script>
   window.alFolio = {
     compatBootstrap: false
   };
