@@ -2,43 +2,58 @@
 layout: default
 ---
 <div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+    {% assign about_content_parts = content | split: '<div class="highlight">' %}
+    <section class="about-hero">
+      <div class="about-hero-body">
+        <header class="post-header">
+          <h1 class="post-title">
+            {% if site.title == 'blank' %}
+              <span class="font-weight-bold">
+                {{ site.first_name }}
+                {% if site.middle_name %} {{ site.middle_name }}{% endif %}
+                {{ site.last_name }}
+              </span>
+            {% else %}
+              <span class="font-weight-bold">{{ site.title }}</span>
+            {% endif %}
+          </h1>
+          <p class="desc">{{ page.subtitle }}</p>
+        </header>
 
-    <div class="clearfix">{{ content }}</div>
+        {% if page.profile %}
+          <div class="profile about-hero-profile profile-{{ page.profile.align | default: 'right' }}">
+            {% if page.profile.image %}
+              {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+              {% if page.profile.image_circular %}
+                {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+              {% else %}
+                {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+              {% endif %}
+              {% capture sizes %}(min-width: {{ site.max_width }}) 210px, (min-width: 576px) 28vw, 70vw{% endcapture %}
+              {%
+                include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+                cache_bust=true
+              %}
+            {% endif %}
+            {% if page.profile.more_info %}
+              <div class="more-info">{{ page.profile.more_info }}</div>
+            {% endif %}
+            {% unless page.profile.social == false %}
+              <div class="profile-social">
+                <div class="contact-icons">{% social_links %}</div>
+              </div>
+            {% endunless %}
+          </div>
+        {% endif %}
+
+        <div class="clearfix">{{ about_content_parts[0] }}</div>
+      </div>
+    </section>
+
+    {% if about_content_parts.size > 1 %}
+      <div class="highlight">{{ about_content_parts[1] }}
+    {% endif %}
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
@@ -81,9 +96,206 @@ layout: default
       {% include newsletter.liquid center=true %}
     {% endif %}
     <style>
+      .about-hero {
+        margin: 2.3rem 0 1.0rem;
+      }
+      .about-hero-profile {
+        width: 210px;
+        text-align: center;
+      }
+      .about-hero-profile.profile-right {
+        float: right;
+        margin: 0.35rem 0 1rem 2rem;
+      }
+      .about-hero-profile.profile-left {
+        float: left;
+        margin: 0.35rem 2rem 1rem 0;
+      }
+      .about-hero-profile figure {
+        margin-bottom: 0;
+      }
+      .about-hero-profile img {
+        width: 100%;
+      }
+      .about-hero-profile img.rounded {
+        border-radius: 12px;
+      }
+      .about-hero-profile .more-info p {
+        font-size: 0.75rem !important;
+        color: var(--global-text-color-light);
+      }
+      .about-hero .post-header {
+        margin-bottom: 0.75rem;
+      }
+      .about-hero .post-title {
+        margin-bottom: 0.2rem;
+        font-size: 2.45rem;
+        font-weight: 800;
+        line-height: 1.08;
+      }
+      .about-hero .desc {
+        margin-bottom: 0rem;
+        color: var(--global-text-color);
+        font-weight: 400;
+      }
+      .about-hero-body p {
+        font-size: 1.02rem;
+        line-height: 1.68;
+      }
+      .profile-social {
+        margin: 0.65rem 0 0.35rem;
+      }
+      .profile-social .contact-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        line-height: 1;
+      }
+      .profile-social .contact-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.35rem;
+        height: 2.35rem;
+        border: 1px solid #dbe3ef;
+        border-radius: 8px;
+        background: #fff;
+        color: #475569;
+        font-size: 1.05rem;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+        text-decoration: none;
+        transition:
+          color 150ms ease,
+          border-color 150ms ease,
+          background 150ms ease,
+          box-shadow 150ms ease,
+          transform 150ms ease;
+      }
+      .profile-social .contact-icons a:hover:not(:focus) {
+        border-color: #2563eb;
+        background: #eff6ff;
+        color: #2563eb;
+        text-decoration: none;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
+        transform: translateY(-2px);
+      }
+      .profile-social .contact-icons a:focus {
+        text-decoration: none;
+        transform: translateY(0);
+      }
+      .profile-social .contact-icons a:active {
+        text-decoration: none;
+        transform: translateY(0);
+      }
+      .social .contact-icons a {
+        display: inline-flex;
+        text-decoration: none;
+        transition:
+          color 150ms ease,
+          transform 150ms ease;
+      }
+      .social .contact-icons a:hover:not(:focus) {
+        transform: translateY(-2px);
+      }
+      .social .contact-icons a:focus {
+        text-decoration: none;
+        transform: translateY(0);
+      }
       .home-section-title {
         font-size: 1.5rem;
         font-weight: 700;
+      }
+      .research-note {
+        margin: 0 0 1rem;
+        padding: 0.05rem 0 0.05rem 1rem;
+        border-left: 3px solid var(--global-theme-color);
+      }
+      .research-note p {
+        margin-bottom: 0.55rem;
+      }
+      .research-note ul {
+        margin-bottom: 0;
+      }
+      .research-note li {
+        margin-bottom: 0.2rem;
+      }
+      .highlight {
+        margin: 0 0 1.25rem;
+        padding: 0.75rem 1.25rem;
+        border-left: 3px solid #0069d1;
+        border-radius: 6px;
+        background: rgba(248, 250, 252, 0.8);
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.025);
+        color: var(--global-text-color);
+      }
+      .highlight p {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+      .highlight p + p {
+        margin-top: 0.55rem;
+      }
+      .highlight p strong {
+        color: var(--global-text-color);
+        font-weight: 500;
+      }
+      html[data-theme="dark"] .profile-social .contact-icons a {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--global-text-color);
+        box-shadow: none;
+      }
+      html[data-theme="dark"] .profile-social .contact-icons a:hover:not(:focus) {
+        border-color: #38bdf8;
+        background: rgba(56, 189, 248, 0.12);
+        color: #38bdf8;
+        box-shadow: 0 8px 18px rgba(56, 189, 248, 0.12);
+      }
+      html[data-theme="dark"] .highlight {
+        border-left-color: #38bdf8;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--global-text-color);
+        box-shadow: none;
+      }
+      html[data-theme="dark"] .highlight p strong {
+        color: var(--global-text-color);
+      }
+      @media (max-width: 767px) {
+        .about-hero .post-title {
+          font-size: 2rem;
+        }
+      }
+      @media (max-width: 575px) {
+        .about-hero {
+          margin-top: 1.2rem;
+        }
+        .about-hero-profile,
+        .about-hero-profile.profile-right,
+        .about-hero-profile.profile-left {
+          float: none;
+          width: 100%;
+          margin: 0 0 1.25rem;
+        }
+        .about-hero .post-header {
+          text-align: center;
+        }
+        .highlight {
+          padding: 0.9rem 1rem;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .profile-social .contact-icons a,
+        .social .contact-icons a {
+          transition: none;
+        }
+        .profile-social .contact-icons a:hover,
+        .profile-social .contact-icons a:active,
+        .social .contact-icons a:hover {
+          transform: none;
+        }
       }
       .news table th {
         font-weight: bolder;

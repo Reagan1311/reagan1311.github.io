@@ -14,7 +14,6 @@
 email: ligen@g.skku.edu # your email address
 # facebook_id: # your facebook id
 # flickr_id: # your flickr id
-github_username: Reagan1311 # your GitHub user name
 # gitlab_username: # your GitLab user name
 # hal_id: # your HAL id (https://hal.science/)
 # ieee_id: # your ieeexplore.ieee.org/author/id
@@ -25,7 +24,9 @@ github_username: Reagan1311 # your GitHub user name
 # lastfm_id: # your lastfm id
 # lattes_id: # your ID on Lattes (Brazilian Lattes CV)
 # leetcode_id: # your LeetCode id
+scholar_userid: Rfh4mm0AAAAJ # your Google Scholar ID
 linkedin_username: gen-li-84bb62191 # your LinkedIn user name
+github_username: Reagan1311 # your GitHub user name
 # mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 # medium_username: # your Medium username
 # orcid_id: # your ORCID ID
@@ -35,7 +36,6 @@ linkedin_username: gen-li-84bb62191 # your LinkedIn user name
 # quora_username: # your Quora username
 # research_gate_profile: # your profile on ResearchGate
 # rss_icon: true # comment this line to hide the RSS icon
-scholar_userid: Rfh4mm0AAAAJ # your Google Scholar ID
 # scopus_id: # your profile on Scopus
 # semanticscholar_id: # your Semantic Scholar ID
 # spotify_id: # your spotify id
