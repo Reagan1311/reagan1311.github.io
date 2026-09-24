@@ -4,6 +4,15 @@
 
 @use "variables" as v;
 
+// Keep image zoom above the fixed navbar (1030), with the image above its overlay.
+body > .medium-zoom-overlay {
+  z-index: 1040;
+}
+
+body .medium-zoom-image--opened {
+  z-index: 1041;
+}
+
 .publications {
   margin-top: 2rem;
 
