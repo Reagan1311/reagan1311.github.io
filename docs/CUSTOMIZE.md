@@ -8,6 +8,7 @@ Here we will give you some tips on how to customize the website. One important t
 
 - [Customize](#customize)
   - [Project structure](#project-structure)
+  - [Homepage language switch](#homepage-language-switch)
   - [Configuration](#configuration)
   - [GitHub Copilot Customization Agent](#github-copilot-customization-agent)
     - [What the Agent Can Help With](#what-the-agent-can-help-with)
@@ -145,6 +146,24 @@ Most customizations still live in your site repo. The difference is that default
 When migrating an older customized fork, remove old local copies of files that you did not intentionally customize. In the `dfuchss/fuchss.org` rehearsal, deleting old local `_includes/head.liquid`, `_includes/scripts.liquid`, citation helper plugins, external-post helper plugins, `assets/js/distillpub/**`, and `assets/js/search/**` turned the upgrade audit from 4 blocking findings to 0 blocking findings.
 
 When you intentionally keep a local override of a plugin-owned file, run `bundle exec al-folio upgrade overrides audit` after dependency updates. Review stale overrides with `bundle exec al-folio upgrade overrides diff PATH`, then acknowledge reviewed files with `bundle exec al-folio upgrade overrides accept PATH`.
+
+## Homepage language switch
+
+This site's language switch is controlled in `_pages/about.md`:
+
+```yaml
+show_language_switch: false
+```
+
+Set it to `true` to show the EN / 中文 switch on both homepages and the language
+link on both Visitors pages. Set it to `false` to hide those links and disable
+homepage language-switch scroll restoration. If omitted, the links are shown for
+backward compatibility. Use YAML booleans without quotes and rebuild/publish the
+site after changing the setting.
+
+This controls navigation only: `_pages/about_zh.md`, the Chinese Visitors page and
+their direct URLs remain available. No duplicated setting in the Chinese page or
+`_config.yml` is needed.
 
 ## Configuration
 

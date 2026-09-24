@@ -1,0 +1,97 @@
+filters:
+  - id: vla
+    label: VLA
+    label_zh: 视觉-语言-行为模型
+  - id: wm
+    label: World Model
+    label_zh: 世界模型
+  - id: humanoid
+    label: Humanoid
+    label_zh: 人形机器人
+  - id: efficient
+    label: Efficient AI
+    label_zh: 高效人工智能
+  # - id: rm
+  #   label: Robotic Manipulation
+  #   label_zh: 机器人操作
+  - id: perception
+    label: Embodied Perception
+    label_zh: 具身感知
+  - id: hri
+    label: Human-Robot Interaction
+    label_zh: 人机交互
+
+# Set selected={true} in papers.bib for every paper that should be available
+# anywhere on the homepage. Tags control its filters. Set show_in_all: false
+# when it should appear only after choosing one of its filters.
+# show_in_all: false
+papers:
+  uca-flow:
+    tags: [rm, efficient]
+    show_in_all: false
+  omega0:
+    tags: [wm, rm, humanoid]
+    show_in_all: false
+  la4vla:
+    tags: [vla, rm]
+    show_in_all: false
+  give:
+    tags: [vla, rm, hri]
+    show_in_all: false
+  occamtoken:
+    tags: [efficient]
+    show_in_all: false
+  mars-policy:
+    tags: [efficient, rm]
+    show_in_all: false
+  gaze2act:
+    tags: [vla, rm, hri, humanoid]
+    show_in_all: false
+  feedback-wm:
+    tags: [wm, rm]
+    show_in_all: false
+  flash:
+    tags: [efficient, rm]
+    show_in_all: false
+  evo-depth:
+    tags: [vla, efficient]
+    show_in_all: false
+  phyfilter:
+    tags: [efficient, rm]
+    show_in_all: false
+  wm-survey:
+    tags: [wm]
+  compassad:
+    tags: [perception]
+    show_in_all: false
+  evo0:
+    tags: [vla, efficient]
+    show_in_all: false
+  a2a:
+    tags: [efficient, rm]
+  evo1:
+    tags: [vla, efficient]
+  Mask2IV:
+    tags: [wm, perception]
+  Aff-Grasp:
+    tags: [perception, rm]
+  LITE:
+    tags: [efficient]
+    show_in_all: false
+  ELLMER:
+    tags: [rm, hri]
+  OOAL:
+    tags: [perception, efficient]
+  LOCATE:
+    tags: [perception]
+  ASGNet:
+    tags: [efficient]
+  adapt:
+    tags: [humanoid]
+    show_in_all: false
+  roboforge:
+    tags: [humanoid]
+    show_in_all: false
+  palm:
+    tags: [vla]
+    show_in_all: false

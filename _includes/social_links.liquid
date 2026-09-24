@@ -1,0 +1,7 @@
+{%- capture social_links_html -%}{% social_links %}{%- endcapture -%}
+{{-
+  social_links_html
+  | replace: "title='Scholar userid'", "title='Google Scholar'"
+  | replace: "title='Linkedin username'", "title='LinkedIn'"
+  | replace: "title='Github username'", "title='GitHub'"
+-}}

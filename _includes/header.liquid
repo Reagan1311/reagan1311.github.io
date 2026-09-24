@@ -1,0 +1,303 @@
+<header>
+  <!-- Nav Bar -->
+  {% assign homepage_settings = site.pages | where: 'permalink', '/' | first %}
+  {% assign current_language = page.lang | default: site.lang %}
+  {% assign is_chinese_page = false %}
+  {% if current_language contains 'zh' %}
+    {% assign is_chinese_page = true %}
+  {% endif %}
+  {% assign is_homepage = false %}
+  {% if page.permalink == '/' or page.permalink == '/zh/' %}
+    {% assign is_homepage = true %}
+  {% endif %}
+  {% if is_homepage and homepage_settings.show_language_switch != false %}
+    <style>
+      html.language-scroll-restoring {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      (() => {
+        try {
+          const position = JSON.parse(sessionStorage.getItem('homepage-language-scroll'));
+          const shouldRestore = position && position.targetPath === window.location.pathname && Date.now() - position.savedAt <= 60000;
+
+          if (shouldRestore) {
+            document.documentElement.classList.add('language-scroll-restoring');
+            window.setTimeout(() => document.documentElement.classList.remove('language-scroll-restoring'), 2000);
+          }
+        } catch (error) {
+          // Keep the page visible when browser storage is unavailable.
+        }
+      })();
+    </script>
+  {% endif %}
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
+    <div class="container">
+      {% if is_homepage and homepage_settings.show_language_switch != false %}
+        <div class="navbar-language-switch" aria-label="{% if is_chinese_page %}语言切换{% else %}Language switcher{% endif %}">
+          {% if is_chinese_page %}
+            <a class="language-choice" href="{{ '/' | relative_url }}" lang="en" data-language-switch-link>EN</a>
+            <span class="language-divider" aria-hidden="true">/</span>
+            <span class="language-choice is-active" lang="zh-CN" aria-current="true">中文</span>
+          {% else %}
+            <span class="language-choice is-active" lang="en" aria-current="true">EN</span>
+            <span class="language-divider" aria-hidden="true">/</span>
+            <a class="language-choice" href="{{ '/zh/' | relative_url }}" lang="zh-CN" data-language-switch-link>中文</a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% unless is_homepage %}
+        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
+          {% if site.title == 'blank' %}
+            {% if site.first_name %}
+              <span class="font-weight-bold">
+                {{- site.first_name -}}
+              </span>
+            {% endif %}
+            {% if site.middle_name %}
+              {{- site.middle_name -}}
+            {% endif %}
+            {% if site.last_name %}
+              {{- site.last_name -}}
+            {% endif %}
+          {% else %}
+            {{- site.title -}}
+          {% endif %}
+        </a>
+      {% elsif site.enable_navbar_social %}
+        <!-- Social Icons -->
+        <div class="navbar-brand social">{% include social_links.liquid %}</div>
+      {% endunless %}
+      <!-- Navbar Toggle -->
+      <button
+        class="navbar-toggler collapsed navbar-toggler-main"
+        type="button"
+        data-nav-toggle="navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
+          {% for site_page in site.pages %}
+            {% if site_page.permalink == '/' %} {% assign about_title = site_page.title %} {% endif %}
+          {% endfor %}
+
+          <!-- About -->
+          <li class="nav-item {% if is_homepage %}active{% endif %}">
+            <a class="nav-link" href="{{ '/' | relative_url }}">
+              {{- about_title }}
+              {% if is_homepage %}
+                <span class="sr-only">(current)</span>
+              {% endif %}
+            </a>
+          </li>
+
+          <!-- Other pages -->
+          {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+          {% for p in sorted_pages %}
+            {% if p.nav and p.autogen == null %}
+              {% if p.dropdown %}
+                {% assign has_active_child = false %}
+                {% for child in p.children %}
+                  {% if page.title == child.title %}
+                    {% assign has_active_child = true %}
+                  {% endif %}
+                {% endfor %}
+                <li class="nav-item dropdown {% if page.title == p.title or has_active_child %}active{% endif %}">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-nav-dropdown-toggle="true"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    {{- p.title }}
+                    {% if page.title == p.title or has_active_child %}
+                      <span class="sr-only">(current)</span>
+                    {% endif %}
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    {% for child in p.children %}
+                      {% if child.title == 'divider' %}
+                        <div class="dropdown-divider"></div>
+                      {% else %}
+                        <a
+                          class="dropdown-item {% if page.title == child.title %}active{% endif %}"
+                          href="{% if child.permalink contains '://' %}{{ child.permalink }}{% else %}{{ child.permalink | relative_url }}{% endif %}"
+                        >
+                          {{- child.title -}}
+                        </a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </li>
+              {% else %}
+                {% assign parent_link = p.permalink | remove: 'index.html' %}
+                <li class="nav-item {% if page.url contains parent_link %}active{% endif %}">
+                  {%- if p.permalink contains '://' -%}
+                    {%- assign url = p.permalink -%}
+                  {%- elsif p.permalink contains '/blog/' -%}
+                    {%- assign url = '/blog/' -%}
+                  {%- else -%}
+                    {%- assign url = p.url -%}
+                  {%- endif %}
+                  <a class="nav-link" href="{{ url | relative_url }}">
+                    {{- p.title }}
+                    {% if page.url contains p.url %}
+                      <span class="sr-only">(current)</span>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% if site.search_enabled %}
+            <!-- Search -->
+            <li class="nav-item">
+              <button id="search-toggle" type="button" title="Search" aria-label="Open search">
+                <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
+              </button>
+            </li>
+          {% endif %}
+          {% if site.enable_darkmode %}
+            <!-- Toogle theme mode -->
+            <li class="toggle-container">
+              <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme">
+                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+              </button>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% if site.enable_progressbar %}
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  {% endif %}
+  <style>
+    .navbar-language-switch {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      gap: 0.25rem;
+      margin-right: 0.75rem;
+      color: var(--global-text-color-light);
+      font-size: 0.82rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .navbar-language-switch .language-choice {
+      color: var(--global-text-color-light);
+    }
+    .navbar-language-switch a.language-choice:hover {
+      color: var(--global-hover-color);
+      text-decoration: none;
+    }
+    .navbar-language-switch .language-choice.is-active {
+      color: var(--global-text-color);
+      font-weight: 700;
+    }
+    .navbar-language-switch .language-divider {
+      color: var(--global-text-color-light);
+    }
+  </style>
+  {% if is_homepage and homepage_settings.show_language_switch != false %}
+    <script>
+      (() => {
+        const storageKey = 'homepage-language-scroll';
+        const languageLink = document.querySelector('[data-language-switch-link]');
+
+        const elementPageTop = (element) => element.getBoundingClientRect().top + window.scrollY;
+
+        const saveReadingPosition = (event) => {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+          const anchors = [...document.querySelectorAll('[data-language-scroll-anchor]')];
+          const navbarHeight = document.querySelector('#navbar')?.offsetHeight || 0;
+          const readingLine = window.scrollY + navbarHeight + 1;
+          let currentAnchor = anchors[0] || null;
+
+          anchors.forEach((anchor) => {
+            if (elementPageTop(anchor) <= readingLine) currentAnchor = anchor;
+          });
+
+          const activeFilter = document.querySelector('[data-publication-filter].is-active')?.dataset.publicationFilter || null;
+          const targetPath = new URL(languageLink.href, window.location.href).pathname;
+          const position = {
+            targetPath,
+            anchorId: currentAnchor?.id || null,
+            anchorOffset: currentAnchor ? window.scrollY - elementPageTop(currentAnchor) : 0,
+            fallbackY: window.scrollY,
+            publicationFilter: activeFilter,
+            savedAt: Date.now(),
+          };
+
+          try {
+            sessionStorage.setItem(storageKey, JSON.stringify(position));
+          } catch (error) {
+            // Language switching still works when browser storage is unavailable.
+          }
+        };
+
+        const restoreReadingPosition = () => {
+          let position;
+
+          try {
+            position = JSON.parse(sessionStorage.getItem(storageKey));
+          } catch (error) {
+            document.documentElement.classList.remove('language-scroll-restoring');
+            return;
+          }
+
+          if (!position || position.targetPath !== window.location.pathname || Date.now() - position.savedAt > 60000) {
+            document.documentElement.classList.remove('language-scroll-restoring');
+            return;
+          }
+
+          try {
+            sessionStorage.removeItem(storageKey);
+          } catch (error) {
+            // The saved position is harmless if browser storage cannot be cleared.
+          }
+
+          if (position.publicationFilter) {
+            const filterButton = document.querySelector(`[data-publication-filter="${position.publicationFilter}"]`);
+            if (filterButton && !filterButton.classList.contains('is-active')) filterButton.click();
+          }
+
+          const anchor = position.anchorId ? document.getElementById(position.anchorId) : null;
+          const targetY = anchor ? elementPageTop(anchor) + position.anchorOffset : position.fallbackY;
+          window.scrollTo({ top: Math.max(0, targetY), left: 0, behavior: 'auto' });
+          document.documentElement.classList.remove('language-scroll-restoring');
+        };
+
+        languageLink?.addEventListener('click', saveReadingPosition);
+        const scheduleRestore = () => requestAnimationFrame(restoreReadingPosition);
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', scheduleRestore, { once: true });
+        } else {
+          scheduleRestore();
+        }
+      })();
+    </script>
+  {% endif %}
+</header>

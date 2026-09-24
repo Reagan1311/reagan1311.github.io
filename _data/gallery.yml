@@ -1,0 +1,39 @@
+# Add new entries at the top so the newest moments appear first.
+# Store photos in assets/img/gallery/ and use a site-relative image path.
+items:
+  - image: /assets/img/1.jpg
+    alt: xxx
+    date: 2025-07
+    location: London, UK
+    description: 实验室聚餐
+
+  - image: /assets/img/2.jpg
+    alt: Gen Li by the London Eye in London
+    date: 2025-07
+    location: London, UK
+    description: 123 conference
+
+  - image: /assets/img/11.jpg
+    alt: Gen Li by the London Eye in London
+    date: 2025-07
+    location: London, UK
+    description: xx321x conference
+
+  - image: /assets/img/3.jpg
+    alt: Gen Li by the London Eye in London
+    date: 2025-07
+    location: London, UK
+    description: xx11x conference
+
+  - image: /assets/img/4.jpg
+    alt: Gen Li by the London Eye in London
+    date: 2025-07
+    location: London, UK
+    description: x23xx conference
+
+  # Example:
+  # - image: /assets/img/gallery/activity-name.jpg
+  #   alt: A short description of what is visible in the photo
+  #   date: August 2026
+  #   location: Singapore
+  #   description: A simple note about the activity or memory.

@@ -3,8 +3,13 @@ layout: default
 ---
 <div class="post">
   <article>
+    {% assign page_language = page.lang | default: site.lang %}
+    {% assign is_zh = false %}
+    {% if page_language contains 'zh' %}
+      {% assign is_zh = true %}
+    {% endif %}
     {% assign about_content_parts = content | split: '<div class="highlight">' %}
-    <section class="about-hero">
+    <section id="home-about" class="about-hero" data-language-scroll-anchor>
       <div class="about-hero-body">
         <header class="post-header">
           <h1 class="post-title">
@@ -41,7 +46,7 @@ layout: default
             {% endif %}
             {% unless page.profile.social == false %}
               <div class="profile-social">
-                <div class="contact-icons">{% social_links %}</div>
+                <div class="contact-icons">{% include social_links.liquid %}</div>
               </div>
             {% endunless %}
           </div>
@@ -59,8 +64,8 @@ layout: default
     {% if page.announcements and page.announcements.enabled %}
       <hr>
       <br>
-      <h2 class="home-section-title">
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
+      <h2 id="home-news" class="home-section-title" data-language-scroll-anchor>
+        {% if is_zh %}动态{% else %}News{% endif %}
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
@@ -77,16 +82,71 @@ layout: default
     {% if page.selected_papers %}
       <hr>
       <br>
-      <h2 class="home-section-title">
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected Publications</a>
+      <h2 id="home-selected-publications" class="home-section-title" data-language-scroll-anchor>
+        {% if is_zh %}代表论文{% else %}Selected Publications{% endif %}
       </h2>
-      {% include selected_papers.liquid %}
+      <div class="selected-publications" data-language="{{ page_language }}">
+        <p class="selected-publication-note">
+          <span class="selected-publication-note-item">
+            <strong>*/†</strong>
+            {% if is_zh %}表示共同贡献/共同指导{% else %}indicates equal contribution/advising{% endif %}
+          </span>
+          <span class="selected-publication-note-divider" aria-hidden="true"></span>
+          <span class="selected-publication-note-item">
+            {% if is_zh %}完整论文列表请见{% else %}Full publication list on{% endif %}
+            <a href="https://scholar.google.com/citations?user=Rfh4mm0AAAAJ" target="_blank" rel="noopener noreferrer">
+              Google Scholar <span aria-hidden="true">↗</span>
+            </a>
+          </span>
+        </p>
+        <div
+          class="selected-publication-filters"
+          role="group"
+          aria-label="{% if is_zh %}按研究方向筛选精选论文{% else %}Filter selected publications by research topic{% endif %}"
+        >
+          <button class="selected-publication-filter is-active" type="button" data-publication-filter="all" aria-pressed="true">
+            {% if is_zh %}精选{% else %}Featured{% endif %}
+          </button>
+          {% for filter in site.data.selected_publication_tags.filters %}
+            <button class="selected-publication-filter" type="button" data-publication-filter="{{ filter.id }}" aria-pressed="false">
+              {% if is_zh %}{{ filter.label_zh | default: filter.label }}{% else %}{{ filter.label }}{% endif %}
+            </button>
+          {% endfor %}
+        </div>
+        <p class="selected-publication-filter-status" aria-live="polite"></p>
+        <div class="selected-publication-list">{% include selected_papers.liquid %}</div>
+        <script id="selected-publication-tag-data" type="application/json">
+          {{ site.data.selected_publication_tags | jsonify }}
+        </script>
+      </div>
+    {% endif %}
+
+    <!-- Academic service -->
+    {% if page.academic_service and site.data.academic_service.size > 0 %}
+      <hr>
+      <br>
+      <section aria-labelledby="home-academic-service">
+        <h2 id="home-academic-service" class="home-section-title" data-language-scroll-anchor>
+          {% if is_zh %}学术服务{% else %}Academic Service{% endif %}
+        </h2>
+        <ul class="academic-service-list">
+          {% for service in site.data.academic_service %}
+            <li>
+              <strong>
+                {%- if is_zh -%}{{ service.role_zh | default: service.role }}{%- else -%}{{ service.role }}{%- endif -%}
+                {%- if service.venues.size > 0 -%}:{%- endif -%}
+              </strong>
+              {{ service.venues | join: ', ' | escape }}
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
     {% endif %}
 
     <!-- Social -->
     {% if page.social %}
       <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
+        <div class="contact-icons">{% include social_links.liquid %}</div>
 
         <div class="contact-note">{{ site.contact_note }}</div>
       </div>
@@ -97,7 +157,7 @@ layout: default
     {% endif %}
     <style>
       .about-hero {
-        margin: 2.3rem 0 1.0rem;
+        margin: 2.3rem 0 0rem;
       }
       .about-hero-profile {
         width: 210px;
@@ -150,7 +210,7 @@ layout: default
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        gap: 0.45rem;
+        gap: 0.3rem;
         line-height: 1;
       }
       .profile-social .contact-icons a {
@@ -173,15 +233,42 @@ layout: default
           box-shadow 150ms ease,
           transform 150ms ease;
       }
-      .profile-social .contact-icons a:hover:not(:focus) {
+      .profile-social .contact-icons a[href^="https://scholar.google.com/"] {
+        --social-brand-color: #4285f4;
+      }
+      .profile-social .contact-icons a[href^="https://www.xiaohongshu.com/"] {
+        --social-brand-color: #ff2442;
+      }
+      .profile-social .contact-icons a[href^="https://www.linkedin.com/"] {
+        --social-brand-color: #0a66c2;
+      }
+      .profile-social .contact-icons img {
+        width: 1.5rem;
+        height: 1.5rem;
+        object-fit: contain;
+        filter: grayscale(1);
+        transition: filter 150ms ease;
+      }
+      .profile-social .contact-icons a:hover img {
+        filter: none;
+      }
+      .contact-icons .social-icon-xiaohongshu {
+        display: inline-block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-color: currentColor;
+        -webkit-mask: url("{{ '/assets/img/xiaohongshu.svg' | relative_url }}") center / contain no-repeat;
+        mask: url("{{ '/assets/img/xiaohongshu.svg' | relative_url }}") center / contain no-repeat;
+      }
+      .profile-social .contact-icons a:hover {
         border-color: #2563eb;
         background: #eff6ff;
-        color: #2563eb;
+        color: var(--social-brand-color, #2563eb);
         text-decoration: none;
         box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
         transform: translateY(-2px);
       }
-      .profile-social .contact-icons a:focus {
+      .profile-social .contact-icons a:focus-visible {
         text-decoration: none;
         transform: translateY(0);
       }
@@ -196,10 +283,10 @@ layout: default
           color 150ms ease,
           transform 150ms ease;
       }
-      .social .contact-icons a:hover:not(:focus) {
+      .social .contact-icons a:hover {
         transform: translateY(-2px);
       }
-      .social .contact-icons a:focus {
+      .social .contact-icons a:focus-visible {
         text-decoration: none;
         transform: translateY(0);
       }
@@ -207,13 +294,94 @@ layout: default
         font-size: 1.5rem;
         font-weight: 700;
       }
+      .academic-service-list {
+        margin: 0.6rem 0 1rem;
+        padding-left: 1.2rem;
+        line-height: 1.65;
+      }
+      .academic-service-list li + li {
+        margin-top: 0.3rem;
+      }
+      .selected-publication-note {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem 0.7rem;
+        width: fit-content;
+        margin: 0.55rem 0 0.9rem;
+        color: var(--global-text-color-light);
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+      .selected-publication-note-item {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.25rem;
+      }
+      .selected-publication-note strong,
+      .selected-publication-note a {
+        color: var(--global-theme-color);
+        font-weight: 600;
+      }
+      .selected-publication-note a:hover {
+        text-decoration: underline;
+      }
+      .selected-publication-note-divider {
+        width: 1px;
+        height: 1rem;
+        background: var(--global-divider-color);
+      }
+      .selected-publication-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0.85rem 0 0.45rem;
+      }
+      .selected-publication-filter {
+        padding: 0.38rem 0.75rem;
+        border: 1px solid var(--global-divider-color);
+        border-radius: 999px;
+        background: var(--global-bg-color);
+        color: var(--global-text-color);
+        font-size: 0.82rem;
+        font-weight: 500;
+        line-height: 1.25;
+        cursor: pointer;
+        transition:
+          color 150ms ease,
+          border-color 150ms ease,
+          background 150ms ease,
+          transform 150ms ease;
+      }
+      .selected-publication-filter:hover {
+        border-color: var(--global-theme-color);
+        color: var(--global-theme-color);
+        transform: translateY(-1px);
+      }
+      .selected-publication-filter:focus-visible {
+        outline: 2px solid var(--global-theme-color);
+        outline-offset: 2px;
+      }
+      .selected-publication-filter.is-active {
+        border-color: var(--global-theme-color);
+        background: var(--global-theme-color);
+        color: var(--global-bg-color);
+      }
+      .selected-publication-filter-status {
+        margin: 0 0 0.65rem;
+        color: var(--global-text-color-light);
+        font-size: 0.78rem;
+      }
+      .selected-publication-list .bibliography > li[hidden] {
+        display: none !important;
+      }
       .research-note {
         margin: 0 0 1rem;
         padding: 0.05rem 0 0.05rem 1rem;
         border-left: 3px solid var(--global-theme-color);
       }
       .research-note p {
-        margin-bottom: 0.55rem;
+        margin-bottom: 0rem;
       }
       .research-note ul {
         margin-bottom: 0;
@@ -248,10 +416,16 @@ layout: default
         color: var(--global-text-color);
         box-shadow: none;
       }
-      html[data-theme="dark"] .profile-social .contact-icons a:hover:not(:focus) {
+      html[data-theme="dark"] .profile-social .contact-icons img {
+        filter: grayscale(1) brightness(2.5);
+      }
+      html[data-theme="dark"] .profile-social .contact-icons a:hover img {
+        filter: none;
+      }
+      html[data-theme="dark"] .profile-social .contact-icons a:hover {
         border-color: #38bdf8;
         background: rgba(56, 189, 248, 0.12);
-        color: #38bdf8;
+        color: var(--social-brand-color, #38bdf8);
         box-shadow: 0 8px 18px rgba(56, 189, 248, 0.12);
       }
       html[data-theme="dark"] .highlight {
@@ -269,6 +443,12 @@ layout: default
         }
       }
       @media (max-width: 575px) {
+        .selected-publication-note {
+          align-items: flex-start;
+        }
+        .selected-publication-note-divider {
+          display: none;
+        }
         .about-hero {
           margin-top: 1.2rem;
         }
@@ -288,12 +468,15 @@ layout: default
       }
       @media (prefers-reduced-motion: reduce) {
         .profile-social .contact-icons a,
-        .social .contact-icons a {
+        .profile-social .contact-icons img,
+        .social .contact-icons a,
+        .selected-publication-filter {
           transition: none;
         }
         .profile-social .contact-icons a:hover,
         .profile-social .contact-icons a:active,
-        .social .contact-icons a:hover {
+        .social .contact-icons a:hover,
+        .selected-publication-filter:hover {
           transform: none;
         }
       }
@@ -321,13 +504,74 @@ layout: default
         transform: rotate(90deg);
       }
     </style>
-    <div style="text-align: center;">
-      <details>
-        <summary id="clustrmaps-summary">
-          <i class="fas fa-chevron-circle-right arrow-icon"></i>Visitor Traffic 🌍
-        </summary>
-        <a href='https://mapmyvisitors.com/web/1c5cy'  title='Visit tracker'><img src='https://mapmyvisitors.com/map.png?cl=ffffff&w=300&t=m&d=TTsQUYsCC54J_v1Y-0XNmpElw5k78gd74HiuXoak9Qg&ct=ffffff'/></a>
-      </details>
-    </div>
+    {% if page.selected_papers %}
+      <script>
+        (() => {
+          const initSelectedPublicationFilters = () => {
+            const section = document.querySelector('.selected-publications');
+            const dataElement = document.querySelector('#selected-publication-tag-data');
+            if (!section || !dataElement || section.dataset.filtersReady) return;
+
+            const tagData = JSON.parse(dataElement.textContent);
+            const paperTags = tagData.papers || {};
+            const buttons = [...section.querySelectorAll('[data-publication-filter]')];
+            const items = [...section.querySelectorAll('.bibliography > li')];
+            const status = section.querySelector('.selected-publication-filter-status');
+            const isChinese = section.dataset.language.toLowerCase().startsWith('zh');
+
+            section.dataset.filtersReady = 'true';
+
+            items.forEach((item) => {
+              const entry = item.querySelector('.row > [id]');
+              const paper = entry ? paperTags[entry.id] || {} : {};
+              const tags = Array.isArray(paper) ? paper : paper.tags || [];
+              item.dataset.publicationTags = tags.join(' ');
+              item.dataset.showInAll = !Array.isArray(paper) && paper.show_in_all === false ? 'false' : 'true';
+            });
+
+            const applyFilter = (filter) => {
+              let visibleCount = 0;
+
+              items.forEach((item) => {
+                const tags = item.dataset.publicationTags.split(' ').filter(Boolean);
+                const visible = filter === 'all' ? item.dataset.showInAll !== 'false' : tags.includes(filter);
+                item.hidden = !visible;
+                if (visible) visibleCount += 1;
+              });
+
+              buttons.forEach((button) => {
+                const active = button.dataset.publicationFilter === filter;
+                button.classList.toggle('is-active', active);
+                button.setAttribute('aria-pressed', active ? 'true' : 'false');
+              });
+
+              if (status) {
+                if (isChinese) {
+                  status.textContent = `当前显示 ${visibleCount} 篇论文`;
+                } else {
+                  status.textContent = `Showing ${visibleCount} publications`;
+                }
+              }
+            };
+
+            buttons.forEach((button) => {
+              button.addEventListener('click', () => applyFilter(button.dataset.publicationFilter));
+            });
+
+            applyFilter('all');
+          };
+
+          const initSelectedPublications = () => {
+            initSelectedPublicationFilters();
+          };
+
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSelectedPublications);
+          } else {
+            initSelectedPublications();
+          }
+        })();
+      </script>
+    {% endif %}
   </article>
 </div>

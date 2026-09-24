@@ -1,0 +1,24 @@
+- role: Area Chair
+  role_zh: 领域主席
+  venues:
+    - NeurIPS 2026
+    - BMVC 2026
+
+- role: Journal Reviewer
+  role_zh: 期刊审稿人
+  venues:
+    - Nature Machine Intelligence, Nature Reviews Computing, TIP, etc.
+
+- role: Conference Reviewer
+  role_zh: 会议审稿人
+  venues:
+    - CVPR
+    - ICCV
+    - ECCV
+    - NeurIPS
+    - ICLR
+    - RSS
+    - CoRL
+    - ICRA
+    - IROS
+    - AAAI, etc.

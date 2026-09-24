@@ -1,0 +1,55 @@
+# Lab photos and team members are displayed in the order listed below.
+# Store lab photos in assets/img/team/ and use site-relative image paths.
+#
+# Example lab photo:
+# lab_photos:
+#   - image: /assets/img/team/lab-photo-1.jpg
+#     alt: InSAI Lab group photo
+#     caption: InSAI Lab, 2026
+#
+# Example member:
+# members:
+#   - name: Jane Doe
+#     website: https://example.com
+#     description: PhD student at HNU (Topic: Multimodal Learning)
+#     co_advisor:
+#       name: Prof. Example Name
+#       website: https://example.com
+#
+# Keep "description" without a final period; the page adds it automatically.
+
+lab_photos:
+  # - image: ""
+  #   alt: xxx Lab group photo
+  #   caption: xxx Lab, 2026
+
+groups:
+  - id: postdocs
+    title: Postdoctoral Researchers
+    members: []
+
+  - id: phd-students
+    title: PhD Students
+    members:
+      - name: 111
+        website: https://example.com
+        description: "xxx research"
+
+      - name: 222
+        website: https://example.com
+        description: "xxx research"
+        co_advisor:
+          name: 333
+          website: https://example.com
+
+  - id: master-students
+    title: Master's Students
+    members: []
+
+  - id: bachelor-students
+    title: Bachelor's Students
+    members: []
+
+  - id: alumni
+    title: Alumni
+    members: []

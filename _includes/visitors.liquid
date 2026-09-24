@@ -1,0 +1,204 @@
+{% assign visitors_home_settings = site.pages | where: 'permalink', '/' | first %}
+{% assign visitors_language = page.lang | default: site.lang %}
+{% assign visitors_zh = false %}
+{% if visitors_language contains 'zh' %}
+  {% assign visitors_zh = true %}
+{% endif %}
+{% assign visitors_home = false %}
+{% if page.permalink == '/' or page.permalink == '/zh/' %}
+  {% assign visitors_home = true %}
+{% endif %}
+{% assign visitors_detail_path = '/visitors.html' %}
+{% if visitors_zh %}
+  {% assign visitors_detail_path = '/zh/visitors.html' %}
+{% endif %}
+<div
+  id="visitor-tracker"
+  data-api-url="{{ site.visitors.api_url | escape }}"
+  data-allowed-origins="{{ site.visitors.allowed_origins | jsonify | escape }}"
+  data-site-url="{{ site.url | escape }}"
+  data-production="{% if jekyll.environment == 'production' and site.visitors.enabled and site.visitors.preview != true %}true{% else %}false{% endif %}"
+  data-language="{% if visitors_zh %}zh{% else %}en{% endif %}"
+  data-view="{% if page.visitors_details %}details{% else %}summary{% endif %}"
+  data-details-url="{{ visitors_detail_path | relative_url }}"
+  data-globe-url="{{ '/assets/vendor/visitors/globe.gl-2.46.2.min.js' | relative_url }}"
+  data-map-url="{{ '/assets/vendor/visitors/countries.geojson' | relative_url }}"
+>
+  {% if visitors_home or page.visitors_details %}
+    <link rel="stylesheet" href="{{ '/assets/css/visitors.css' | relative_url | bust_file_cache }}">
+    <section
+      class="visitor-section{% if page.visitors_details %} visitor-section-details{% endif %}"
+      aria-label="{% if visitors_zh %}访客来源{% else %}Visitor locations{% endif %}"
+    >
+      {% if page.visitors_details %}
+        <div class="visitor-page-links">
+          <a href="{% if visitors_zh %}{{ '/zh/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">
+            {% if visitors_zh %}← 返回首页{% else %}← Back to home{% endif %}
+          </a>
+          {% if visitors_home_settings.show_language_switch != false %}
+            <a
+              href="{% if visitors_zh %}{{ '/visitors.html' | relative_url }}{% else %}{{ '/zh/visitors.html' | relative_url }}{% endif %}"
+              lang="{% if visitors_zh %}en{% else %}zh-CN{% endif %}"
+            >
+              {% if visitors_zh %}English{% else %}中文{% endif %}
+            </a>
+          {% endif %}
+        </div>
+      {% else %}
+        <button id="visitor-toggle" class="visitor-button" type="button" aria-expanded="false" aria-controls="visitor-panel">
+          {% if visitors_zh %}🌍 访客地图{% else %}🌍 Visitor Map{% endif %}
+        </button>
+      {% endif %}
+      <div
+        id="visitor-panel"
+        {% unless page.visitors_details %}
+          hidden
+        {% endunless %}
+      >
+        <p id="visitor-summary" class="visitor-summary" role="status" aria-live="polite"></p>
+        <p id="visitor-preview" class="visitor-note" hidden>
+          {% if visitors_zh %}预览数据{% else %}Preview data{% endif %}
+        </p>
+        <div
+          id="visitor-globe"
+          class="visitor-globe"
+          {% if page.visitors_details %}
+            role="img"
+            aria-label="{% if visitors_zh %}访客来源国家地球{% else %}Globe of visitor countries{% endif %}"
+          {% else %}
+            role="link"
+            tabindex="0"
+            aria-label="{% if visitors_zh %}查看访客详细数据{% else %}View visitor statistics{% endif %}"
+            title="{% if visitors_zh %}点击查看访客详细数据{% else %}Click to view visitor statistics{% endif %}"
+          {% endif %}
+        ></div>
+        {% if page.visitors_details %}
+          <section id="visitor-activity" class="visitor-activity" aria-label="{% if visitors_zh %}访问统计{% else %}Visit totals{% endif %}" hidden>
+            <dl class="visitor-totals">
+              <div>
+                <dt>
+                  {% if visitors_zh %}今日{% else %}Today{% endif %}
+                </dt>
+                <dd>
+                  <span id="visitor-today">—</span>
+                  <span class="visitor-count-unit">
+                    {%- if visitors_zh %}次访问{% else %}visits{% endif -%}
+                  </span>
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  {% if visitors_zh %}近 30 天{% else %}Last 30 days{% endif %}
+                </dt>
+                <dd>
+                  <span id="visitor-last30">—</span>
+                  <span class="visitor-count-unit">
+                    {%- if visitors_zh %}次访问{% else %}visits{% endif -%}
+                  </span>
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  {% if visitors_zh %}累计{% else %}Totals{% endif %}
+                </dt>
+                <dd>
+                  <span id="visitor-total">—</span>
+                  <span class="visitor-count-unit">
+                    {%- if visitors_zh %}次访问{% else %}visits{% endif -%}
+                  </span>
+                </dd>
+              </div>
+            </dl>
+            <figure id="visitor-history" class="visitor-history" hidden>
+              <figcaption class="visitor-chart-caption">
+                <span id="visitor-chart-readout" aria-live="polite">
+                  {%- if visitors_zh %}每日访问{% else %}Daily visits{% endif -%}
+                </span>
+                <span>UTC+8</span>
+              </figcaption>
+              <div
+                id="visitor-chart"
+                class="visitor-chart"
+                role="group"
+                aria-label="{% if visitors_zh %}近 30 天每日访问次数{% else %}Daily visits over the last 30 days{% endif %}"
+              ></div>
+              <div class="visitor-chart-dates"><time id="visitor-chart-start"></time><time id="visitor-chart-end"></time></div>
+            </figure>
+            <p id="visitor-history-note" class="visitor-note" hidden></p>
+          </section>
+        {% endif %}
+        {% unless page.visitors_details %}
+          <a class="visitor-details-link" href="{{ visitors_detail_path | relative_url }}">
+            {% if visitors_zh %}查看详细访问统计 →{% else %}View visitor statistics →{% endif %}
+          </a>
+        {% endunless %}
+        <p id="visitor-error" class="visitor-note" role="status" hidden></p>
+        <button id="visitor-retry" class="visitor-button visitor-retry" type="button" hidden>
+          {% if visitors_zh %}重试{% else %}Try again{% endif %}
+        </button>
+        {% if page.visitors_details %}
+          <div id="visitor-breakdown" hidden>
+            <p id="visitor-unlocated" class="visitor-note" hidden></p>
+            <div id="visitor-tables" class="visitor-tables visitor-metrics">
+              <section class="visitor-breakdown-card" aria-labelledby="visitor-countries-title">
+                <table aria-labelledby="visitor-countries-title">
+                  <thead>
+                    <tr>
+                      <th id="visitor-countries-title" scope="col">
+                        {% if visitors_zh %}国家 / 地区{% else %}Country / region{% endif %}
+                      </th>
+                      <th scope="col">
+                        {% if visitors_zh %}访问次数{% else %}Visits{% endif %}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="visitor-countries"></tbody>
+                </table>
+                <p id="visitor-empty" class="visitor-note" hidden>
+                  {% if visitors_zh %}暂无已知国家的访问记录。{% else %}No visits with a known country yet.{% endif %}
+                </p>
+              </section>
+              <section class="visitor-breakdown-card" aria-labelledby="visitor-referrers-title">
+                <table aria-labelledby="visitor-referrers-title">
+                  <thead>
+                    <tr>
+                      <th id="visitor-referrers-title" scope="col">
+                        {% if visitors_zh %}访问来源{% else %}Top referrers{% endif %}
+                      </th>
+                      <th scope="col">
+                        {% if visitors_zh %}访问次数{% else %}Visits{% endif %}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="visitor-referrers"></tbody>
+                </table>
+                <p id="visitor-referrers-empty" class="visitor-note" hidden>
+                  {% if visitors_zh %}暂无此项数据。{% else %}Not recorded yet.{% endif %}
+                </p>
+              </section>
+              <section class="visitor-breakdown-card" aria-labelledby="visitor-deviceTypes-title">
+                <table aria-labelledby="visitor-deviceTypes-title">
+                  <thead>
+                    <tr>
+                      <th id="visitor-deviceTypes-title" scope="col">
+                        {% if visitors_zh %}设备类型{% else %}Device types{% endif %}
+                      </th>
+                      <th scope="col">
+                        {% if visitors_zh %}访问次数{% else %}Visits{% endif %}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="visitor-deviceTypes"></tbody>
+                </table>
+                <p id="visitor-deviceTypes-empty" class="visitor-note" hidden>
+                  {% if visitors_zh %}暂无此项数据。{% else %}Not recorded yet.{% endif %}
+                </p>
+              </section>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </section>
+  {% endif %}
+</div>
+<script defer src="{{ '/assets/js/visitors.js' | relative_url | bust_file_cache }}"></script>

@@ -11,6 +11,12 @@
   {% endif %}
 {% endcapture %}
 
+{% if site.visitors.enabled or site.visitors.preview %}
+  {% unless page.visitors_details %}
+    {% include visitors.liquid %}
+  {% endunless %}
+{% endif %}
+
 {% if site.footer_fixed %}
   <footer class="fixed-bottom" role="contentinfo">
     <div class="container mt-0">
@@ -32,24 +38,3 @@
     </div>
   </footer>
 {% endif %}
-
-<style>
-  footer.sticky-bottom,
-  footer.fixed-bottom {
-    border-top: 0 !important;
-    position: relative;
-  }
-
-  footer.sticky-bottom::before,
-  footer.fixed-bottom::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 100vw;
-    height: 1px;
-    pointer-events: none;
-    background: var(--global-divider-color);
-    transform: translateX(-50%);
-  }
-</style>

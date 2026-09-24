@@ -1,5 +1,7 @@
 # this file contains the social media links and usernames of the author
 # the socials will be displayed in the order they are defined here
+# Built-in icon tooltips are normalized in _includes/social_links.liquid.
+# Custom social entries define their tooltip with their own title field below.
 
 # academia_edu:  your organization and your username Ex. https://organization.academia.edu/UserName
 #  organization: princeton # your organization as appears in the subdomain
@@ -11,7 +13,18 @@
 # cv_pdf: /assets/pdf/example_pdf.pdf # path to your CV PDF file
 # dblp_url: # your DBLP profile url
 # discord_id: # your discord id (18-digit unique numerical identifier)
-email: ligen@g.skku.edu # your email address
+scholar_userid: Rfh4mm0AAAAJ # your Google Scholar ID
+
+# Official emblem: https://xb.hnu.edu.cn/info/1043/1558.htm
+# hnu_faculty:
+#   logo: /assets/img/hnu-logo.png
+#   title: 教师主页 · Faculty Profile
+#   url: "" # Add your Hunan University faculty profile URL here later.
+
+xiaohongshu:
+  logo: social-icon-xiaohongshu
+  title: 小红书 · Rednote
+  url: https://www.xiaohongshu.com/user/profile/5bac4a598030590001ab4291
 # facebook_id: # your facebook id
 # flickr_id: # your flickr id
 # gitlab_username: # your GitLab user name
@@ -24,7 +37,6 @@ email: ligen@g.skku.edu # your email address
 # lastfm_id: # your lastfm id
 # lattes_id: # your ID on Lattes (Brazilian Lattes CV)
 # leetcode_id: # your LeetCode id
-scholar_userid: Rfh4mm0AAAAJ # your Google Scholar ID
 linkedin_username: gen-li-84bb62191 # your LinkedIn user name
 github_username: Reagan1311 # your GitHub user name
 # mastodon_username: # your mastodon instance+username in the format instance.tld/@username
@@ -56,3 +68,9 @@ github_username: Reagan1311 # your GitHub user name
 #   logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
 #   title: Custom Social
 #   url: https://www.alberteinstein.com/
+
+# Official icon: https://github.com/openreview/openreview-web/blob/551d7dd8189cede2026f46d6901d36cd4be77af2/public/images/openreview_logo_256.png
+# openreview:
+#   logo: /assets/img/openreview.png
+#   title: OpenReview
+#   url: https://openreview.net/profile?id=%7EGen_Li5

@@ -1,0 +1,27 @@
+name: Visitor statistics backend
+
+on:
+  push:
+    paths: ["services/visitors/**", ".github/workflows/visitors.yml"]
+  pull_request:
+    paths: ["services/visitors/**", ".github/workflows/visitors.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  worker:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/visitors
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: services/visitors/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npx wrangler deploy --dry-run --outdir /tmp/visitor-worker

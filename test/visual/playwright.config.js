@@ -35,6 +35,8 @@ module.exports = {
       name: "desktop",
       use: {
         viewport: { width: 1366, height: 1800 },
+        // The full Chromium headless mode supports the real WebGL visitor globe.
+        ...(process.env.VISITORS_TEST === "1" ? { channel: "chromium" } : {}),
       },
     },
     {

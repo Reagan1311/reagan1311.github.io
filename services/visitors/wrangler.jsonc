@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "genli-visitor-stats",
+  "account_id": "93015f88bd930e190d42ae8aefd3f2a5",
+  "main": "src/counter.js",
+  "compatibility_date": "2026-09-17",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "stats.genli.top", "custom_domain": true }],
+  "vars": {
+    "ALLOWED_ORIGINS": "https://genli.top,https://www.genli.top",
+  },
+  "triggers": { "crons": [] },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "genli-visitor-stats",
+      "database_id": "fad09eb9-6783-4cf4-9046-3942ec6cb2df",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "ratelimits": [
+    { "name": "COLLECT_LIMITER", "namespace_id": "13119601", "simple": { "limit": 30, "period": 60 } },
+    { "name": "READ_LIMITER", "namespace_id": "13119602", "simple": { "limit": 120, "period": 60 } },
+  ],
+  "observability": { "enabled": false },
+}
