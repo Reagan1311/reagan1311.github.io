@@ -89,7 +89,7 @@ test("preview loads the local globe only on expansion and supports themes and re
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
   expect(libraryRequests).toHaveLength(0);
   await toggle.click();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 countries and 3 locations");
   await expect(page.locator("#visitor-preview")).toBeVisible();
   await expect(page.locator("#visitor-activity")).toHaveCount(0);
   await expect(page.locator("#visitor-chart")).toHaveCount(0);
@@ -116,12 +116,12 @@ test("one collection per tab session across refreshes and language navigation", 
   await page.goto(home);
   await expect.poll(collects).toBe(1);
   await page.locator("#visitor-toggle").click();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 8 visits from 1 location");
-  await expect(page.locator("#visitor-summary strong")).toHaveText(["8", "1"]);
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 8 visits from 1 country and 1 location");
+  await expect(page.locator("#visitor-summary strong")).toHaveText(["8", "1", "1"]);
   await page.reload();
   await page.goto(`${home}zh/`);
   await page.locator("#visitor-toggle").click();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 来自 1 个地点的 8 次访问");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 来自 1 个国家 / 地区、1 个地点的 8 次访问");
   await expect(page.locator("#visitor-activity")).toHaveCount(0);
   expect(collects()).toBe(1);
   expect(await page.evaluate(() => sessionStorage.getItem("visitor-recorded:https://stats.genli.top"))).toBe("true");
@@ -239,7 +239,7 @@ test("library failure retains totals and retry recovers", async ({ page }) => {
   await page.route(library, (route) => route.abort());
   await page.goto(home);
   await page.locator("#visitor-toggle").click();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 countries and 3 locations");
   await expect(page.locator("#visitor-retry")).toBeVisible();
   await page.unroute(library);
   await page.locator("#visitor-retry").click();
@@ -265,7 +265,7 @@ test("WebGL unavailable retains the accessible numeric summary", async ({ page }
   });
   await page.goto(`${home}zh/`);
   await page.locator("#visitor-toggle").click();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 来自 3 个地点的 42 次访问");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 来自 3 个国家 / 地区、3 个地点的 42 次访问");
   await expect(page.locator("#visitor-retry")).toBeVisible({ timeout: 30000 });
   await expect(page.locator("#visitor-globe")).toBeHidden();
 });
@@ -304,7 +304,7 @@ test("globe tap opens ranked country details; dragging stays on the homepage", a
   await expect(page.locator("#visitor-tracker")).toHaveCount(1);
   await expect(page.locator("#visitor-toggle")).toHaveCount(0);
   await expect(page.locator('#navbar a[href$="visitors.html"]')).toHaveCount(0);
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 25 visits from 3 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 25 visits from 2 countries and 3 locations");
   await expect(page.locator("#visitor-countries tr")).toHaveCount(2);
   await expect(page.locator("#visitor-countries tr").first()).toHaveText(/United States\s*14/);
   await expect(page.locator("#visitor-cities")).toHaveCount(0);
@@ -342,7 +342,7 @@ test("detail page handles empty data and visits without known countries", async 
   const data = { total: 0, places: 0, countryCount: 0, countries: [], unknownCountryVisits: 0 };
   await liveFixture(page, baseURL, { data });
   await page.goto(`${home}visitors.html`);
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 0 visits from 0 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 0 visits from 0 countries and 0 locations");
   await expect(page.locator("#visitor-empty")).toBeVisible();
   await expect(page.locator("#visitor-tables")).toBeVisible();
   await expect(page.locator("#visitor-countries tr")).toHaveCount(0);
@@ -350,7 +350,7 @@ test("detail page handles empty data and visits without known countries", async 
   data.total = 5;
   data.unknownCountryVisits = 5;
   await page.reload();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 5 visits from 0 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 5 visits from 0 countries and 0 locations");
   await expect(page.locator("#visitor-unlocated")).toContainText("5 visits with an unknown country");
   await expect(page.locator("#visitor-empty")).toBeVisible();
 });
@@ -433,10 +433,10 @@ test("both production domains collect once and read the self-hosted API", async 
       });
     });
     await page.goto(`${origin}${home}visitors.html`);
-    await expect(page.locator("#visitor-summary")).toHaveText("🌍 8 visits from 1 location");
+    await expect(page.locator("#visitor-summary")).toHaveText("🌍 8 visits from 1 country and 1 location");
     await page.reload();
     await page.goto(`${origin}${home}zh/visitors.html`);
-    await expect(page.locator("#visitor-summary")).toHaveText("🌍 来自 1 个地点的 8 次访问");
+    await expect(page.locator("#visitor-summary")).toHaveText("🌍 来自 1 个国家 / 地区、1 个地点的 8 次访问");
     expect(requests.length).toBeGreaterThan(0);
     expect(requests.filter((request) => request.method === "POST")).toEqual([{ method: "POST", url: "https://stats.genli.top/collect" }]);
     expect(requests.filter((request) => request.method === "GET").every((request) => request.url.endsWith("/stats"))).toBe(true);
@@ -456,7 +456,7 @@ test("a production build on localhost still uses previews without any API reques
     await route.fulfill({ response, body: (await response.text()).replace(/data-production="false"/g, 'data-production="true"') });
   });
   await page.goto(`${home}visitors.html`);
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 countries and 3 locations");
   await expect(page.locator("#visitor-preview")).toBeVisible();
   await expect(page.locator("#visitor-referrers tr")).toHaveCount(3);
   expect(requests).toBe(0);
@@ -475,8 +475,8 @@ test("singular summary and country coloring work without invented archive dates"
     });
   });
   await page.goto(`${home}visitors.html`);
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 1 visit from 1 location");
-  await expect(page.locator("#visitor-summary strong")).toHaveText(["1", "1"]);
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 1 visit from 1 country and 1 location");
+  await expect(page.locator("#visitor-summary strong")).toHaveText(["1", "1", "1"]);
   await expect(page.locator("#visitor-period")).toHaveCount(0);
   await expect(page.locator("#visitor-stale")).toHaveCount(0);
   await expect(page.locator("#visitor-globe")).toHaveAttribute("data-ready", "true", { timeout: 30000 });
