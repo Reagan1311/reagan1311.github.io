@@ -488,22 +488,12 @@
     };
     const total = document.createElement("strong");
     total.textContent = stats.total.toLocaleString();
-    const countryTotal = document.createElement("strong");
-    countryTotal.textContent = stats.countries.length.toLocaleString();
     const locationTotal = document.createElement("strong");
     locationTotal.textContent = stats.places.toLocaleString();
     summary.replaceChildren(
       ...(zh
-        ? ["🌍 来自 ", countryTotal, " 个国家 / 地区、", locationTotal, " 个地点的 ", total, " 次访问"]
-        : [
-            "🌍 ",
-            total,
-            stats.total === 1 ? " visit from " : " visits from ",
-            countryTotal,
-            stats.countries.length === 1 ? " country and " : " countries and ",
-            locationTotal,
-            stats.places === 1 ? " location" : " locations",
-          ])
+        ? ["🌍 来自 ", locationTotal, " 个地点的 ", total, " 次访问"]
+        : ["🌍 ", total, stats.total === 1 ? " visit from " : " visits from ", locationTotal, stats.places === 1 ? " location" : " locations"])
     );
     renderActivity();
     renderBreakdown();
