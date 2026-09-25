@@ -55,7 +55,7 @@ papers:
     show_in_all: false
   evo-depth:
     tags: [vla, efficient]
-    show_in_all: false
+    show_in_all: true
   phyfilter:
     tags: [efficient, rm]
     show_in_all: false
