@@ -16,10 +16,10 @@
 scholar_userid: Rfh4mm0AAAAJ # your Google Scholar ID
 
 # Official emblem: https://xb.hnu.edu.cn/info/1043/1558.htm
-# hnu_faculty:
-#   logo: /assets/img/hnu-logo.png
-#   title: 教师主页 · Faculty Profile
-#   url: "" # Add your Hunan University faculty profile URL here later.
+hnu_faculty:
+  logo: /assets/img/hnu-logo.png
+  title: 教师主页 · Faculty Profile
+  url: "" # Add your Hunan University faculty profile URL here later.
 
 xiaohongshu:
   logo: social-icon-xiaohongshu

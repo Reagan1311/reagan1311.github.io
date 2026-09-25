@@ -86,6 +86,13 @@ layout: default
         {% if is_zh %}代表论文{% else %}Selected Publications{% endif %}
       </h2>
       <div class="selected-publications" data-language="{{ page_language }}">
+        {% capture selected_papers_html %}{% include selected_papers.liquid %}{% endcapture %}
+        {% assign selected_papers_state = selected_papers_html | selected_publications_initial_state: site.data.selected_publication_tags.papers %}
+        <style>
+          .selected-publication-list .bibliography > li[hidden] {
+            display: none !important;
+          }
+        </style>
         <p class="selected-publication-note">
           <span class="selected-publication-note-item">
             <strong>*/†</strong>
@@ -113,11 +120,14 @@ layout: default
             </button>
           {% endfor %}
         </div>
-        <p class="selected-publication-filter-status" aria-live="polite"></p>
-        <div class="selected-publication-list">{% include selected_papers.liquid %}</div>
-        <script id="selected-publication-tag-data" type="application/json">
-          {{ site.data.selected_publication_tags | jsonify }}
-        </script>
+        <p class="selected-publication-filter-status" aria-live="polite">
+          {% if is_zh %}
+            当前显示 {{ selected_papers_state.visible_count }} 篇论文
+          {% else %}
+            Showing {{ selected_papers_state.visible_count }} publications
+          {% endif %}
+        </p>
+        <div class="selected-publication-list">{{ selected_papers_state.html }}</div>
       </div>
     {% endif %}
 
@@ -372,9 +382,6 @@ layout: default
         color: var(--global-text-color-light);
         font-size: 0.78rem;
       }
-      .selected-publication-list .bibliography > li[hidden] {
-        display: none !important;
-      }
       .research-note {
         margin: 0 0 1rem;
         padding: 0.05rem 0 0.05rem 1rem;
@@ -509,25 +516,14 @@ layout: default
         (() => {
           const initSelectedPublicationFilters = () => {
             const section = document.querySelector('.selected-publications');
-            const dataElement = document.querySelector('#selected-publication-tag-data');
-            if (!section || !dataElement || section.dataset.filtersReady) return;
+            if (!section || section.dataset.filtersReady) return;
 
-            const tagData = JSON.parse(dataElement.textContent);
-            const paperTags = tagData.papers || {};
             const buttons = [...section.querySelectorAll('[data-publication-filter]')];
             const items = [...section.querySelectorAll('.bibliography > li')];
             const status = section.querySelector('.selected-publication-filter-status');
             const isChinese = section.dataset.language.toLowerCase().startsWith('zh');
 
             section.dataset.filtersReady = 'true';
-
-            items.forEach((item) => {
-              const entry = item.querySelector('.row > [id]');
-              const paper = entry ? paperTags[entry.id] || {} : {};
-              const tags = Array.isArray(paper) ? paper : paper.tags || [];
-              item.dataset.publicationTags = tags.join(' ');
-              item.dataset.showInAll = !Array.isArray(paper) && paper.show_in_all === false ? 'false' : 'true';
-            });
 
             const applyFilter = (filter) => {
               let visibleCount = 0;
@@ -557,8 +553,6 @@ layout: default
             buttons.forEach((button) => {
               button.addEventListener('click', () => applyFilter(button.dataset.publicationFilter));
             });
-
-            applyFilter('all');
           };
 
           const initSelectedPublications = () => {
