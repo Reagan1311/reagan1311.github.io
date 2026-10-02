@@ -95,3 +95,6 @@ papers:
   palm:
     tags: [vla]
     show_in_all: false
+  mmhri:
+    tags: [vla, hri]
+    show_in_all: false

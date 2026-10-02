@@ -487,22 +487,23 @@
       countries: [...countries].map(([code, count]) => ({ code, count })).sort((a, b) => b.count - a.count || a.code.localeCompare(b.code)),
     };
     const total = document.createElement("strong");
+    total.className = "visitor-total-count";
     total.textContent = stats.total.toLocaleString();
     const countryTotal = document.createElement("strong");
     countryTotal.textContent = stats.countries.length.toLocaleString();
-    const locationTotal = document.createElement("strong");
-    locationTotal.textContent = stats.places.toLocaleString();
+    const cityTotal = document.createElement("strong");
+    cityTotal.textContent = stats.places.toLocaleString();
     summary.replaceChildren(
       ...(zh
-        ? ["🌍 来自 ", countryTotal, " 个国家 / 地区、", locationTotal, " 个地点的 ", total, " 次访问"]
+        ? ["🌍 来自 ", countryTotal, " 个国家 / 地区、", cityTotal, " 个城市的 ", total, " 次访问"]
         : [
             "🌍 ",
             total,
             stats.total === 1 ? " visit from " : " visits from ",
             countryTotal,
             stats.countries.length === 1 ? " country and " : " countries and ",
-            locationTotal,
-            stats.places === 1 ? " location" : " locations",
+            cityTotal,
+            stats.places === 1 ? " city" : " cities",
           ])
     );
     renderActivity();

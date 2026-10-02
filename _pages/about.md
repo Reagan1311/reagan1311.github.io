@@ -39,7 +39,8 @@ I am a incoming Professor at the [School of AI and Robotics](http://robotics.hnu
 My research focuses on building <u>reliable, efficient, and human-centered embodied intelligence that can perceive, reason, and act in the physical world</u>.
 I am broadly interested in robot learning, multimodal foundation models, efficient AI, and human-robot interaction.
 
-I was a Research Fellow at Nanyang Technological University, Singapore, working with [Jianfei Yang](https://marsyang.site/). I received my PhD in Robotics and Autonomous Systems from The University of Edinburgh, UK, supervised by [Laura Sevilla](https://laurasevilla.me/) and co-supervised by [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/).
+Previously, I was a Research Fellow at Nanyang Technological University, working with [Jianfei Yang](https://marsyang.site/). I received my PhD in Robotics and Autonomous Systems from The University of Edinburgh, supervised by [Laura Sevilla](https://laurasevilla.me/) and co-supervised by [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/).
+My research has been supported by Google DeepMind and Stability AI, where I collaborated with [Deqing Sun](https://deqings.github.io/) and [Varun Jampani](https://varunjampani.github.io/), and by Huawei Noah's Ark Lab in London, where I worked as a student researcher with [Kun Shao](https://shaokun91.github.io/).
 
 <!-- I was fortunate to be partially supported through Google DeepMind and Stability AI, where I collaborated with [Deqing Sun](https://deqings.github.io/) and [Varun Jampani](https://varunjampani.github.io/). -->
 <!-- I also worked as a Research intern at Huawei Noah's Ark Lab in London, where I was mentored by [Kun Shao](https://shaokun91.github.io/). -->
@@ -57,7 +58,9 @@ I was a Research Fellow at Nanyang Technological University, Singapore, working 
 
 <div class="research-note" markdown="1">
 
-📢 I am always looking for highly motivated PhD and master’s students, postdocs, research assistants/interns, and visiting scholars. Please feel free to reach out by email.
+<!-- 📢 I am always looking for highly motivated PhD and master’s students, postdocs, research assistants/interns, and visiting scholars. Please feel free to reach out by email. -->
+
+📢 I am always looking for highly motivated PhD and master’s students, postdocs, research assistants/interns, visiting scholars, and research collaborators. If you are interested in working together, please feel free to reach out by email.
 
 </div>
 
