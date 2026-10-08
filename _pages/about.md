@@ -37,7 +37,7 @@ latest_posts:
 
 I am a incoming Professor at the [School of AI and Robotics](http://robotics.hnu.edu.cn/), [Hunan University](https://www-en.hnu.edu.cn/).
 My research focuses on building <u>reliable, efficient, and human-centered embodied intelligence that can perceive, reason, and act in the physical world</u>.
-I am broadly interested in robot learning, multimodal foundation models, efficient AI, and human-robot interaction.
+I am broadly interested in embodied AI, robot learning, multimodal foundation models, efficient AI, and human-robot interaction.
 
 Previously, I was a Research Fellow at Nanyang Technological University, working with [Jianfei Yang](https://marsyang.site/). I received my PhD in Robotics and Autonomous Systems from The University of Edinburgh, supervised by [Laura Sevilla](https://laurasevilla.me/) and co-supervised by [Timothy Hospedales](https://homepages.inf.ed.ac.uk/thospeda/).
 My research has been supported by Google DeepMind and Stability AI, where I collaborated with [Deqing Sun](https://deqings.github.io/) and [Varun Jampani](https://varunjampani.github.io/), and by Huawei Noah's Ark Lab in London, where I worked as a student researcher with [Kun Shao](https://shaokun91.github.io/).
