@@ -125,6 +125,11 @@
       { code: "GB", count: 12 },
       { code: "KR", count: 6 },
     ],
+    points: [
+      { country: "SG", city: "Singapore", lat: 1.35, lon: 103.82, count: 24 },
+      { country: "GB", city: "London", lat: 51.51, lon: -0.13, count: 12 },
+      { country: "KR", city: "Seoul", lat: 37.57, lon: 126.98, count: 6 },
+    ],
     referrers: [
       { name: "direct", count: 20 },
       { name: "google.com", count: 12 },
@@ -147,9 +152,10 @@
   let globe = null;
   let globeTask = null;
   let libraryTask = null;
-  let mapTask = null;
+  let imageTask = null;
   let stats = null;
   let loading = false;
+  let globeRequested = true;
   let globeFailed = false;
   let statsFailed = false;
   let regionNames;
@@ -360,24 +366,25 @@
     return libraryTask;
   }
 
-  function loadMap() {
-    if (!mapTask) {
-      mapTask = request(tracker.dataset.mapUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          if (!Array.isArray(data.features)) throw new Error("Invalid map");
-          return data.features;
-        })
-        .catch((failure) => {
-          mapTask = null;
-          throw failure;
-        });
-    }
-    return mapTask;
+  function loadGlobeImage() {
+    const dark = document.documentElement.getAttribute("data-theme") === "dark";
+    const url = dark ? tracker.dataset.globeDarkUrl : tracker.dataset.globeLightUrl;
+    if (imageTask?.url === url) return imageTask.promise;
+    const image = new Image();
+    const promise = new Promise((resolve, reject) => {
+      image.onload = resolve;
+      image.onerror = () => reject(new Error("Globe texture unavailable"));
+      image.src = url;
+    }).catch((failure) => {
+      imageTask = null;
+      throw failure;
+    });
+    imageTask = { url, promise };
+    return promise;
   }
 
   function resize() {
-    if (!globe || panel.hidden) return;
+    if (!globe || panel.hidden || box.hidden) return;
     const size = box.clientWidth;
     if (size) globe.width(size).height(size);
   }
@@ -385,27 +392,26 @@
   function motion() {
     if (!globe) return;
     globe.controls().autoRotate = !reducedMotion.matches;
-    if (panel.hidden || document.hidden) globe.pauseAnimation();
+    if (panel.hidden || box.hidden || document.hidden) globe.pauseAnimation();
     else globe.resumeAnimation();
   }
 
   function theme() {
     if (!globe) return;
     const dark = document.documentElement.getAttribute("data-theme") === "dark";
-    const counts = new Map((stats?.countries || []).map(({ code, count }) => [code, count]));
-    globe.polygonCapColor((feature) => (counts.has(feature.properties.code) ? "#e84c5c" : dark ? "#7197b5" : "#99bfdc"));
-    globe.polygonSideColor(() => (dark ? "#24425c" : "#d5eafa"));
-    globe.polygonStrokeColor(() => (dark ? "#24425c" : "#d5eafa"));
+    globe.globeImageUrl(dark ? tracker.dataset.globeDarkUrl : tracker.dataset.globeLightUrl);
     globe.globeMaterial().color.set(dark ? "#24425c" : "#d5eafa");
     globe.atmosphereColor(dark ? "#426f96" : "#acd6ef");
   }
 
-  function tooltip(feature) {
+  function tooltip(point) {
     const element = document.createElement("div");
     element.className = "visitor-point-label";
-    const code = feature.properties.code;
-    const count = stats?.countries.find((row) => row.code === code)?.count || 0;
-    element.textContent = `${countryName(code)} · ${count.toLocaleString()} ${zh ? "次访问" : count === 1 ? "visit" : "visits"}`;
+    const count = point.count || 0;
+    const city = point.city || "";
+    const country = countryName(point.country);
+    const place = city && city.toLowerCase() !== country.toLowerCase() ? `${city}, ${country}` : city || country;
+    element.textContent = `${place} · ${count.toLocaleString()} ${zh ? "次访问" : count === 1 ? "visit" : "visits"}`;
     return element;
   }
 
@@ -416,34 +422,53 @@
       globe = null;
     }
     box.replaceChildren();
+    delete box.dataset.ready;
   }
 
   async function ensureGlobe() {
     if (globe) return;
     if (globeTask) return globeTask;
-    globeTask = Promise.all([loadLibrary(), loadMap()])
-      .then(([, countries]) => {
-        if (panel.hidden) return;
+    globeTask = Promise.all([loadLibrary(), loadGlobeImage()])
+      .then(() => {
+        if (panel.hidden || box.hidden) return;
         try {
+          const points = (stats?.points || []).filter(
+            ({ country, lat, lon, count }) =>
+              /^[A-Z]{2}$/.test(country || "") &&
+              Number.isFinite(lat) &&
+              lat >= -90 &&
+              lat <= 90 &&
+              Number.isFinite(lon) &&
+              lon >= -180 &&
+              lon <= 180 &&
+              Number.isSafeInteger(count) &&
+              count > 0
+          );
           globe = new window.Globe(box, { animateIn: !reducedMotion.matches, rendererConfig: { antialias: true, alpha: true } })
             .backgroundColor("rgba(0,0,0,0)")
+            .globeImageUrl(document.documentElement.getAttribute("data-theme") === "dark" ? tracker.dataset.globeDarkUrl : tracker.dataset.globeLightUrl)
             .showGraticules(true)
             .showAtmosphere(true)
             .atmosphereAltitude(0.17)
-            .polygonsData(countries)
-            .polygonAltitude(0.006)
-            .polygonsTransitionDuration(0)
-            .polygonLabel(tooltip);
+            .pointsData(points)
+            .pointLat("lat")
+            .pointLng("lon")
+            .pointColor(() => "#e84c5c")
+            .pointRadius((point) => Math.min(0.85, 0.42 + Math.log10(point.count + 1) * 0.12))
+            .pointAltitude(0.004)
+            .pointResolution(6)
+            .pointsTransitionDuration(0)
+            .pointLabel(tooltip);
           globe.controls().autoRotateSpeed = 0.6;
           globe.controls().enableZoom = false;
-          globe.pointOfView({ lat: 20, lng: 105, altitude: 2.1 }, 0);
+          globe.pointOfView({ lat: 20, lng: 15, altitude: 2.1 }, 0);
           globe.globeMaterial().shininess = 8;
           const canvas = box.querySelector("canvas");
           canvas.addEventListener("webglcontextlost", (event) => {
             event.preventDefault();
             disposeGlobe();
             globeFailed = true;
-            box.hidden = true;
+            setGlobeVisible(false);
             updateErrors();
           });
           theme();
@@ -511,33 +536,48 @@
     theme();
   }
 
+  function setGlobeVisible(visible) {
+    globeRequested = visible;
+    box.hidden = !visible;
+    if (visible) resize();
+    motion();
+  }
+
   async function load() {
     if (loading) return;
     loading = true;
     retry.hidden = true;
     globeFailed = statsFailed = false;
     error.hidden = true;
-    box.hidden = false;
+    box.hidden = !globeRequested;
     panel.setAttribute("aria-busy", "true");
     if (!stats) summary.textContent = words.loading;
-    await Promise.all([
-      loadStats().catch(() => {
-        statsFailed = true;
-        if (!stats) summary.textContent = "";
-      }),
+    const statsTask = stats
+      ? Promise.resolve()
+      : loadStats().catch(() => {
+          statsFailed = true;
+          if (!stats) summary.textContent = "";
+        });
+    const globeTask = () =>
       ensureGlobe().catch(() => {
         globeFailed = true;
-        box.hidden = true;
-      }),
-    ]);
+        setGlobeVisible(false);
+      });
+    if (isDetails) {
+      // Render the summary, totals and daily chart before initializing WebGL.
+      await statsTask;
+      if (globeRequested) await globeTask();
+    } else {
+      await Promise.all([statsTask, globeTask()]);
+    }
     // The panel may have closed while resources loaded, then reopened while
     // statistics were still pending. Initialize the globe if it was skipped.
-    if (!panel.hidden && !globe && !globeFailed) {
+    if (!panel.hidden && !box.hidden && !globe && !globeFailed) {
       try {
         await ensureGlobe();
       } catch {
         globeFailed = true;
-        box.hidden = true;
+        setGlobeVisible(false);
       }
     }
     loading = false;
@@ -593,7 +633,10 @@
       }
     });
   }
-  retry.addEventListener("click", load);
+  retry.addEventListener("click", () => {
+    if (isDetails && globeFailed) setGlobeVisible(true);
+    load();
+  });
   new ResizeObserver(resize).observe(box);
   new MutationObserver(theme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   reducedMotion.addEventListener("change", motion);

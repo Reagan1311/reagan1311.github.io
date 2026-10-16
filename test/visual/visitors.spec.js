@@ -309,6 +309,7 @@ test("globe tap opens ranked country details; dragging stays on the homepage", a
   await expect(page.locator("#visitor-countries tr").first()).toHaveText(/United States\s*14/);
   await expect(page.locator("#visitor-cities")).toHaveCount(0);
   await expect(page.locator("#visitor-unlocated")).toContainText("3 visits with an unknown country");
+  await expect(page.locator("#visitor-globe-toggle")).toHaveCount(0);
   await expect(globe).toHaveAttribute("data-ready", "true", { timeout: 30000 });
   await globe.click();
   await expect(page).toHaveURL(new URL(`${home}visitors.html`, baseURL).href);
@@ -462,8 +463,15 @@ test("a production build on localhost still uses previews without any API reques
   expect(requests).toBe(0);
 });
 
-test("singular summary and country coloring work without invented archive dates", async ({ page, baseURL }, testInfo) => {
-  await liveFixture(page, baseURL, { data: { ...stats, total: 1, countries: [{ code: "SG", count: 1 }] } });
+test("singular summary and dotted globe markers work without invented archive dates", async ({ page, baseURL }, testInfo) => {
+  await liveFixture(page, baseURL, {
+    data: {
+      ...stats,
+      total: 1,
+      countries: [{ code: "SG", count: 1 }],
+      points: [{ country: "SG", city: "Singapore", lat: 1.35, lon: 103.82, count: 1 }],
+    },
+  });
   await page.addInitScript(() => {
     Object.defineProperty(window, "__countryGlobe", { writable: true, value: null });
   });
@@ -482,10 +490,20 @@ test("singular summary and country coloring work without invented archive dates"
   await expect(page.locator("#visitor-globe")).toHaveAttribute("data-ready", "true", { timeout: 30000 });
   const globe = await page.evaluate(() => {
     const globe = window.__countryGlobe;
-    const country = globe.polygonsData().find((feature) => feature.properties.code === "SG");
-    return { color: globe.polygonCapColor()(country), label: globe.polygonLabel()(country).textContent, points: globe.pointsData().length };
+    const point = globe.pointsData()[0];
+    return {
+      image: globe.globeImageUrl(),
+      label: globe.pointLabel()(point).textContent,
+      pointColor: globe.pointColor()(point),
+      points: globe.pointsData().length,
+      polygons: globe.polygonsData().length,
+    };
   });
-  expect(globe).toEqual({ color: "#e84c5c", label: "Singapore · 1 visit", points: 0 });
+  expect(globe.image).toContain("land-dots-light.png");
+  expect(globe.label).toBe("Singapore · 1 visit");
+  expect(globe.pointColor).toBe("#e84c5c");
+  expect(globe.points).toBe(1);
+  expect(globe.polygons).toBe(0);
   await page.screenshot({ path: testInfo.outputPath("country-details-light.png"), fullPage: true });
   await page.evaluate(() => document.documentElement.setAttribute("data-theme", "dark"));
   await page.screenshot({ path: testInfo.outputPath("country-details-dark.png"), fullPage: true });

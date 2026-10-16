@@ -22,7 +22,8 @@
   data-view="{% if page.visitors_details %}details{% else %}summary{% endif %}"
   data-details-url="{{ visitors_detail_path | relative_url }}"
   data-globe-url="{{ '/assets/vendor/visitors/globe.gl-2.46.2.min.js' | relative_url }}"
-  data-map-url="{{ '/assets/vendor/visitors/countries.geojson' | relative_url }}"
+  data-globe-light-url="{{ '/assets/vendor/visitors/land-dots-light.png' | relative_url | bust_file_cache }}"
+  data-globe-dark-url="{{ '/assets/vendor/visitors/land-dots-dark.png' | relative_url | bust_file_cache }}"
 >
   {% if visitors_home or page.visitors_details %}
     <link rel="stylesheet" href="{{ '/assets/css/visitors.css' | relative_url | bust_file_cache }}">
@@ -64,7 +65,7 @@
           class="visitor-globe"
           {% if page.visitors_details %}
             role="img"
-            aria-label="{% if visitors_zh %}访客来源国家地球{% else %}Globe of visitor countries{% endif %}"
+            aria-label="{% if visitors_zh %}访客来源地球{% else %}Globe of visitor locations{% endif %}"
           {% else %}
             role="link"
             tabindex="0"

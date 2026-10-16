@@ -17,8 +17,10 @@ All pages using the shared footer attempt collection, even with the globe closed
 The About homepage displays a compact visit/location summary and the globe.
 Only `/visitors.html` (Chinese: `/zh/visitors.html`) displays today, last 30 days
 and lifetime visits, the daily bar chart, country rankings, referring domains,
-operating systems and device types. The globe colors countries and loads its
-local assets only when needed.
+operating systems and device types. Both globe views use a dotted land texture
+with red city markers. The homepage globe loads after its map button is opened;
+the detailed page first renders its visit summary, totals and daily chart, then
+initializes and displays the globe automatically.
 
 Both summaries use the API's `places` count: distinct geolocated
 country/region/city combinations, rather than the number of countries. Multiple
@@ -101,7 +103,7 @@ site workflow.
 
 This revision adds UTC+8 daily aggregates and the today, last 30 days and lifetime
 visits display with a 30-day bar chart. It preserves the existing session counting,
-country globe, referrer and device statistics. The previous Analytics experiment (`src/index.js`,
+visitor globe, referrer and device statistics. The previous Analytics experiment (`src/index.js`,
 `src/analytics.js`, migration 0003 and its tests) remains in the repository but is
 not included in the configured Worker. Its archive data is not added to the
 counter, and the configured cron list is empty.
