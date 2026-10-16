@@ -89,7 +89,7 @@ test("preview loads the local globe only on expansion and supports themes and re
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
   expect(libraryRequests).toHaveLength(0);
   await toggle.click();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 countries and 3 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 793 visits from 7 countries and 7 locations");
   await expect(page.locator("#visitor-preview")).toBeVisible();
   await expect(page.locator("#visitor-activity")).toHaveCount(0);
   await expect(page.locator("#visitor-chart")).toHaveCount(0);
@@ -239,7 +239,7 @@ test("library failure retains totals and retry recovers", async ({ page }) => {
   await page.route(library, (route) => route.abort());
   await page.goto(home);
   await page.locator("#visitor-toggle").click();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 countries and 3 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 793 visits from 7 countries and 7 locations");
   await expect(page.locator("#visitor-retry")).toBeVisible();
   await page.unroute(library);
   await page.locator("#visitor-retry").click();
@@ -265,7 +265,7 @@ test("WebGL unavailable retains the accessible numeric summary", async ({ page }
   });
   await page.goto(`${home}zh/`);
   await page.locator("#visitor-toggle").click();
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 来自 3 个国家 / 地区、3 个地点的 42 次访问");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 来自 7 个国家 / 地区、7 个地点的 793 次访问");
   await expect(page.locator("#visitor-retry")).toBeVisible({ timeout: 30000 });
   await expect(page.locator("#visitor-globe")).toBeHidden();
 });
@@ -330,9 +330,10 @@ test("Chinese homepage supports keyboard navigation to localized details without
   await expect(page.locator(".post-title")).toHaveText("访客统计");
   await expect(page.locator("#visitor-today")).toHaveText("1");
   await expect(page.locator("#visitor-last30")).toHaveText("42");
-  await expect(page.locator("#visitor-total")).toHaveText("42");
+  await expect(page.locator("#visitor-total")).toHaveText("793");
   await expect(page.locator("#visitor-chart button")).toHaveCount(30);
-  await expect(page.locator("#visitor-countries tr").first()).toHaveText(/新加坡\s*24/);
+  await expect(page.locator("#visitor-countries tr")).toHaveCount(7);
+  await expect(page.locator("#visitor-countries tr").first()).toHaveText(/中国\s*284/);
   await expect(page.locator("#visitor-cities-title")).toHaveCount(0);
   await expect(page.locator('#navbar a[href$="visitors.html"]')).toHaveCount(0);
   await expect(page.locator(".visitor-page-links a").first()).toHaveAttribute("href", `${home}zh/`);
@@ -457,7 +458,7 @@ test("a production build on localhost still uses previews without any API reques
     await route.fulfill({ response, body: (await response.text()).replace(/data-production="false"/g, 'data-production="true"') });
   });
   await page.goto(`${home}visitors.html`);
-  await expect(page.locator("#visitor-summary")).toHaveText("🌍 42 visits from 3 countries and 3 locations");
+  await expect(page.locator("#visitor-summary")).toHaveText("🌍 793 visits from 7 countries and 7 locations");
   await expect(page.locator("#visitor-preview")).toBeVisible();
   await expect(page.locator("#visitor-referrers tr")).toHaveCount(3);
   expect(requests).toBe(0);
@@ -501,7 +502,7 @@ test("singular summary and dotted globe markers work without invented archive da
   });
   expect(globe.image).toContain("land-dots-light.png");
   expect(globe.label).toBe("Singapore · 1 visit");
-  expect(globe.pointColor).toBe("#e84c5c");
+  expect(globe.pointColor).toBe("#ff4658");
   expect(globe.points).toBe(1);
   expect(globe.polygons).toBe(0);
   await page.screenshot({ path: testInfo.outputPath("country-details-light.png"), fullPage: true });

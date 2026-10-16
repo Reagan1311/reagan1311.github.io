@@ -107,8 +107,8 @@
     count,
   }));
   const preview = {
-    total: 42,
-    places: 3,
+    total: 793,
+    places: 7,
     activity: {
       timeZone: "Asia/Shanghai",
       since: previewDays[0].date,
@@ -119,31 +119,39 @@
       undatedVisits: 0,
       days: previewDays,
     },
-    countryCount: 3,
+    countryCount: 7,
     countries: [
-      { code: "SG", count: 24 },
-      { code: "GB", count: 12 },
-      { code: "KR", count: 6 },
+      { code: "CN", count: 284 },
+      { code: "SG", count: 202 },
+      { code: "US", count: 165 },
+      { code: "JP", count: 59 },
+      { code: "GB", count: 41 },
+      { code: "HK", count: 29 },
+      { code: "DE", count: 13 },
     ],
     points: [
-      { country: "SG", city: "Singapore", lat: 1.35, lon: 103.82, count: 24 },
-      { country: "GB", city: "London", lat: 51.51, lon: -0.13, count: 12 },
-      { country: "KR", city: "Seoul", lat: 37.57, lon: 126.98, count: 6 },
+      { country: "CN", city: "Beijing", lat: 39.9, lon: 116.4, count: 284 },
+      { country: "SG", city: "Singapore", lat: 1.35, lon: 103.82, count: 202 },
+      { country: "US", city: "New York", lat: 40.71, lon: -74.01, count: 165 },
+      { country: "JP", city: "Tokyo", lat: 35.68, lon: 139.69, count: 59 },
+      { country: "GB", city: "London", lat: 51.51, lon: -0.13, count: 41 },
+      { country: "HK", city: "Hong Kong", lat: 22.32, lon: 114.17, count: 29 },
+      { country: "DE", city: "Berlin", lat: 52.52, lon: 13.4, count: 13 },
     ],
     referrers: [
-      { name: "direct", count: 20 },
-      { name: "google.com", count: 12 },
-      { name: "github.com", count: 10 },
+      { name: "direct", count: 378 },
+      { name: "google.com", count: 238 },
+      { name: "github.com", count: 177 },
     ],
     operatingSystems: [
-      { name: "Windows", count: 20 },
-      { name: "macOS", count: 12 },
-      { name: "iOS", count: 10 },
+      { name: "Windows", count: 380 },
+      { name: "macOS", count: 250 },
+      { name: "iOS", count: 163 },
     ],
     deviceTypes: [
-      { name: "Desktop", count: 32 },
-      { name: "Mobile", count: 8 },
-      { name: "Tablet", count: 2 },
+      { name: "Desktop", count: 600 },
+      { name: "Mobile", count: 175 },
+      { name: "Tablet", count: 18 },
     ],
     unknownCountryVisits: 0,
   };
@@ -153,6 +161,7 @@
   let globeTask = null;
   let libraryTask = null;
   let imageTask = null;
+  let largestPointCount = 1;
   let stats = null;
   let loading = false;
   let globeRequested = true;
@@ -415,6 +424,28 @@
     return element;
   }
 
+  function visitorPoints() {
+    return (stats?.points || []).filter(
+      ({ country, lat, lon, count }) =>
+        /^[A-Z]{2}$/.test(country || "") &&
+        Number.isFinite(lat) &&
+        lat >= -90 &&
+        lat <= 90 &&
+        Number.isFinite(lon) &&
+        lon >= -180 &&
+        lon <= 180 &&
+        Number.isSafeInteger(count) &&
+        count > 0
+    );
+  }
+
+  function syncGlobePoints() {
+    const points = visitorPoints();
+    largestPointCount = Math.max(1, ...points.map(({ count }) => count));
+    if (globe) globe.pointsData(points);
+    return points;
+  }
+
   function disposeGlobe() {
     if (globe) {
       globe.pauseAnimation();
@@ -432,31 +463,19 @@
       .then(() => {
         if (panel.hidden || box.hidden) return;
         try {
-          const points = (stats?.points || []).filter(
-            ({ country, lat, lon, count }) =>
-              /^[A-Z]{2}$/.test(country || "") &&
-              Number.isFinite(lat) &&
-              lat >= -90 &&
-              lat <= 90 &&
-              Number.isFinite(lon) &&
-              lon >= -180 &&
-              lon <= 180 &&
-              Number.isSafeInteger(count) &&
-              count > 0
-          );
           globe = new window.Globe(box, { animateIn: !reducedMotion.matches, rendererConfig: { antialias: true, alpha: true } })
             .backgroundColor("rgba(0,0,0,0)")
             .globeImageUrl(document.documentElement.getAttribute("data-theme") === "dark" ? tracker.dataset.globeDarkUrl : tracker.dataset.globeLightUrl)
             .showGraticules(true)
             .showAtmosphere(true)
             .atmosphereAltitude(0.17)
-            .pointsData(points)
+            .pointsData(syncGlobePoints())
             .pointLat("lat")
             .pointLng("lon")
-            .pointColor(() => "#e84c5c")
-            .pointRadius((point) => Math.min(0.85, 0.42 + Math.log10(point.count + 1) * 0.12))
-            .pointAltitude(0.004)
-            .pointResolution(6)
+            .pointColor(() => "#ff4658")
+            .pointRadius((point) => 0.35 + 0.55 * Math.sqrt(point.count / largestPointCount))
+            .pointAltitude((point) => Math.min(0.14, 0.020 + Math.log10(point.count) * 0.020))
+            .pointResolution(8)
             .pointsTransitionDuration(0)
             .pointLabel(tooltip);
           globe.controls().autoRotateSpeed = 0.6;
@@ -511,6 +530,9 @@
       activity,
       countries: [...countries].map(([code, count]) => ({ code, count })).sort((a, b) => b.count - a.count || a.code.localeCompare(b.code)),
     };
+    // The homepage loads the globe and statistics in parallel. Add markers if
+    // the globe was ready before the stats response arrived.
+    if (globe) syncGlobePoints();
     const total = document.createElement("strong");
     total.className = "visitor-total-count";
     total.textContent = stats.total.toLocaleString();
@@ -555,8 +577,10 @@
     const statsTask = stats
       ? Promise.resolve()
       : loadStats().catch(() => {
-          statsFailed = true;
-          if (!stats) summary.textContent = "";
+          if (!stats) {
+            statsFailed = true;
+            summary.textContent = "";
+          }
         });
     const globeTask = () =>
       ensureGlobe().catch(() => {
