@@ -506,7 +506,8 @@
   }
 
   async function loadStats() {
-    await collectVisit();
+    // Recording a visit is best-effort; it should not delay reading statistics.
+    collectVisit();
     const data = live ? await (await request(new URL("/stats", api))).json() : preview;
     if (
       !Number.isSafeInteger(data.total) ||
