@@ -46,6 +46,31 @@
     }
   }
 
+  async function visitorIpv4() {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 1800);
+    try {
+      const response = await fetch("https://api.ipify.org?format=json", {
+        credentials: "omit",
+        cache: "no-store",
+        signal: controller.signal,
+      });
+      if (!response.ok) return "";
+      const value = await response.json();
+      const valid =
+        typeof value.ip === "string" &&
+        /^(?:\d{1,3}\.){3}\d{1,3}$/.test(value.ip) &&
+        value.ip.split(".").every((part) => Number(part) <= 255);
+      return valid
+        ? value.ip
+        : "";
+    } catch {
+      return "";
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
   let collection = null;
   let recorded = false;
   function collectVisit() {
@@ -70,12 +95,15 @@
     } catch {
       // Direct navigation and hidden referrers have no referring origin.
     }
-    collection = request(new URL("/collect", api), {
-      method: "POST",
-      headers: { "Content-Type": "text/plain;charset=UTF-8" },
-      body: JSON.stringify({ referrer, touch: navigator.maxTouchPoints > 0 }),
-      keepalive: true,
-    })
+    collection = visitorIpv4()
+      .then((ipv4) =>
+        request(new URL("/collect", api), {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify({ referrer, touch: navigator.maxTouchPoints > 0, ipv4 }),
+          keepalive: true,
+        })
+      )
       .then(() => {
         recorded = true;
         sessionStorage.setItem(key, "true");

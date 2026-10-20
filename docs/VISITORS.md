@@ -14,13 +14,12 @@ for cached public summaries, with an explicit freshness tradeoff.
 ## Counting and privacy
 
 All pages using the shared footer attempt collection, even with the globe closed.
-The About homepage displays a compact visit/location summary and the globe.
-Only `/visitors.html` (Chinese: `/zh/visitors.html`) displays today, last 30 days
-and lifetime visits, the daily bar chart, country rankings, referring domains,
-operating systems and device types. Both globe views use a dotted land texture
-with red city markers. The homepage globe loads after its map button is opened;
-the detailed page first renders its visit summary, totals and daily chart, then
-initializes and displays the globe automatically.
+The About homepage displays a compact visit/location summary and the globe. The
+globe and cumulative public summary remain available without login. The public
+detail pages `/visitors.html` and `/zh/visitors.html` retain their visit summary,
+globe, chart, and referrer/device breakdown. The separate daily country/city
+dashboard is available at `https://stats.genli.top/dashboard` and protected by
+Cloudflare Access; it uses tables and a date picker.
 
 Both summaries use the API's `places` count: distinct geolocated
 country/region/city combinations, rather than the number of countries. Multiple
@@ -56,21 +55,41 @@ refresh. If session storage is blocked, collection is skipped and totals remain
 readable. If a write commits but its response is lost, a later retry can count
 again: deduplication is browser-side, not a server-side exactly-once guarantee.
 
-The client sends only a referring origin and a touch-capability boolean. The
-Worker normalizes the referrer to a domain, treats internal links as direct, and
-uses the request User-Agent for coarse OS/device categories. No raw IP, raw
+The client sends a referring origin, a touch-capability boolean and, when
+available, its public IPv4 address. It gets the IPv4 from ipify's HTTPS endpoint;
+the Worker sends that address to IPWho.is over HTTPS for a city lookup. The IP
+geolocation result is used only to choose the aggregate bucket for this visit.
+If either lookup fails or times out, the Worker falls back to Cloudflare's
+incoming-request location. This can add up to about 1.8 seconds before the
+collection request is sent and up to 1.4 seconds while the Worker tries the
+geolocation lookup; neither wait blocks page rendering. IP-based geolocation
+remains approximate, and VPNs, carrier routing or provider data can still point
+to another city.
+
+The Worker normalizes the referrer to a domain, treats internal links as direct,
+and uses the request User-Agent for coarse OS/device categories. No raw IP, raw
 User-Agent, full referrer URL, cookie, browser identifier or per-visit log is
-stored in D1. An IP-derived daily digest is used only in Cloudflare's short-lived
-rate limiter. Cloudflare itself processes requests under the account settings.
+stored in D1. The IPv4 is transiently present in the collection request and
+lookup URL, and an IP-derived daily digest is used only in Cloudflare's
+short-lived rate limiter. Cloudflare itself processes requests under the account
+settings. Earlier aggregate records are unchanged; IPv4 lookup applies only to
+visits collected after this Worker change is deployed.
 
 The existing `locations` table retains cumulative country/region/city rows and
 approximate edge coordinates rounded to one decimal place. Country counts include
 rows without city coordinates. Unknown countries remain in the overall total and
 are shown separately. `visit_dimensions` stores cumulative referrer/OS/device
 counts. `visitor_daily` stores one aggregate row per active UTC+8 calendar day;
-`visitor_counter_meta` records when daily tracking started. All five increments use one
+`visitor_counter_meta` records when daily tracking started. The six counter writes use one
 [D1 batch transaction](https://developers.cloudflare.com/d1/worker-api/d1-database/#batch);
 a failed dimension or daily write rolls back the entire visit.
+
+Migration 0005 adds `visitor_daily_geography`, grouped by UTC+8 date, country
+and city, plus `visitor_daily_geography_meta` for its start date. It stores only
+aggregate counts: no IP, location key, region, coordinates or per-visit row is
+written to this table. Empty country or city labels are retained as unknown
+values, so they still contribute to the visit totals. Visits from before migration
+0005 cannot be assigned to dates and are not backfilled.
 
 These are approximate usage statistics: blocked scripts, failed requests, browser
 storage behavior and automated traffic affect the count. CORS restricts browser
@@ -108,13 +127,27 @@ visitor globe, referrer and device statistics. The previous Analytics experiment
 not included in the configured Worker. Its archive data is not added to the
 counter, and the configured cron list is empty.
 
-Deploy the updated Worker **before** publishing the frontend: the frontend expects
-the new `countries` array. The previous `/stats` fields remain available for older
-clients. Apply migration 0004 before deploying this version of the Worker. It adds
-the daily counters and tracking start time without changing existing totals. The
-frontend tolerates an older API by showing lifetime totals and leaving daily
-statistics unavailable. Local changes and a successful dry run do not publish
-either service.
+The private dashboard is served by the Worker at `/dashboard`; its JSON endpoint
+is `/daily-geography?date=YYYY-MM-DD`. Both must be protected by Cloudflare Access.
+The existing `/stats` endpoint stays public and continues to expose cumulative
+locations and daily *totals*, but it does not return daily country/city rows.
+
+Before deploying the Worker, enable Cloudflare Zero Trust and create Access
+applications for the Worker custom domain paths `stats.genli.top/dashboard*` and
+`stats.genli.top/daily-geography*`. Add an Allow policy for your email address
+(or the identity-provider group you use). Protect both paths: securing only the
+HTML page would leave its JSON data endpoint publicly readable. Cloudflare's
+Worker Access setup is documented at
+[Cloudflare Workers Access](https://developers.cloudflare.com/workers/configuration/cloudflare-access/).
+Access is enforced at Cloudflare's edge; the Worker does not implement a second
+login system. Verify that a signed-out browser is redirected to Access for both
+paths before publishing the dashboard code.
+
+Apply migration 0005 before deploying the updated Worker. It starts the daily
+country/city history on its application date; earlier visits cannot be backfilled.
+Then deploy the Worker and publish the Jekyll site to update its dashboard links.
+The existing public `/stats` response and homepage map remain available. Local
+changes and a successful dry run do not publish either service.
 
 Use Node.js 22.13+ and a Cloudflare account authorized for the configured Worker,
 D1 database and custom domain. Never put credentials in the repo or `_config.yml`.
@@ -184,8 +217,10 @@ and publish the site; stored totals remain intact.
 
 | Endpoint           | Behavior                                                                                                                                                                 |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `POST /collect`    | Allowed `Origin` required. Optional JSON `{ referrer, touch }` in a `text/plain` body, at most 2 KiB. Empty bodies are supported. Returns 204 after all counters commit. |
+| `POST /collect`    | Allowed `Origin` required. Optional JSON `{ referrer, touch, ipv4 }` in a `text/plain` body, at most 2 KiB. Empty bodies are supported. Returns 204 after all counters commit. |
 | `GET /stats`       | Public cumulative and daily aggregates; does not increment any counter.                                                                                                  |
+| `GET /dashboard`   | Daily country/city panel. Must be protected by Cloudflare Access. Accepts `?lang=zh` or `?lang=en`.                                                                      |
+| `GET /daily-geography?date=YYYY-MM-DD` | Private daily country/city aggregates for one of the latest 30 UTC+8 dates. Must be protected by Cloudflare Access.                                 |
 | `OPTIONS /collect` | CORS preflight for POST; no database writes.                                                                                                                             |
 | `OPTIONS /stats`   | CORS preflight for GET; no database writes.                                                                                                                              |
 
@@ -229,6 +264,11 @@ The additional `activity` object contains:
 The frontend indicates incomplete history with the daily tracking start date and,
 when present, the number of earlier undated visits. The API reads the cumulative
 and daily tables in a single D1 batch to keep each response consistent.
+
+The private daily geography endpoint returns `date`, `startedAt`, `available`,
+`visits`, and `rows` (`{ country, city, visits }`). `available` is false for dates
+before migration 0005; days at or after that date with no rows are recorded as
+zero. A request outside the rolling 30-date window returns 400.
 
 No collection start date is invented for historical rows. Rejected origins return
 403, invalid methods 405, malformed/oversized metadata 400, rate limits 429 with

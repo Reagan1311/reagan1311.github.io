@@ -41,6 +41,8 @@ function setup(t, now = NOW) {
   sql.exec(readFileSync(new URL("../migrations/0002_dimensions.sql", import.meta.url), "utf8"));
   sql.exec(readFileSync(new URL("../migrations/0004_daily_visits.sql", import.meta.url), "utf8"));
   sql.prepare("UPDATE visitor_counter_meta SET daily_started_at = ? WHERE id = 1").run(new Date(now).toISOString());
+  sql.exec(readFileSync(new URL("../migrations/0005_daily_geography.sql", import.meta.url), "utf8"));
+  sql.prepare("UPDATE visitor_daily_geography_meta SET started_at = ? WHERE id = 1").run(new Date(now + 8 * 60 * 60 * 1000).toISOString().slice(0, 10));
   t.after(() => sql.close());
   const limiter = { limit: async () => ({ success: true }) };
   const env = {
@@ -52,6 +54,7 @@ function setup(t, now = NOW) {
         const statement = sql.prepare(query);
         const wrap = (values = []) => ({
           bind: (...bound) => wrap(bound),
+          all: () => ({ results: statement.all(...values) }),
           execute: () => ({ results: statement.all(...values) }),
         });
         return wrap();

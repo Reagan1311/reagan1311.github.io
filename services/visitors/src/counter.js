@@ -1,4 +1,5 @@
 import { dailyActivity, dayInShanghai, last30Dates } from "./daily.js";
+import { dashboardHtml } from "./dashboard.js";
 
 function label(value) {
   return typeof value === "string" ? value.trim().slice(0, 120) : "";
@@ -18,6 +19,39 @@ export function locationFromRequest(cf = {}) {
   let lon = coordinate(cf.longitude, 180);
   if (!city || !country || lat === null || lon === null) lat = lon = null;
   return { key: JSON.stringify([country, region, city]), country, region, city, lat, lon };
+}
+
+function validIpv4(value) {
+  return (
+    typeof value === "string" &&
+    /^(?:\d{1,3}\.){3}\d{1,3}$/.test(value) &&
+    value.split(".").every((part) => Number(part) <= 255)
+  );
+}
+
+async function locationFromIpv4(ipv4) {
+  if (!validIpv4(ipv4)) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 1400);
+  try {
+    const url = new URL(`https://ipwho.is/${ipv4}`);
+    url.searchParams.set("fields", "success,ip,country_code,region_code,city,latitude,longitude");
+    const response = await fetch(url, { signal: controller.signal });
+    if (!response.ok) return null;
+    const data = await response.json();
+    if (!data.success || data.ip !== ipv4) return null;
+    return locationFromRequest({
+      country: data.country_code,
+      regionCode: data.region_code,
+      city: data.city,
+      latitude: data.latitude,
+      longitude: data.longitude,
+    });
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 export function clientCategory(userAgent = "", touch = false) {
@@ -85,9 +119,10 @@ async function metadata(request) {
 
 export default {
   async fetch(request, env) {
-    const path = new URL(request.url).pathname;
+    const url = new URL(request.url);
+    const path = url.pathname;
     const origin = request.headers.get("Origin");
-    const allowed = (env.ALLOWED_ORIGINS || "").split(",").map((item) => item.trim());
+    const allowed = (env.ALLOWED_ORIGINS || "").split(",").map((item) => item.trim()).filter(Boolean);
     const headers = new Headers({ "Cache-Control": "no-store", Vary: "Origin", "X-Content-Type-Options": "nosniff" });
     const respond = (body, status = 200) => {
       if (body === null) return new Response(null, { status, headers });
@@ -95,10 +130,11 @@ export default {
       return new Response(JSON.stringify(body), { status, headers });
     };
 
+    const sameOriginDashboardRead = path === "/daily-geography" && origin === url.origin;
     // CORS is a browser-origin restriction, not authentication or bot detection.
-    if (origin && !allowed.includes(origin)) return respond({ error: "Origin not allowed" }, 403);
+    if (origin && !allowed.includes(origin) && !sameOriginDashboardRead) return respond({ error: "Origin not allowed" }, 403);
     if (origin) headers.set("Access-Control-Allow-Origin", origin);
-    if (path !== "/collect" && path !== "/stats") return respond({ error: "Not found" }, 404);
+    if (!["/collect", "/stats", "/dashboard", "/daily-geography"].includes(path)) return respond({ error: "Not found" }, 404);
 
     const method = path === "/collect" ? "POST" : "GET";
     if (request.method === "OPTIONS") {
@@ -131,7 +167,7 @@ export default {
       if (path === "/collect") {
         const data = await metadata(request);
         if (!data) return respond({ error: "Invalid or oversized metadata" }, 400);
-        const place = locationFromRequest(request.cf || {});
+        const place = (await locationFromIpv4(data.ipv4)) || locationFromRequest(request.cf || {});
         const client = clientCategory(request.headers.get("User-Agent") || "", data.touch === true);
         const dimensions = [
           ["referrer", referrerDomain(data.referrer, allowed)],
@@ -146,7 +182,13 @@ export default {
              lat = COALESCE(locations.lat, excluded.lat),
              lon = COALESCE(locations.lon, excluded.lon)`
         ).bind(place.key, place.country, place.region, place.city, place.lat, place.lon);
-        // Location, dimensions and the daily counter commit in one transaction.
+        const day = dayInShanghai(now);
+        const dailyGeographyStatement = env.DB.prepare(
+          `INSERT INTO visitor_daily_geography (day, country, city, visits)
+           VALUES (?, ?, ?, 1)
+           ON CONFLICT(day, country, city) DO UPDATE SET visits = visitor_daily_geography.visits + 1`
+        ).bind(day, place.country, place.city);
+        // Location, dimensions and daily counters commit in one transaction.
         await env.DB.batch([
           locationStatement,
           ...dimensions.map(([dimension, value]) =>
@@ -158,9 +200,40 @@ export default {
           env.DB.prepare(
             `INSERT INTO visitor_daily (day, visits) VALUES (?, 1)
              ON CONFLICT(day) DO UPDATE SET visits = visitor_daily.visits + 1`
-          ).bind(dayInShanghai(now)),
+          ).bind(day),
+          dailyGeographyStatement,
         ]);
         return respond(null, 204);
+      }
+
+      if (path === "/dashboard") {
+        const htmlHeaders = new Headers({
+          "Cache-Control": "no-store",
+          "Content-Type": "text/html; charset=utf-8",
+          "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+          "Referrer-Policy": "no-referrer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+        });
+        return new Response(dashboardHtml(url.searchParams.get("lang") === "en" ? "en" : "zh"), { headers: htmlHeaders });
+      }
+
+      if (path === "/daily-geography") {
+        const date = url.searchParams.get("date") || "";
+        const dates = last30Dates(now);
+        if (!dates.includes(date)) return respond({ error: "Date must be within the last 30 days" }, 400);
+        const { results: metadata } = await env.DB.prepare(
+          "SELECT started_at FROM visitor_daily_geography_meta WHERE id = 1"
+        ).all();
+        const startedAt = metadata[0]?.started_at;
+        if (!startedAt) throw new Error("Daily geography metadata missing");
+        if (date < startedAt) return respond({ date, startedAt, available: false, visits: 0, rows: [] });
+        const { results } = await env.DB.prepare(
+          `SELECT country, city, visits FROM visitor_daily_geography
+           WHERE day = ? ORDER BY visits DESC, country, city`
+        ).bind(date).all();
+        const rows = results.map(({ country, city, visits }) => ({ country, city, visits }));
+        return respond({ date, startedAt, available: true, visits: rows.reduce((sum, row) => sum + row.visits, 0), rows });
       }
 
       const dates = last30Dates(now);
