@@ -129,6 +129,73 @@ body .medium-zoom-image--opened {
         a.award.btn {
           border-color: var(--global-highlight-color);
         }
+
+        a.scholar-citation-badge {
+          display: inline-flex;
+          align-items: stretch;
+          margin: 0;
+          height: 1.25rem;
+          padding: 0;
+          overflow: hidden;
+          border: 0;
+          border-radius: 0.2rem;
+          background: #e8e9d5;
+          color: #343943;
+          font-size: 0.75rem;
+          font-weight: 400;
+          line-height: 1;
+          text-decoration: none;
+          vertical-align: middle;
+
+          &:hover {
+            filter: brightness(0.97);
+            text-decoration: none;
+          }
+
+          .scholar-citation-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            height: 100%;
+            padding: 0 0.3rem;
+            color: inherit;
+            box-sizing: border-box;
+          }
+
+          .scholar-citation-icon {
+            width: 1rem;
+            height: 1rem;
+            flex: 0 0 auto;
+            color: #4285f4;
+          }
+
+          .scholar-citation-label span {
+            height: auto;
+            padding: 0;
+            color: inherit;
+            font: inherit;
+          }
+
+          .scholar-citation-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 1rem;
+            height: 100%;
+            padding: 0 0.3rem;
+            border-radius: 0 0.2rem 0.2rem 0;
+            background: #4285f4;
+            color: #fff;
+            font: inherit;
+            font-weight: 400;
+            font-size: 0.7rem;
+            font-variant-numeric: tabular-nums;
+            text-shadow:
+              0 1px 1px rgb(0 0 0 / 30%),
+              0 2px 2px rgb(0 0 0 / 30%);
+            box-sizing: border-box;
+          }
+        }
       }
 
       .badges {
