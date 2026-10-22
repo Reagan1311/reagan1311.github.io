@@ -15,6 +15,8 @@ Please refer to <a href="https://scholar.google.com/citations?user=Rfh4mm0AAAAJ"
 
 {% include bib_search.liquid %}
 
+<link rel="stylesheet" href="{{ '/assets/css/scholar-badge.css' | relative_url | bust_file_cache }}">
+
 <div class="publications">
 
 {% bibliography %}
